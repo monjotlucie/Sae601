@@ -99,7 +99,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_dewec")
 }],
 "loop": true,
-"name": &"fixe_day",
+"name": &"Fixe_day",
 "speed": 5.0
 }, {
 "frames": [{
@@ -107,7 +107,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_5ixxa")
 }],
 "loop": true,
-"name": &"fixe_night",
+"name": &"Fixe_night",
 "speed": 5.0
 }, {
 "frames": [{
@@ -127,7 +127,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_yoq75")
 }],
 "loop": true,
-"name": &"marche_day",
+"name": &"Marche_day",
 "speed": 5.0
 }, {
 "frames": [{
@@ -147,7 +147,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_1e7my")
 }],
 "loop": true,
-"name": &"marche_night",
+"name": &"Marche_night",
 "speed": 5.0
 }, {
 "frames": [{
@@ -167,7 +167,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_m0x7a")
 }],
 "loop": true,
-"name": &"saut_day",
+"name": &"Saut_day",
 "speed": 5.0
 }, {
 "frames": [{
@@ -187,7 +187,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_70hv0")
 }],
 "loop": true,
-"name": &"saut_night",
+"name": &"Saut_night",
 "speed": 5.0
 }]
 
@@ -200,10 +200,10 @@ script = ExtResource("1_gntrk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8flut")
-animation = &"saut_night"
+animation = &"Saut_night"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(29, 6)
+position = Vector2(24, 10)
 shape = SubResource("CapsuleShape2D_u7x0b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
