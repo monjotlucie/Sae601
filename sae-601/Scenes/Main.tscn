@@ -1,17 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bi7yelw0sv33h"]
 
+[ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map01.tscn" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player.tscn" id="1_r150o"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r150o"]
-size = Vector2(847.5, 202)
 
 [node name="Main" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(272, 227)
-shape = SubResource("RectangleShape2D_r150o")
+[node name="Map" parent="." instance=ExtResource("1_idj7w")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_r150o")]
-position = Vector2(30, -54)
+position = Vector2(679, 851)
+
+[node name="Camera2D" type="Camera2D" parent="."]
