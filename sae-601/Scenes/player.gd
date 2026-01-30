@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal day_night_changed(is_night: bool)
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED := 300.0
@@ -8,10 +10,15 @@ const JUMP_VELOCITY := -500.0
 var is_night := false
 
 
+func _ready():
+	print("PLAYER READY")
+
+
 func _physics_process(delta: float) -> void:
 	# Switch jour / nuit
 	if Input.is_action_just_pressed("toggle_mode"):
 		is_night = !is_night
+		day_night_changed.emit(is_night)
 		print("Mode nuit :", is_night)
 
 	# Gravité
@@ -51,10 +58,7 @@ func play_anim(base_name: String) -> void:
 	var suffix := "_night" if is_night else "_day"
 	var anim_name := base_name + suffix
 
-	# Vérifie que l'animation existe dans les SpriteFrames
-	var frames: SpriteFrames = animated_sprite_2d.sprite_frames
-	if frames != null and frames.has_animation(anim_name):
+	var frames := animated_sprite_2d.sprite_frames
+	if frames and frames.has_animation(anim_name):
 		if animated_sprite_2d.animation != anim_name:
 			animated_sprite_2d.play(anim_name)
-	else:
-		print("Animation manquante :", anim_name)
