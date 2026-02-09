@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://djpbvt4n8u6jo"]
+
+[ext_resource type="Script" uid="uid://bgoxbxg41w3gs" path="res://Script/Mob/champignon.gd" id="1_oe7hw"]
+[ext_resource type="Texture2D" uid="uid://6h8wrp3mntb7" path="res://Assets/Enemies/champignon.png" id="2_nwn7s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejdc5"]
+radius = 61.0
+height = 236.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wywmn"]
+atlas = ExtResource("2_nwn7s")
+region = Rect2(0, 0, 312, 321)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxrer"]
+atlas = ExtResource("2_nwn7s")
+region = Rect2(312, 0, 312, 321)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk4wq"]
+atlas = ExtResource("2_nwn7s")
+region = Rect2(624, 0, 312, 321)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nr7e"]
+atlas = ExtResource("2_nwn7s")
+region = Rect2(936, 0, 312, 321)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57lqg"]
+atlas = ExtResource("2_nwn7s")
+region = Rect2(1248, 0, 312, 321)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0viak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wywmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxrer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk4wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nr7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57lqg")
+}],
+"loop": true,
+"name": &"fixe",
+"speed": 3.0
+}]
+
+[node name="champignon" type="Node2D"]
+
+[node name="champignon" type="Area2D" parent="."]
+script = ExtResource("1_oe7hw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="champignon"]
+shape = SubResource("CapsuleShape2D_ejdc5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="champignon"]
+position = Vector2(-15, -1)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_0viak")
+animation = &"fixe"
+
+[node name="Leftlimit" type="Marker2D" parent="."]
+position = Vector2(-362, 3)
+
+[node name="Rightlimit" type="Marker2D" parent="."]
+position = Vector2(465, 3)
+
+[connection signal="body_entered" from="champignon" to="champignon" method="_on_body_entered"]

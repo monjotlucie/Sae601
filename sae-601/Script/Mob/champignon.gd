@@ -4,7 +4,7 @@ extends Area2D
 var direction := -1
 var is_night := false
 
-@onready var left_limit: Node2D = $"../Leftlimit"
+@onready var left_limit: Node2D =$"../Leftlimit"
 @onready var right_limit: Node2D = $"../Rightlimit"
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -24,17 +24,17 @@ func _process(delta: float) -> void:
 
 func switch_mode(night: bool) -> void:
 	is_night = night
-	print("Épouvantail night =", is_night)
+	print("Choux night =", is_night)
 
 	if is_night:
-		animated_sprite.play("fixe_night")
-		animated_sprite.scale = Vector2(0.41, 0.41)
+		animated_sprite.play("fixe")
 	else:
-		animated_sprite.play("fixe_day")
-		animated_sprite.scale = Vector2(0.7, 0.7)
+		animated_sprite.play("fixe")
+		
+
 
 func _on_body_entered(body):
 	if body is Player:
-		if is_night:
-			return # 🌙 inoffensif
+		if not is_night:
+			return 
 		body.die()

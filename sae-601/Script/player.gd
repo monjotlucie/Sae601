@@ -55,6 +55,10 @@ func play_anim(base_name: String):
 	if frames and frames.has_animation(anim):
 		if animated_sprite_2d.animation != anim:
 			animated_sprite_2d.play(anim)
-			
+
+func get_is_night() -> bool:
+	return is_night
+
+
 func die():
 	queue_free()

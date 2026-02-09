@@ -2,37 +2,36 @@
 
 [ext_resource type="Texture2D" uid="uid://bisdbpl1eq8tl" path="res://Assets/Enemies/guerrier_day.png" id="1_66mgt"]
 [ext_resource type="Script" uid="uid://bt8xqng5fe1p0" path="res://Script/Mob/guerrier.gd" id="1_p60yw"]
+[ext_resource type="Texture2D" uid="uid://njj57h7w2egt" path="res://Assets/Enemies/guerrier_night.png" id="3_yy52x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p60yw"]
-radius = 113.0
-height = 302.0
+radius = 82.0
+height = 242.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yy52x"]
 atlas = ExtResource("1_66mgt")
-region = Rect2(0, 0, 573, 337)
+region = Rect2(0, 0, 531, 334)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o7tsr"]
-atlas = ExtResource("1_66mgt")
-region = Rect2(573, 0, 573, 337)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7kv8k"]
-atlas = ExtResource("1_66mgt")
-region = Rect2(1146, 0, 573, 337)
+atlas = ExtResource("3_yy52x")
+region = Rect2(0, 0, 354, 403)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mw7n7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yy52x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o7tsr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7kv8k")
 }],
 "loop": true,
-"name": &"Attaque",
+"name": &"fixe_day",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7tsr")
+}],
+"loop": true,
+"name": &"fixe_night",
 "speed": 5.0
 }]
 
@@ -47,10 +46,10 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_p60yw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guerrier"]
-scale = Vector2(0.7, 0.7)
+position = Vector2(2, -14)
+scale = Vector2(0.49, 0.49)
 sprite_frames = SubResource("SpriteFrames_mw7n7")
-animation = &"Attaque"
-frame_progress = 0.815499
+animation = &"fixe_night"
 flip_h = true
 
 [node name="Leftlimit" type="Marker2D" parent="."]

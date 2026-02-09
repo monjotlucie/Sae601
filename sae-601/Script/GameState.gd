@@ -1,5 +1,4 @@
 extends Node
-
 signal day_night_changed(is_night: bool)
 
 var is_night := false

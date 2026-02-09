@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://brfarmlsb5nvk"]
+[gd_scene load_steps=8 format=3 uid="uid://brfarmlsb5nvk"]
 
 [ext_resource type="Script" uid="uid://dyahmmvnymrbs" path="res://Script/Mob/epouvantail.gd" id="1_briri"]
 [ext_resource type="Texture2D" uid="uid://dxkwnf6drlbkw" path="res://Assets/Enemies/epouvantail_day.png" id="1_e2587"]
+[ext_resource type="Texture2D" uid="uid://cmt8hda1x6dai" path="res://Assets/Enemies/epouvantail_night.png" id="3_s0j51"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0j51"]
 radius = 111.0
@@ -11,6 +12,10 @@ height = 254.0
 atlas = ExtResource("1_e2587")
 region = Rect2(0, 0, 396, 320)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0nap"]
+atlas = ExtResource("3_s0j51")
+region = Rect2(0, 0, 575, 559)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ems3a"]
 animations = [{
 "frames": [{
@@ -18,8 +23,16 @@ animations = [{
 "texture": SubResource("AtlasTexture_briri")
 }],
 "loop": true,
-"name": &"fixe",
+"name": &"fixe_day",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0nap")
+}],
+"loop": true,
+"name": &"fixe_night",
+"speed": 5.0
 }]
 
 [node name="Epouvantail" type="Node2D"]
@@ -33,10 +46,10 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_s0j51")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Epouvantail"]
+position = Vector2(-11, -3)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_ems3a")
-animation = &"fixe"
-frame_progress = 0.40827796
+animation = &"fixe_day"
 flip_h = true
 
 [node name="Leftlimit" type="Marker2D" parent="."]
