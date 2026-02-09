@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://butqb2g5w47tc"]
+[gd_scene load_steps=8 format=3 uid="uid://butqb2g5w47tc"]
 
 [ext_resource type="Texture2D" uid="uid://bisdbpl1eq8tl" path="res://Assets/Enemies/guerrier_day.png" id="1_66mgt"]
 [ext_resource type="Script" uid="uid://bt8xqng5fe1p0" path="res://Script/Mob/guerrier.gd" id="1_p60yw"]
@@ -19,10 +19,6 @@ region = Rect2(573, 0, 573, 337)
 atlas = ExtResource("1_66mgt")
 region = Rect2(1146, 0, 573, 337)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qj84c"]
-atlas = ExtResource("1_66mgt")
-region = Rect2(0, 0, 573, 337)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_mw7n7"]
 animations = [{
 "frames": [{
@@ -37,14 +33,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"Attaque",
-"speed": 9.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qj84c")
-}],
-"loop": true,
-"name": &"Fixe",
 "speed": 5.0
 }]
 
@@ -62,6 +50,7 @@ shape = SubResource("CapsuleShape2D_p60yw")
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mw7n7")
 animation = &"Attaque"
+frame_progress = 0.815499
 flip_h = true
 
 [node name="Leftlimit" type="Marker2D" parent="."]

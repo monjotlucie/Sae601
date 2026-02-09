@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=8 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/white_candle.tscn" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://butqb2g5w47tc" path="res://Scenes/Mobs/enemy.tscn" id="6_jw32o"]
 [ext_resource type="PackedScene" uid="uid://cqqxp0l1dk2xb" path="res://Scenes/candle/orange_candle.tscn" id="6_v1gob"]
+[ext_resource type="PackedScene" uid="uid://brfarmlsb5nvk" path="res://Scenes/Mobs/epouvantail.tscn" id="7_jw32o"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kln2b")
@@ -25,4 +26,7 @@ position = Vector2(9113, 828)
 position = Vector2(1213, 826)
 
 [node name="Enemy" parent="." instance=ExtResource("6_jw32o")]
-position = Vector2(1680, 867)
+position = Vector2(2953, 859)
+
+[node name="Epouvantail" parent="." instance=ExtResource("7_jw32o")]
+position = Vector2(1479, 861)

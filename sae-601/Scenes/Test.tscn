@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://caddjyjih3kv0"]
+[gd_scene load_steps=9 format=3 uid="uid://caddjyjih3kv0"]
 
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player.tscn" id="1_ko2s7"]
 [ext_resource type="PackedScene" uid="uid://bljn076f8m7qr" path="res://Scenes/candle/violet_candle.tscn" id="5_06fis"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c4n5ml7ywv0xx" path="res://Scenes/Paramètre/zone_reboot.tscn" id="6_06fis"]
 [ext_resource type="PackedScene" uid="uid://butqb2g5w47tc" path="res://Scenes/Mobs/enemy.tscn" id="6_mma61"]
 [ext_resource type="PackedScene" uid="uid://nvo24kbok8jd" path="res://Scenes/candle/blue_candle.tscn" id="6_rxb08"]
+[ext_resource type="PackedScene" uid="uid://brfarmlsb5nvk" path="res://Scenes/Mobs/epouvantail.tscn" id="7_mma61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxb1y"]
 size = Vector2(2188, 289)
@@ -13,7 +14,7 @@ size = Vector2(2188, 289)
 [node name="Test" type="Node2D"]
 
 [node name="Joueur" parent="." instance=ExtResource("1_ko2s7")]
-position = Vector2(700, -91)
+position = Vector2(701, -85)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2, 0)
@@ -30,7 +31,7 @@ position = Vector2(213, -120)
 position = Vector2(2315, 389)
 
 [node name="ZoneReboot2" parent="." instance=ExtResource("6_06fis")]
-position = Vector2(-878, 389)
+position = Vector2(-873, 449)
 
 [node name="Violet_candle" parent="." instance=ExtResource("5_06fis")]
 position = Vector2(412, -41)
@@ -39,4 +40,7 @@ position = Vector2(412, -41)
 position = Vector2(1089, -51)
 
 [node name="Enemy" parent="." instance=ExtResource("6_mma61")]
-position = Vector2(1390, -98)
+position = Vector2(1389, -92)
+
+[node name="Epouvantail" parent="." instance=ExtResource("7_mma61")]
+position = Vector2(148, -88)

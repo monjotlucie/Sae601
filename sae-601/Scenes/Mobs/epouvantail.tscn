@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://brfarmlsb5nvk"]
+
+[ext_resource type="Script" uid="uid://dyahmmvnymrbs" path="res://Script/Mob/epouvantail.gd" id="1_briri"]
+[ext_resource type="Texture2D" uid="uid://dxkwnf6drlbkw" path="res://Assets/Enemies/epouvantail_day.png" id="1_e2587"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0j51"]
+radius = 111.0
+height = 254.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_briri"]
+atlas = ExtResource("1_e2587")
+region = Rect2(0, 0, 396, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ems3a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_briri")
+}],
+"loop": true,
+"name": &"fixe",
+"speed": 6.0
+}]
+
+[node name="Epouvantail" type="Node2D"]
+
+[node name="Epouvantail" type="Area2D" parent="."]
+script = ExtResource("1_briri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Epouvantail"]
+position = Vector2(3, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_s0j51")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Epouvantail"]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_ems3a")
+animation = &"fixe"
+frame_progress = 0.40827796
+flip_h = true
+
+[node name="Leftlimit" type="Marker2D" parent="."]
+position = Vector2(-352, -1)
+
+[node name="Rightlimit" type="Marker2D" parent="."]
+position = Vector2(430, 0)
+
+[connection signal="body_entered" from="Epouvantail" to="Epouvantail" method="_on_body_entered"]
