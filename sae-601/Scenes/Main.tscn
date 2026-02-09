@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player.tscn" id="1_r150o"]
-[ext_resource type="PackedScene" uid="uid://h81w62770hu" path="res://Scenes/Mobs/Guerrier.tscn" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/white_candle.tscn" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://butqb2g5w47tc" path="res://Scenes/Mobs/enemy.tscn" id="6_jw32o"]
 [ext_resource type="PackedScene" uid="uid://cqqxp0l1dk2xb" path="res://Scenes/candle/orange_candle.tscn" id="6_v1gob"]
 
 [node name="Main" type="Node2D"]
@@ -18,11 +18,11 @@ position = Vector2(798, 855)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(798, 716)
 
-[node name="Corbeau" parent="." instance=ExtResource("4_rgh2o")]
-position = Vector2(2547, 692)
-
 [node name="White_candle" parent="." instance=ExtResource("5_pbw6q")]
 position = Vector2(9113, 828)
 
 [node name="Orange_candle" parent="." instance=ExtResource("6_v1gob")]
 position = Vector2(1213, 826)
+
+[node name="Enemy" parent="." instance=ExtResource("6_jw32o")]
+position = Vector2(1680, 867)

@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://butqb2g5w47tc"]
+
+[ext_resource type="Texture2D" uid="uid://bisdbpl1eq8tl" path="res://Assets/Enemies/guerrier_day.png" id="1_66mgt"]
+[ext_resource type="Script" uid="uid://bt8xqng5fe1p0" path="res://Script/Mob/guerrier.gd" id="1_p60yw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p60yw"]
+radius = 113.0
+height = 302.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy52x"]
+atlas = ExtResource("1_66mgt")
+region = Rect2(0, 0, 573, 337)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7tsr"]
+atlas = ExtResource("1_66mgt")
+region = Rect2(573, 0, 573, 337)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kv8k"]
+atlas = ExtResource("1_66mgt")
+region = Rect2(1146, 0, 573, 337)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj84c"]
+atlas = ExtResource("1_66mgt")
+region = Rect2(0, 0, 573, 337)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mw7n7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy52x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7tsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kv8k")
+}],
+"loop": true,
+"name": &"Attaque",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj84c")
+}],
+"loop": true,
+"name": &"Fixe",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="Guerrier" type="Area2D" parent="."]
+script = ExtResource("1_p60yw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guerrier"]
+position = Vector2(0, 2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_p60yw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guerrier"]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_mw7n7")
+animation = &"Attaque"
+flip_h = true
+
+[node name="Leftlimit" type="Marker2D" parent="."]
+position = Vector2(-430, 2)
+
+[node name="Rightlimit" type="Marker2D" parent="."]
+position = Vector2(390, -4)
+
+[connection signal="body_entered" from="Guerrier" to="Guerrier" method="_on_body_entered"]

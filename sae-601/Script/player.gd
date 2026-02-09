@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -54,3 +55,6 @@ func play_anim(base_name: String):
 	if frames and frames.has_animation(anim):
 		if animated_sprite_2d.animation != anim:
 			animated_sprite_2d.play(anim)
+			
+func die():
+	queue_free()
