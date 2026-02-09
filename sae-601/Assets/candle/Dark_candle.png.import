@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctwtlbw47v8ju"
-path="res://.godot/imported/debut_day.png-096dc9c65532321af316e56b5bdd9d4d.ctex"
+uid="uid://cfuessmx7j6sd"
+path="res://.godot/imported/Dark_candle.png-3e03a46660c0e3832d58409d59e5001c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Plateformes/debut_day.png"
-dest_files=["res://.godot/imported/debut_day.png-096dc9c65532321af316e56b5bdd9d4d.ctex"]
+source_file="res://Assets/candle/Dark_candle.png"
+dest_files=["res://.godot/imported/Dark_candle.png-3e03a46660c0e3832d58409d59e5001c.ctex"]
 
 [params]
 

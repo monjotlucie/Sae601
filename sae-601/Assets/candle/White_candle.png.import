@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctwtlbw47v8ju"
-path="res://.godot/imported/debut_day.png-096dc9c65532321af316e56b5bdd9d4d.ctex"
+uid="uid://8p61mghub46q"
+path="res://.godot/imported/White_candle.png-f24c4a75ef0ddf3a8a1a1113e33d6fb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Plateformes/debut_day.png"
-dest_files=["res://.godot/imported/debut_day.png-096dc9c65532321af316e56b5bdd9d4d.ctex"]
+source_file="res://Assets/candle/White_candle.png"
+dest_files=["res://.godot/imported/White_candle.png-f24c4a75ef0ddf3a8a1a1113e33d6fb3.ctex"]
 
 [params]
 

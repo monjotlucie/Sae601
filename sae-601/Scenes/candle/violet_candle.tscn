@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bljn076f8m7qr"]
+
+[ext_resource type="Script" uid="uid://didb7hcwvol7r" path="res://Script/Candle/violet_candle.gd" id="1_wgifr"]
+[ext_resource type="Texture2D" uid="uid://csqm7n0t0160v" path="res://Assets/candle/Violet_candle.png" id="1_yl7h2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rj6k2"]
+radius = 22.36068
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bk0kx"]
+radius = 35.69314
+
+[node name="Violet_candle" type="RigidBody2D"]
+script = ExtResource("1_wgifr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, -25)
+texture = ExtResource("1_yl7h2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rj6k2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_bk0kx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxytyjs2m0bn4"]
+
+[ext_resource type="Script" uid="uid://cg7lnk4lgm3u6" path="res://mob.gd" id="1_oe7hw"]
+[ext_resource type="Texture2D" uid="uid://bisdbpl1eq8tl" path="res://Assets/Enemies/guerrier_day.png" id="2_nwn7s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejdc5"]
+atlas = ExtResource("2_nwn7s")
+region = Rect2(0, 0, 573, 337)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wywmn"]
+atlas = ExtResource("2_nwn7s")
+region = Rect2(573, 0, 573, 337)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxrer"]
+atlas = ExtResource("2_nwn7s")
+region = Rect2(1146, 0, 573, 337)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk4wq"]
+atlas = ExtResource("2_nwn7s")
+region = Rect2(0, 0, 573, 337)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2nr7e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejdc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wywmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxrer")
+}],
+"loop": true,
+"name": &"attaque_guerrier",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk4wq")
+}],
+"loop": true,
+"name": &"fixe_guerrier",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57lqg"]
+radius = 107.0
+height = 330.0
+
+[node name="Mob" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_oe7hw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2nr7e")
+animation = &"attaque_guerrier"
+frame_progress = 0.94123566
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-96, 0)
+shape = SubResource("CapsuleShape2D_57lqg")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

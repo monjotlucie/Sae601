@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal day_night_changed(is_night: bool)
-
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED := 300.0
@@ -9,41 +7,36 @@ const JUMP_VELOCITY := -500.0
 
 var is_night := false
 
-
 func _ready():
+	GameState.day_night_changed.connect(_on_day_night_changed)
+	is_night = GameState.is_night
 	print("PLAYER READY")
+	print(GameState.is_night)
 
+
+func _input(event):
+	if event.is_action_pressed("toggle_mode"):
+		GameState.toggle_day_night()
+
+func _on_day_night_changed(night: bool):
+	is_night = night
+	print("PLAYER → mode nuit :", is_night)
 
 func _physics_process(delta: float) -> void:
-	# Switch jour / nuit
-	if Input.is_action_just_pressed("toggle_mode"):
-		is_night = !is_night
-		day_night_changed.emit(is_night)
-		print("Mode nuit :", is_night)
-
-	# Gravité
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Saut
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Saut variable
-	if Input.is_action_just_released("ui_accept") and velocity.y < 0:
-		velocity.y *= 0.5
-
-	# Déplacement horizontal
 	var direction := Input.get_axis("ui_left", "ui_right")
 	velocity.x = direction * SPEED
 
-	# Flip du sprite
 	if direction > 0:
 		animated_sprite_2d.flip_h = false
 	elif direction < 0:
 		animated_sprite_2d.flip_h = true
 
-	# Animations
 	if not is_on_floor():
 		play_anim("Saut")
 	elif direction == 0:
@@ -53,12 +46,11 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
-func play_anim(base_name: String) -> void:
+func play_anim(base_name: String):
 	var suffix := "_night" if is_night else "_day"
-	var anim_name := base_name + suffix
+	var anim := base_name + suffix
 
 	var frames := animated_sprite_2d.sprite_frames
-	if frames and frames.has_animation(anim_name):
-		if animated_sprite_2d.animation != anim_name:
-			animated_sprite_2d.play(anim_name)
+	if frames and frames.has_animation(anim):
+		if animated_sprite_2d.animation != anim:
+			animated_sprite_2d.play(anim)

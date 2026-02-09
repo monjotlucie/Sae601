@@ -1,18 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://caddjyjih3kv0"]
+[gd_scene load_steps=11 format=3 uid="uid://caddjyjih3kv0"]
 
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player.tscn" id="1_ko2s7"]
+[ext_resource type="PackedScene" uid="uid://h81w62770hu" path="res://Scenes/Mobs/Guerrier.tscn" id="2_gxb1y"]
+[ext_resource type="PackedScene" uid="uid://bljn076f8m7qr" path="res://Scenes/candle/violet_candle.tscn" id="5_06fis"]
+[ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/white_candle.tscn" id="5_efk68"]
+[ext_resource type="PackedScene" uid="uid://c4n5ml7ywv0xx" path="res://Scenes/Paramètre/zone_reboot.tscn" id="6_06fis"]
+[ext_resource type="PackedScene" uid="uid://nvo24kbok8jd" path="res://Scenes/candle/blue_candle.tscn" id="6_rxb08"]
+[ext_resource type="PackedScene" uid="uid://djt7pc331jrgl" path="res://Scenes/candle/dark_candle.tscn" id="7_kq4yt"]
+[ext_resource type="PackedScene" uid="uid://c3ialfwsj5y6h" path="res://Scenes/candle/green_candle.tscn" id="8_rarx8"]
+[ext_resource type="PackedScene" uid="uid://cqqxp0l1dk2xb" path="res://Scenes/candle/orange_candle.tscn" id="9_wjxug"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxb1y"]
 size = Vector2(2188, 289)
 
 [node name="Test" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_ko2s7")]
-position = Vector2(94, -206)
+[node name="Joueur" parent="." instance=ExtResource("1_ko2s7")]
+position = Vector2(700, -91)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(721, 169)
 shape = SubResource("RectangleShape2D_gxb1y")
 debug_color = Color(0.6664232, 0.47607064, 0.51347184, 0.41960785)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("2_gxb1y")]
+position = Vector2(1510, -131)
+
+[node name="White_candle" parent="." instance=ExtResource("5_efk68")]
+position = Vector2(213, -120)
+
+[node name="ZoneReboot" parent="." instance=ExtResource("6_06fis")]
+position = Vector2(2315, 389)
+
+[node name="ZoneReboot2" parent="." instance=ExtResource("6_06fis")]
+position = Vector2(-878, 389)
+
+[node name="Violet_candle" parent="." instance=ExtResource("5_06fis")]
+position = Vector2(412, -41)
+
+[node name="Blue_candle" parent="." instance=ExtResource("6_rxb08")]
+position = Vector2(1089, -51)
+
+[node name="Dark_candle" parent="." instance=ExtResource("7_kq4yt")]
+position = Vector2(1301, -49)
+
+[node name="Green_candle" parent="." instance=ExtResource("8_rarx8")]
+position = Vector2(-78, -52)
+
+[node name="Orange_candle" parent="." instance=ExtResource("9_wjxug")]
+position = Vector2(1229, -153)
+
+[node name="Violet_candle2" parent="." instance=ExtResource("5_06fis")]
+position = Vector2(965, -155)
+
+[node name="White_candle2" parent="." instance=ExtResource("5_efk68")]
+position = Vector2(884, -65)
