@@ -1,29 +1,52 @@
 extends CharacterBody2D
 class_name Player
 
+signal respawn_requested
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED := 300.0
 const JUMP_VELOCITY := -500.0
 
 var is_night := false
+var is_dead := false   # évite les respawn multiples
+
 
 func _ready():
 	GameState.day_night_changed.connect(_on_day_night_changed)
 	is_night = GameState.is_night
+	add_to_group("player")
 	print("PLAYER READY")
-	print(GameState.is_night)
+
+
+# 🔴 Appelé par les ennemis
+func die():
+	if is_dead:
+		return
+
+	is_dead = true
+	velocity = Vector2.ZERO
+	respawn_requested.emit()
+
+
+# 🔁 Appelé par le Main après respawn
+func revive():
+	is_dead = false
 
 
 func _input(event):
 	if event.is_action_pressed("toggle_mode"):
 		GameState.toggle_day_night()
 
+
 func _on_day_night_changed(night: bool):
 	is_night = night
-	print("PLAYER → mode nuit :", is_night)
+
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return   # le joueur ne bouge pas pendant la mort
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -47,6 +70,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
 func play_anim(base_name: String):
 	var suffix := "_night" if is_night else "_day"
 	var anim := base_name + suffix
@@ -55,10 +79,3 @@ func play_anim(base_name: String):
 	if frames and frames.has_animation(anim):
 		if animated_sprite_2d.animation != anim:
 			animated_sprite_2d.play(anim)
-
-func get_is_night() -> bool:
-	return is_night
-
-
-func die():
-	queue_free()

@@ -38,3 +38,5 @@ func _on_body_entered(body):
 		if is_night:
 			return # 🌙 inoffensif
 		body.die()
+		
+		
