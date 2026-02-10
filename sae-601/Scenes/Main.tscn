@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=13 format=3 uid="uid://bi7yelw0sv33h"]
 
-[ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map01.tscn" id="1_idj7w"]
+[ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/White_candle.tscn" id="5_pbw6q"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://djpbvt4n8u6jo" path="res://Scenes/Mobs/mob.tscn" id="9_vy5pj"]
 [ext_resource type="PackedScene" uid="uid://c4n5ml7ywv0xx" path="res://Scenes/Paramètre/Zone_reboot.tscn" id="10_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://b1ge38el2hyof" path="res://Scenes/Paramètre/pause_menu.tscn" id="11_4kpch"]
+[ext_resource type="PackedScene" uid="uid://dalguskcesfah" path="res://Scenes/Map/moving_platforme.tscn" id="12_grg3l"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-134, -68)
@@ -47,6 +48,9 @@ position = Vector2(1012, 907)
 position = Vector2(560, 850)
 
 [node name="ZoneReboot" parent="." instance=ExtResource("10_bmxlf")]
-position = Vector2(7563, 1388)
+position = Vector2(7866, 1797)
 
 [node name="PauseMenu" parent="." instance=ExtResource("11_4kpch")]
+
+[node name="MovingPlatforme" parent="." instance=ExtResource("12_grg3l")]
+position = Vector2(7548, 1440)
