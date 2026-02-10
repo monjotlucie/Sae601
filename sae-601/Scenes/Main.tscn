@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=12 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -9,8 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://brfarmlsb5nvk" path="res://Scenes/Mobs/Epouvantail.tscn" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://b0xai1qyjla5n" path="res://Scenes/Mobs/Choux.tscn" id="8_50glp"]
 [ext_resource type="PackedScene" uid="uid://djpbvt4n8u6jo" path="res://Scenes/Mobs/mob.tscn" id="9_vy5pj"]
+[ext_resource type="PackedScene" uid="uid://c4n5ml7ywv0xx" path="res://Scenes/Paramètre/Zone_reboot.tscn" id="10_bmxlf"]
+[ext_resource type="PackedScene" uid="uid://b1ge38el2hyof" path="res://Scenes/Paramètre/pause_menu.tscn" id="11_4kpch"]
 
 [node name="Main" type="Node2D"]
+position = Vector2(-134, -68)
 script = ExtResource("1_kln2b")
 
 [node name="Map" parent="." instance=ExtResource("1_idj7w")]
@@ -42,3 +45,8 @@ position = Vector2(1012, 907)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(560, 850)
+
+[node name="ZoneReboot" parent="." instance=ExtResource("10_bmxlf")]
+position = Vector2(7563, 1388)
+
+[node name="PauseMenu" parent="." instance=ExtResource("11_4kpch")]

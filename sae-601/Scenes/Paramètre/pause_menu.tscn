@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1ge38el2hyof"]
+
+[ext_resource type="Script" uid="uid://drfm0dftma1y6" path="res://Script/Paramètre/pause_menu.gd" id="1_q7gi8"]
+[ext_resource type="Texture2D" uid="uid://c63c6spr2plwi" path="res://Assets/Paramètres/Barre de pause.png" id="2_7vea1"]
+[ext_resource type="Texture2D" uid="uid://cnxdasd8ppnio" path="res://Assets/Paramètres/Bouton_reprendre.png" id="3_aadoc"]
+[ext_resource type="Texture2D" uid="uid://crk0qwmetm463" path="res://Assets/Paramètres/Bouton_reprendre_hover.png" id="4_8hsqk"]
+[ext_resource type="Texture2D" uid="uid://k55atgmxyshk" path="res://Assets/Paramètres/Bouton_options.png" id="5_ndylh"]
+[ext_resource type="Texture2D" uid="uid://cb4o2t1tux4fh" path="res://Assets/Paramètres/Bouton_options_hover.png" id="6_ubbl8"]
+[ext_resource type="Texture2D" uid="uid://c107gx2cp5jgb" path="res://Assets/Paramètres/Bouton_quitter.png" id="7_h1pud"]
+[ext_resource type="Texture2D" uid="uid://ch3bqov82mx2g" path="res://Assets/Paramètres/Bouton_quitter_hover.png" id="8_05y87"]
+
+[sub_resource type="Theme" id="Theme_37uvp"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_q7gi8")
+
+[node name="Panel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_37uvp")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49300003
+anchor_right = 0.5
+anchor_bottom = 0.49300003
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 1738.0
+offset_bottom = 970.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7vea1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 228.0
+offset_top = -3.0
+offset_right = 517.0
+offset_bottom = 220.0
+grow_vertical = 2
+
+[node name="Reprendre" type="TextureButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_aadoc")
+texture_hover = ExtResource("4_8hsqk")
+
+[node name="Options" type="TextureButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_ndylh")
+texture_hover = ExtResource("6_ubbl8")
+
+[node name="Quitter" type="TextureButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_h1pud")
+texture_hover = ExtResource("8_05y87")
+
+[connection signal="pressed" from="Panel/VBoxContainer/Reprendre" to="." method="_on_reprendre_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quitter" to="." method="_on_quitter_pressed"]
