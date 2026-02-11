@@ -41,7 +41,7 @@ _data = {
 &"RESET": SubResource("Animation_llv1j")
 }
 
-[node name="MovingPlatforme" type="Node2D"]
+[node name="MovingPlatform" type="Node2D"]
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 

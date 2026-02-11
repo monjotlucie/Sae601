@@ -43,7 +43,7 @@ _data = {
 &"RESET": SubResource("Animation_llv1j")
 }
 
-[node name="MovingPlatforme" type="Node2D"]
+[node name="MovingPlatformDay" type="Node2D"]
 
 [node name="MovingPlatformDay" type="AnimatableBody2D" parent="."]
 script = ExtResource("1_dbc6u")

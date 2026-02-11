@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://caddjyjih3kv0"]
+[gd_scene load_steps=15 format=3 uid="uid://caddjyjih3kv0"]
 
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player.tscn" id="1_ko2s7"]
 [ext_resource type="PackedScene" uid="uid://bllgimnimmrlv" path="res://Scenes/Map/FondMap.tscn" id="1_rxb08"]
@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://c4n5ml7ywv0xx" path="res://Scenes/Paramètre/Zone_reboot.tscn" id="6_06fis"]
 [ext_resource type="PackedScene" uid="uid://butqb2g5w47tc" path="res://Scenes/Mobs/Enemy.tscn" id="6_mma61"]
 [ext_resource type="PackedScene" uid="uid://nvo24kbok8jd" path="res://Scenes/candle/Blue_candle.tscn" id="6_rxb08"]
-[ext_resource type="PackedScene" uid="uid://dalguskcesfah" path="res://Scenes/Map/moving_platforme.tscn" id="7_mma61"]
+[ext_resource type="PackedScene" uid="uid://dalguskcesfah" path="res://Scenes/Map/moving_platform.tscn" id="7_mma61"]
 [ext_resource type="PackedScene" uid="uid://xk1jpadogpor" path="res://Scenes/Map/MovingPlateformeDay.tscn" id="8_ki7sg"]
 [ext_resource type="PackedScene" uid="uid://bahow5oqgk4ok" path="res://Scenes/Map/MovingPlateformeNight.tscn" id="10_kq4yt"]
+[ext_resource type="PackedScene" uid="uid://bjpgctw3d7a4n" path="res://Scenes/Map/StaticPlatformNight.tscn" id="11_wjxug"]
+[ext_resource type="PackedScene" uid="uid://0bqy1cny0ncu" path="res://Scenes/Map/StaticPlatform.tscn" id="12_8d4ee"]
+[ext_resource type="PackedScene" uid="uid://ddxnqh3v3hf66" path="res://Scenes/Map/StaticPlatformDay.tscn" id="13_8d4ee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxb1y"]
 size = Vector2(2188, 289)
@@ -28,6 +31,12 @@ position = Vector2(299, -185)
 
 [node name="MovingPlatforme2" parent="." instance=ExtResource("8_ki7sg")]
 position = Vector2(910, -311)
+
+[node name="StaticPlatformNight" parent="." instance=ExtResource("11_wjxug")]
+position = Vector2(146, -337)
+
+[node name="StaticPlatform" parent="." instance=ExtResource("12_8d4ee")]
+position = Vector2(-39, -405)
 
 [node name="Joueur" parent="." instance=ExtResource("1_ko2s7")]
 position = Vector2(734, -315)
@@ -59,3 +68,6 @@ position = Vector2(1089, -51)
 
 [node name="Enemy" parent="." instance=ExtResource("6_mma61")]
 position = Vector2(1389, -92)
+
+[node name="StaticPlatformDay" parent="." instance=ExtResource("13_8d4ee")]
+position = Vector2(-114, -477)

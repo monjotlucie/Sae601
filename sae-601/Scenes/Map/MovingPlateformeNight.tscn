@@ -43,7 +43,7 @@ _data = {
 &"RESET": SubResource("Animation_llv1j")
 }
 
-[node name="MovingPlatforme" type="Node2D"]
+[node name="MovingPlatformeNight" type="Node2D"]
 
 [node name="MovingPlatformNight" type="AnimatableBody2D" parent="."]
 script = ExtResource("1_3vpvs")

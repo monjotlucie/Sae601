@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjpgctw3d7a4n"]
+
+[ext_resource type="Script" uid="uid://dhfcvipxubhes" path="res://Script/Map/static_platform_night.gd" id="1_kuaoe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cumiu"]
+size = Vector2(158, 47)
+
+[node name="StaticPlatformNight" type="Node2D"]
+
+[node name="StaticPlatformNight" type="StaticBody2D" parent="."]
+script = ExtResource("1_kuaoe")
+
+[node name="ColorRect" type="ColorRect" parent="StaticPlatformNight"]
+offset_right = 158.0
+offset_bottom = 47.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatformNight"]
+position = Vector2(79, 23.5)
+shape = SubResource("RectangleShape2D_cumiu")

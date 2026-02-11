@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddxnqh3v3hf66"]
+
+[ext_resource type="Script" uid="uid://b0qqksg0amfy5" path="res://Script/Map/static_platform_day.gd" id="1_yaxve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cumiu"]
+size = Vector2(158, 47)
+
+[node name="StaticPlatformDay" type="Node2D"]
+
+[node name="StaticPlatformDay" type="StaticBody2D" parent="."]
+script = ExtResource("1_yaxve")
+
+[node name="ColorRect" type="ColorRect" parent="StaticPlatformDay"]
+offset_right = 158.0
+offset_bottom = 47.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatformDay"]
+position = Vector2(79, 23.5)
+shape = SubResource("RectangleShape2D_cumiu")
