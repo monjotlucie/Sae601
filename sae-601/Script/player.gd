@@ -9,7 +9,9 @@ const SPEED := 300.0
 const JUMP_VELOCITY := -500.0
 
 var is_night := false
-var is_dead := false   # évite les respawn multiples
+var is_dead := false   
+var invincible := false
+@export var invincible_time := 2.0
 
 
 func _ready():
@@ -19,7 +21,7 @@ func _ready():
 	print("PLAYER READY")
 
 func die():
-	if is_dead:
+	if is_dead or invincible:
 		return
 
 	is_dead = true
@@ -27,8 +29,24 @@ func die():
 	respawn_requested.emit()
 
 
+
 func revive():
 	is_dead = false
+	start_invincibility()
+
+func start_invincibility():
+	invincible = true
+
+	# Petit effet clignotement
+	var tween = create_tween()
+	tween.set_loops(10)
+	tween.tween_property(animated_sprite_2d, "modulate:a", 0.3, 0.1)
+	tween.tween_property(animated_sprite_2d, "modulate:a", 1.0, 0.1)
+
+	await get_tree().create_timer(invincible_time).timeout
+
+	invincible = false
+	animated_sprite_2d.modulate.a = 1.0
 
 
 func _input(event):

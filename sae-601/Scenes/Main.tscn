@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=15 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player.tscn" id="1_r150o"]
+[ext_resource type="Script" uid="uid://jht7job213te" path="res://Script/Paramètre/fade_layer.gd" id="5_1p5hy"]
 [ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/White_candle.tscn" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://butqb2g5w47tc" path="res://Scenes/Mobs/Enemy.tscn" id="6_jw32o"]
 [ext_resource type="PackedScene" uid="uid://cqqxp0l1dk2xb" path="res://Scenes/candle/Orange_candle.tscn" id="6_v1gob"]
@@ -33,6 +34,14 @@ position = Vector2(7491, 164)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(551, 917)
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+script = ExtResource("5_1p5hy")
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(798, 716)
