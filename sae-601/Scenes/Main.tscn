@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=14 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -12,13 +12,24 @@
 [ext_resource type="PackedScene" uid="uid://c4n5ml7ywv0xx" path="res://Scenes/Paramètre/Zone_reboot.tscn" id="10_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://b1ge38el2hyof" path="res://Scenes/Paramètre/pause_menu.tscn" id="11_4kpch"]
 [ext_resource type="PackedScene" uid="uid://dalguskcesfah" path="res://Scenes/Map/moving_platform.tscn" id="12_grg3l"]
+[ext_resource type="PackedScene" uid="uid://kllwlhcgdi5n" path="res://Scenes/Paramètre/Checkpoint.tscn" id="13_frkhe"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-134, -68)
 script = ExtResource("1_kln2b")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(560, 850)
+
 [node name="Map" parent="." instance=ExtResource("1_idj7w")]
 position = Vector2(-253, 53)
+
+[node name="Checkpoint" parent="." instance=ExtResource("13_frkhe")]
+position = Vector2(6102, 383)
+scale = Vector2(0.7, 0.7)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("13_frkhe")]
+position = Vector2(7491, 164)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(551, 917)
@@ -43,9 +54,6 @@ position = Vector2(2205, 924)
 
 [node name="champignon" parent="." instance=ExtResource("9_vy5pj")]
 position = Vector2(1012, 907)
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(560, 850)
 
 [node name="ZoneReboot" parent="." instance=ExtResource("10_bmxlf")]
 position = Vector2(7866, 1797)

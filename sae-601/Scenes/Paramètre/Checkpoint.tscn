@@ -1,0 +1,123 @@
+[gd_scene load_steps=20 format=3 uid="uid://kllwlhcgdi5n"]
+
+[ext_resource type="Script" uid="uid://caobd5d1aass1" path="res://Script/Paramètre/checkpoint.gd" id="1_oohs6"]
+[ext_resource type="Texture2D" uid="uid://chvom7g8jmyiw" path="res://Assets/Paramètres/point_de_sauvegarde1(1).png" id="2_vd81h"]
+[ext_resource type="Texture2D" uid="uid://cyt4vvqvy0e10" path="res://Assets/Paramètres/point_de_sauvegarde2(1).png" id="3_ppogl"]
+[ext_resource type="Texture2D" uid="uid://dd56y6l7fdnq6" path="res://Assets/Paramètres/point_de_sauvegarde3.png" id="4_jn5aq"]
+[ext_resource type="Texture2D" uid="uid://qev2kt0vkp77" path="res://Assets/Paramètres/Point_sauvegarde_validé4.png" id="5_wr8cw"]
+[ext_resource type="Texture2D" uid="uid://cc76mrwtlaw6g" path="res://Assets/Paramètres/point_de_sauvegarde1.png" id="6_m86ij"]
+[ext_resource type="Texture2D" uid="uid://bkugpi2vbnwrk" path="res://Assets/Paramètres/point_de_sauvegarde2.png" id="7_l46h0"]
+[ext_resource type="Texture2D" uid="uid://bxbw27fhur72" path="res://Assets/Paramètres/point_sauvegarde3.png" id="8_74oyv"]
+[ext_resource type="Texture2D" uid="uid://dtnlq43rmrlup" path="res://Assets/Paramètres/point_de_sauvegarde4.png" id="9_axexl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nc01t"]
+size = Vector2(1135, 693.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juqut"]
+atlas = ExtResource("2_vd81h")
+region = Rect2(0, 0, 1256, 823)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2y7d"]
+atlas = ExtResource("3_ppogl")
+region = Rect2(0, 0, 1256, 823)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpue2"]
+atlas = ExtResource("4_jn5aq")
+region = Rect2(0, 0, 1256, 823)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2go3o"]
+atlas = ExtResource("5_wr8cw")
+region = Rect2(0, 0, 1256, 822)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjki1"]
+atlas = ExtResource("6_m86ij")
+region = Rect2(0, 0, 1256, 823)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqc5y"]
+atlas = ExtResource("7_l46h0")
+region = Rect2(0, 0, 1256, 823)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnmsv"]
+atlas = ExtResource("8_74oyv")
+region = Rect2(0, 0, 1256, 823)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joqyt"]
+atlas = ExtResource("9_axexl")
+region = Rect2(0, 0, 1256, 822)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ql7kt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juqut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2y7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpue2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2go3o")
+}],
+"loop": true,
+"name": &"active",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjki1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqc5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnmsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joqyt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="Checkpoint" type="Node2D"]
+
+[node name="Checkpoint" type="Area2D" parent="."]
+script = ExtResource("1_oohs6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2(922.5, 589.25)
+shape = SubResource("RectangleShape2D_nc01t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Checkpoint"]
+position = Vector2(904.45325, 606.375)
+scale = Vector2(1.4523087, 1.4523087)
+sprite_frames = SubResource("SpriteFrames_ql7kt")
+animation = &"active"
+frame_progress = 0.4548505
+
+[node name="ColorRect" type="ColorRect" parent="Checkpoint"]
+offset_left = 849.0
+offset_top = 469.0
+offset_right = 1077.0
+offset_bottom = 561.0
+color = Color(0.31051084, 0.36048457, 0.3948415, 1)
+
+[node name="Label" type="Label" parent="Checkpoint"]
+offset_left = 858.0
+offset_top = 476.0
+offset_right = 1069.0
+offset_bottom = 558.0
+pivot_offset = Vector2(428, -81)
+text = "Voulez-vous sauvergader ?
+Pour sauvergader appuyez 
+sur E."
+
+[node name="SpawnPoint" type="Marker2D" parent="Checkpoint"]
+position = Vector2(925, 740)
+
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
+[connection signal="body_exited" from="Checkpoint" to="Checkpoint" method="_on_body_exited"]
+[connection signal="body_shape_exited" from="Checkpoint" to="Checkpoint" method="_on_body_shape_exited"]

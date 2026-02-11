@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6h8wrp3mntb7" path="res://Assets/Enemies/champignon.png" id="2_nwn7s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejdc5"]
-radius = 61.0
+radius = 67.0
 height = 236.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wywmn"]

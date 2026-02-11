@@ -18,8 +18,6 @@ func _ready():
 	add_to_group("player")
 	print("PLAYER READY")
 
-
-# 🔴 Appelé par les ennemis
 func die():
 	if is_dead:
 		return
@@ -29,7 +27,6 @@ func die():
 	respawn_requested.emit()
 
 
-# 🔁 Appelé par le Main après respawn
 func revive():
 	is_dead = false
 
