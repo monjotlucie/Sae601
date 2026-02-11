@@ -1,20 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://0bqy1cny0ncu"]
-
-[ext_resource type="Script" uid="uid://c8i8s5hecffyg" path="res://Script/Map/static_body_2d.gd" id="1_qdqe3"]
+[gd_scene load_steps=2 format=3 uid="uid://0bqy1cny0ncu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_savh0"]
-size = Vector2(213, 46)
+size = Vector2(362, 46)
 
 [node name="StaticPlatform" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-script = ExtResource("1_qdqe3")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_right = 213.0
+offset_right = 363.0
 offset_bottom = 46.0
 color = Color(0.5019608, 0.49803922, 0.5019608, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(106.5, 23)
+position = Vector2(181, 23)
 shape = SubResource("RectangleShape2D_savh0")

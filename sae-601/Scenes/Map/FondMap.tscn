@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bllgimnimmrlv"]
 
-[ext_resource type="Script" uid="uid://dvn5mr4u5ks3j" path="res://Script/Map/fond_map.gd" id="1_6acwd"]
+[ext_resource type="Script" uid="uid://dvn5mr4u5ks3j" path="res://Script/Map/FondMap.gd" id="1_6acwd"]
 
 [node name="FondMap" type="Node2D"]
 script = ExtResource("1_6acwd")
