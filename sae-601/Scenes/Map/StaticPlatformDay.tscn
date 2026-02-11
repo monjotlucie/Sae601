@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b0qqksg0amfy5" path="res://Script/Map/StaticPlatformDay.gd" id="1_yaxve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cumiu"]
-size = Vector2(158, 47)
+size = Vector2(210, 47)
 
 [node name="StaticPlatformDay" type="Node2D"]
 
@@ -11,10 +11,10 @@ size = Vector2(158, 47)
 script = ExtResource("1_yaxve")
 
 [node name="ColorRect" type="ColorRect" parent="StaticPlatformDay"]
-offset_right = 158.0
+offset_right = 210.0
 offset_bottom = 47.0
 color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatformDay"]
-position = Vector2(79, 23.5)
+position = Vector2(105, 23)
 shape = SubResource("RectangleShape2D_cumiu")

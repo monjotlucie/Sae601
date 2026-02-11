@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://cacrv26wkuenq" path="res://Script/Map/VerticalPlatformNight.gd" id="1_spari"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vh5k"]
-size = Vector2(95, 40)
+size = Vector2(213.5, 40)
 
 [sub_resource type="Animation" id="Animation_8dkm3"]
-length = 5.0
+length = 10.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -15,10 +15,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5, 5),
+"times": PackedFloat32Array(0, 5, 10),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 400), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_6vh5k"]
@@ -50,11 +50,11 @@ _data = {
 script = ExtResource("1_spari")
 
 [node name="ColorRect" type="ColorRect" parent="VerticalPlatformNight"]
-offset_right = 95.0
+offset_right = 214.0
 offset_bottom = 40.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalPlatformNight"]
-position = Vector2(47.5, 20)
+position = Vector2(107.25, 20)
 shape = SubResource("RectangleShape2D_6vh5k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VerticalPlatformNight"]

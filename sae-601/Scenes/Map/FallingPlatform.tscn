@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv1ka6eurov62"]
+
+[ext_resource type="Script" uid="uid://c6jh17s7fr5my" path="res://Script/Map/FallingPlatform.gd" id="1_avu7o"]
+[ext_resource type="Texture2D" uid="uid://chqxtlrlnyr8q" path="res://Assets/Plateformes/bloc.png" id="2_cmyuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcdjx"]
+size = Vector2(119, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avu7o"]
+size = Vector2(96, 123)
+
+[node name="FallingPlatform" type="Node2D"]
+
+[node name="FallingPlatform" type="AnimatableBody2D" parent="."]
+script = ExtResource("1_avu7o")
+
+[node name="Sprite2D" type="Sprite2D" parent="FallingPlatform"]
+position = Vector2(61.5, 62.0125)
+scale = Vector2(0.4875, 0.48749998)
+texture = ExtResource("2_cmyuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallingPlatform"]
+position = Vector2(60.5, 62.5)
+shape = SubResource("RectangleShape2D_fcdjx")
+
+[node name="Area2D" type="Area2D" parent="FallingPlatform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallingPlatform/Area2D"]
+position = Vector2(59, 59.5)
+shape = SubResource("RectangleShape2D_avu7o")
+
+[connection signal="body_entered" from="FallingPlatform/Area2D" to="FallingPlatform" method="_on_area_2d_body_entered"]

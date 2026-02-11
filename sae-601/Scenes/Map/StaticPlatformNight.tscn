@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dhfcvipxubhes" path="res://Script/Map/StaticPlatformNight.gd" id="1_kuaoe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cumiu"]
-size = Vector2(158, 47)
+size = Vector2(190, 47)
 
 [node name="StaticPlatformNight" type="Node2D"]
 
@@ -11,9 +11,9 @@ size = Vector2(158, 47)
 script = ExtResource("1_kuaoe")
 
 [node name="ColorRect" type="ColorRect" parent="StaticPlatformNight"]
-offset_right = 158.0
+offset_right = 190.0
 offset_bottom = 47.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatformNight"]
-position = Vector2(79, 23.5)
+position = Vector2(95, 23)
 shape = SubResource("RectangleShape2D_cumiu")

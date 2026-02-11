@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://caddjyjih3kv0"]
+[gd_scene load_steps=14 format=3 uid="uid://caddjyjih3kv0"]
 
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player.tscn" id="1_ko2s7"]
 [ext_resource type="PackedScene" uid="uid://bllgimnimmrlv" path="res://Scenes/Map/FondMap.tscn" id="1_rxb08"]
@@ -10,10 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bahow5oqgk4ok" path="res://Scenes/Map/MovingPlateformeNight.tscn" id="10_kq4yt"]
 [ext_resource type="PackedScene" uid="uid://bjpgctw3d7a4n" path="res://Scenes/Map/StaticPlatformNight.tscn" id="11_wjxug"]
 [ext_resource type="PackedScene" uid="uid://0bqy1cny0ncu" path="res://Scenes/Map/StaticPlatform.tscn" id="12_8d4ee"]
+[ext_resource type="PackedScene" uid="uid://dv1ka6eurov62" path="res://Scenes/Map/FallingPlatform.tscn" id="12_wjxug"]
 [ext_resource type="PackedScene" uid="uid://ddxnqh3v3hf66" path="res://Scenes/Map/StaticPlatformDay.tscn" id="13_8d4ee"]
-[ext_resource type="PackedScene" uid="uid://cmq1tycjwqirq" path="res://Scenes/Map/VerticalPlatformNight.tscn" id="14_b07cf"]
-[ext_resource type="PackedScene" uid="uid://cjoepfno5iso4" path="res://Scenes/Map/VerticalPlatformDay.tscn" id="15_x8mav"]
-[ext_resource type="PackedScene" uid="uid://7rxxb4ce8akh" path="res://Scenes/Map/VerticalPlatform.tscn" id="16_07y4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxb1y"]
 size = Vector2(2188, 289)
@@ -70,11 +68,8 @@ position = Vector2(1389, -92)
 [node name="StaticPlatformDay" parent="." instance=ExtResource("13_8d4ee")]
 position = Vector2(-114, -477)
 
-[node name="VerticalPlatform" parent="." instance=ExtResource("14_b07cf")]
-position = Vector2(875, -320)
+[node name="FallingPlatform" parent="." instance=ExtResource("12_wjxug")]
+position = Vector2(1126, -312)
 
-[node name="VerticalPlatformDay" parent="." instance=ExtResource("15_x8mav")]
-position = Vector2(1023, -429)
-
-[node name="VerticalPlatform2" parent="." instance=ExtResource("16_07y4a")]
-position = Vector2(1173, -335)
+[node name="FallingPlatform2" parent="." instance=ExtResource("12_wjxug")]
+position = Vector2(1246, -312)
