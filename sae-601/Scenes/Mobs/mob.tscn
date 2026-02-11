@@ -59,10 +59,11 @@ script = ExtResource("1_oe7hw")
 shape = SubResource("CapsuleShape2D_ejdc5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="champignon"]
-position = Vector2(-15, -1)
+position = Vector2(15, -1)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_0viak")
 animation = &"fixe"
+flip_h = true
 
 [node name="Leftlimit" type="Marker2D" parent="."]
 position = Vector2(-362, 3)

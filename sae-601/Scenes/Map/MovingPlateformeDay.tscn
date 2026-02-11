@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://xk1jpadogpor"]
+
+[ext_resource type="Script" uid="uid://c3c1kisuh6yq2" path="res://Script/Map/MovingPlatformDay.gd" id="1_dbc6u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emo84"]
+size = Vector2(665, 56)
+
+[sub_resource type="Animation" id="Animation_emo84"]
+resource_name = "MovingPlatfrome"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(400, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_llv1j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsl35"]
+_data = {
+&"MovingPlatfrome": SubResource("Animation_emo84"),
+&"RESET": SubResource("Animation_llv1j")
+}
+
+[node name="MovingPlatforme" type="Node2D"]
+
+[node name="MovingPlatformDay" type="AnimatableBody2D" parent="."]
+script = ExtResource("1_dbc6u")
+
+[node name="ColorRect" type="ColorRect" parent="MovingPlatformDay"]
+offset_right = 664.0
+offset_bottom = 55.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatformDay"]
+position = Vector2(333, 28)
+shape = SubResource("RectangleShape2D_emo84")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatformDay"]
+libraries = {
+&"": SubResource("AnimationLibrary_jsl35")
+}
+autoplay = "MovingPlatfrome"
