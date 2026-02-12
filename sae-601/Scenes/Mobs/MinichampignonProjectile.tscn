@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://dp5wg3ky50wyh"]
+
+[ext_resource type="Script" uid="uid://dbdsyemas3iro" path="res://Script/Mob/minichampignon_projectile.gd" id="1_tgue5"]
+[ext_resource type="Texture2D" uid="uid://barqk7fmqxtw1" path="res://Assets/Enemies/Champi.png" id="2_1pxdg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g285"]
+atlas = ExtResource("2_1pxdg")
+region = Rect2(0, 0, 103, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h882j"]
+atlas = ExtResource("2_1pxdg")
+region = Rect2(103, 0, 103, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoybm"]
+atlas = ExtResource("2_1pxdg")
+region = Rect2(206, 0, 103, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlqla"]
+atlas = ExtResource("2_1pxdg")
+region = Rect2(309, 0, 103, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8vwu"]
+atlas = ExtResource("2_1pxdg")
+region = Rect2(412, 0, 103, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iudeh"]
+atlas = ExtResource("2_1pxdg")
+region = Rect2(515, 0, 103, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_164qs"]
+atlas = ExtResource("2_1pxdg")
+region = Rect2(618, 0, 103, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oxf88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g285")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h882j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoybm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlqla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8vwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iudeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_164qs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trqd1"]
+radius = 23.086792
+
+[node name="MinichampignonProjectile" type="Area2D"]
+script = ExtResource("1_tgue5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_oxf88")
+animation = &"idle"
+frame_progress = 0.6904861
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_trqd1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

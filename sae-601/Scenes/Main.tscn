@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player.tscn" id="1_r150o"]
 [ext_resource type="Script" uid="uid://jht7job213te" path="res://Script/Paramètre/fade_layer.gd" id="5_1p5hy"]
-[ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/White_candle.tscn" id="5_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://butqb2g5w47tc" path="res://Scenes/Mobs/Enemy.tscn" id="6_jw32o"]
-[ext_resource type="PackedScene" uid="uid://cqqxp0l1dk2xb" path="res://Scenes/candle/Orange_candle.tscn" id="6_v1gob"]
-[ext_resource type="PackedScene" uid="uid://brfarmlsb5nvk" path="res://Scenes/Mobs/Epouvantail.tscn" id="7_jw32o"]
-[ext_resource type="PackedScene" uid="uid://b0xai1qyjla5n" path="res://Scenes/Mobs/Choux.tscn" id="8_50glp"]
-[ext_resource type="PackedScene" uid="uid://djpbvt4n8u6jo" path="res://Scenes/Mobs/Mob.tscn" id="9_vy5pj"]
+[ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/white_candle.tscn" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://butqb2g5w47tc" path="res://Scenes/Mobs/enemy.tscn" id="6_jw32o"]
+[ext_resource type="PackedScene" uid="uid://cqqxp0l1dk2xb" path="res://Scenes/candle/orange_candle.tscn" id="6_v1gob"]
+[ext_resource type="PackedScene" uid="uid://brfarmlsb5nvk" path="res://Scenes/Mobs/epouvantail.tscn" id="7_jw32o"]
+[ext_resource type="PackedScene" uid="uid://b0xai1qyjla5n" path="res://Scenes/Mobs/choux.tscn" id="8_50glp"]
+[ext_resource type="PackedScene" uid="uid://djpbvt4n8u6jo" path="res://Scenes/Mobs/mob.tscn" id="9_vy5pj"]
 [ext_resource type="PackedScene" uid="uid://c4n5ml7ywv0xx" path="res://Scenes/Paramètre/Zone_reboot.tscn" id="10_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://b1ge38el2hyof" path="res://Scenes/Paramètre/PauseMenu.tscn" id="11_4kpch"]
 [ext_resource type="PackedScene" uid="uid://dalguskcesfah" path="res://Scenes/Map/MovingPlatform.tscn" id="12_grg3l"]
@@ -59,10 +59,10 @@ position = Vector2(2929, 942)
 position = Vector2(4270, 909)
 
 [node name="Choux" parent="." instance=ExtResource("8_50glp")]
-position = Vector2(1749, 916)
+position = Vector2(3458, 923)
 
 [node name="champignon" parent="." instance=ExtResource("9_vy5pj")]
-position = Vector2(3659, 903)
+position = Vector2(1536, 906)
 
 [node name="ZoneReboot" parent="." instance=ExtResource("10_bmxlf")]
 position = Vector2(7866, 1797)

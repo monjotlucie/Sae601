@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcq2wvwide8y6"]
+
+[ext_resource type="Script" uid="uid://bi7kx1puket6" path="res://Script/Mob/champignon_projectile.gd" id="1_fn4u7"]
+[ext_resource type="Texture2D" uid="uid://barqk7fmqxtw1" path="res://Assets/Enemies/Champi.png" id="2_vndb6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx1d6"]
+atlas = ExtResource("2_vndb6")
+region = Rect2(0, 0, 104, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxu4m"]
+atlas = ExtResource("2_vndb6")
+region = Rect2(104, 0, 104, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0tx3"]
+atlas = ExtResource("2_vndb6")
+region = Rect2(208, 0, 104, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_883s3"]
+atlas = ExtResource("2_vndb6")
+region = Rect2(309, 0, 103, 122)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iiwv6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx1d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxu4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0tx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_883s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0tx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxu4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx1d6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uftki"]
+radius = 23.0
+
+[node name="ChampignonProjectile" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_fn4u7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_iiwv6")
+animation = &"idle"
+frame_progress = 0.83356035
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uftki")

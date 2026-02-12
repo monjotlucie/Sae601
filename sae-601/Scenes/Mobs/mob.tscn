@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://djpbvt4n8u6jo"]
+[gd_scene load_steps=11 format=3 uid="uid://djpbvt4n8u6jo"]
 
 [ext_resource type="Script" uid="uid://bgoxbxg41w3gs" path="res://Script/Mob/champignon.gd" id="1_oe7hw"]
+[ext_resource type="PackedScene" uid="uid://dp5wg3ky50wyh" path="res://Scenes/Mobs/MinichampignonProjectile.tscn" id="2_ejdc5"]
 [ext_resource type="Texture2D" uid="uid://6h8wrp3mntb7" path="res://Assets/Enemies/champignon.png" id="2_nwn7s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejdc5"]
@@ -54,6 +55,7 @@ animations = [{
 
 [node name="champignon" type="Area2D" parent="."]
 script = ExtResource("1_oe7hw")
+projectile_scene = ExtResource("2_ejdc5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="champignon"]
 shape = SubResource("CapsuleShape2D_ejdc5")
@@ -64,6 +66,9 @@ scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_0viak")
 animation = &"fixe"
 flip_h = true
+
+[node name="ShootPoint" type="Marker2D" parent="champignon"]
+position = Vector2(0, 160)
 
 [node name="Leftlimit" type="Marker2D" parent="."]
 position = Vector2(-362, 3)
