@@ -56,13 +56,13 @@ position = Vector2(1213, 826)
 position = Vector2(2929, 942)
 
 [node name="Epouvantail" parent="." instance=ExtResource("7_jw32o")]
-position = Vector2(1479, 917)
+position = Vector2(4270, 909)
 
 [node name="Choux" parent="." instance=ExtResource("8_50glp")]
-position = Vector2(2205, 924)
+position = Vector2(1749, 916)
 
 [node name="champignon" parent="." instance=ExtResource("9_vy5pj")]
-position = Vector2(1012, 907)
+position = Vector2(3659, 903)
 
 [node name="ZoneReboot" parent="." instance=ExtResource("10_bmxlf")]
 position = Vector2(7866, 1797)

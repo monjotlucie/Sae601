@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0xai1qyjla5n"]
+[gd_scene load_steps=10 format=3 uid="uid://b0xai1qyjla5n"]
 
 [ext_resource type="Script" uid="uid://bd3d1jy2pk2eq" path="res://Script/Mob/choux.gd" id="1_rpevr"]
 [ext_resource type="Texture2D" uid="uid://xn2vxhyktjsf" path="res://Assets/Enemies/choux.png" id="1_v6xg6"]
+[ext_resource type="PackedScene" uid="uid://nhq4ugqy4odg" path="res://Scenes/Mobs/ChouxProjectile.tscn" id="2_tglgp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rpevr"]
 radius = 44.0
@@ -47,6 +48,7 @@ animations = [{
 
 [node name="Choux" type="Area2D" parent="."]
 script = ExtResource("1_rpevr")
+projectile_scene = ExtResource("2_tglgp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Choux"]
 shape = SubResource("CapsuleShape2D_rpevr")
@@ -58,6 +60,9 @@ sprite_frames = SubResource("SpriteFrames_vedcp")
 animation = &"fixe"
 frame = 1
 frame_progress = 0.34761572
+
+[node name="ShootPoint" type="Marker2D" parent="Choux"]
+position = Vector2(9, 46)
 
 [node name="Leftlimit" type="Marker2D" parent="."]
 position = Vector2(-300, 1)

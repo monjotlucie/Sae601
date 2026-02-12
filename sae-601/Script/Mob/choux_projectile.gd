@@ -8,47 +8,42 @@ extends CharacterBody2D
 var direction := 1
 var bounce_count := 0
 
+@export var bounce_heights := [-400.0, -300.0, -180.0, -80.0]
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
 	sprite.play("idle")
+	print("Projectile spawned")
+
 
 func _physics_process(delta):
 
-	# Gravité
 	velocity.y += gravity * delta
-
-	# Mouvement horizontal constant
 	velocity.x = direction * speed
 
 	move_and_slide()
 
-	# Gestion des collisions
-	for i in get_slide_collision_count():
+	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
-		var normal = collision.get_normal()
 		var body = collision.get_collider()
 
-		# Si touche le joueur
 		if body is Player and not body.invincible:
 			body.die()
 			queue_free()
 			return
 
-		# Rebond sur le sol
-		if normal.y < -0.7:
-			bounce()
+	if is_on_floor():
+		bounce()
 
-		# Rebond mur
-		if abs(normal.x) > 0.7:
-			direction *= -1
+	if is_on_wall():
+		direction *= -1
+
 
 func bounce():
-	bounce_count += 1
 
-	if bounce_count >= max_bounces:
+	if bounce_count >= bounce_heights.size():
 		queue_free()
 		return
 
-	# Rebond de plus en plus faible
-	velocity.y = bounce_force * (1.0 - (bounce_count * 0.25))
+	velocity.y = bounce_heights[bounce_count]
+	bounce_count += 1
