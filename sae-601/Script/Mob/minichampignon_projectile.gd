@@ -13,16 +13,32 @@ var is_night := false
 
 
 func _ready():
+	randomize()
+
+	var random_scale = randf_range(0.9, 1)
+	scale = Vector2(random_scale, random_scale)
+
+	# Direction aléatoire
+	direction = [-1, 1].pick_random()
+
+	# Flip sprite si besoin
+	sprite.flip_h = direction < 0
+
 	sprite.play("idle")
-	
-	
-	
-	# 🔥 Connexion au GameState
 	GameState.day_night_changed.connect(_on_day_night_changed)
 	is_night = GameState.is_night
-	
-	body_entered.connect(_on_body_entered)
+	start_lifetime()
+
+func start_lifetime():
 	await get_tree().create_timer(lifetime).timeout
+	fade_and_die()
+	
+func fade_and_die():
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate:a", 0.0, 0.4)
+	tween.parallel().tween_property(sprite, "scale", Vector2(0.1, 0.1), 0.4)
+
+	await tween.finished
 	queue_free()
 
 func _on_day_night_changed(night: bool):
