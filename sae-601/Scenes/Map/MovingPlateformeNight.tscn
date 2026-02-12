@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bahow5oqgk4ok"]
 
-[ext_resource type="Script" uid="uid://dy8c4g15hxbte" path="res://Script/Map/MovingPlatformNight.gd" id="1_3vpvs"]
+[ext_resource type="Script" uid="uid://dy8c4g15hxbte" path="res://Script/Map/moving_platform_night.gd" id="1_3vpvs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emo84"]
 size = Vector2(665, 56)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dv1ka6eurov62"]
 
-[ext_resource type="Script" uid="uid://c6jh17s7fr5my" path="res://Script/Map/FallingPlatform.gd" id="1_avu7o"]
+[ext_resource type="Script" uid="uid://c6jh17s7fr5my" path="res://Script/Map/falling_platform.gd" id="1_avu7o"]
 [ext_resource type="Texture2D" uid="uid://chqxtlrlnyr8q" path="res://Assets/Plateformes/bloc.png" id="2_cmyuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcdjx"]

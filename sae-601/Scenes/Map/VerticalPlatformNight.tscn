@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cmq1tycjwqirq"]
 
-[ext_resource type="Script" uid="uid://cacrv26wkuenq" path="res://Script/Map/VerticalPlatformNight.gd" id="1_spari"]
+[ext_resource type="Script" uid="uid://cacrv26wkuenq" path="res://Script/Map/vertical_platform_night.gd" id="1_spari"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vh5k"]
 size = Vector2(213.5, 40)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjoepfno5iso4"]
 
-[ext_resource type="Script" uid="uid://c6itlq4umae2w" path="res://Script/Map/VerticalPlatformDay.gd" id="1_4qpj6"]
+[ext_resource type="Script" uid="uid://c6itlq4umae2w" path="res://Script/Map/vertical_platform_day.gd" id="1_4qpj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vh5k"]
 size = Vector2(295.5, 40)

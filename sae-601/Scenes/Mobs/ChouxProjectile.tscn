@@ -1,0 +1,112 @@
+[gd_scene load_steps=17 format=3 uid="uid://nhq4ugqy4odg"]
+
+[ext_resource type="Script" uid="uid://b6kaf4x5j23x6" path="res://Script/Mob/choux_projectile.gd" id="1_pxkli"]
+[ext_resource type="Texture2D" uid="uid://cqbt7ji3syv0e" path="res://Assets/Enemies/boule_de_choux(1).png" id="2_fyrvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7uce"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(0, 0, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8h78"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(81, 0, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5os5"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(162, 0, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23wq7"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(243, 0, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8rly"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(324, 0, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkc2j"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(0, 88, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utt7g"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(81, 88, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umj2o"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(162, 88, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0gw1"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(243, 88, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eplwd"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(324, 88, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_264ka"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(0, 176, 81, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48hmq"]
+atlas = ExtResource("2_fyrvc")
+region = Rect2(81, 176, 81, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iiwv6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7uce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8h78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5os5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23wq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8rly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkc2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utt7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umj2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0gw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eplwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_264ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48hmq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 9.01
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uftki"]
+radius = 35.014282
+
+[node name="ChouxProjectile" type="CharacterBody2D"]
+script = ExtResource("1_pxkli")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iiwv6")
+animation = &"idle"
+frame = 1
+frame_progress = 0.6606137
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1)
+shape = SubResource("CircleShape2D_uftki")

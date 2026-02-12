@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjpgctw3d7a4n"]
 
-[ext_resource type="Script" uid="uid://dhfcvipxubhes" path="res://Script/Map/StaticPlatformNight.gd" id="1_kuaoe"]
+[ext_resource type="Script" uid="uid://dhfcvipxubhes" path="res://Script/Map/static_platform_night.gd" id="1_kuaoe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cumiu"]
 size = Vector2(190, 47)
