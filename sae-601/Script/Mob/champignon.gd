@@ -3,7 +3,8 @@ extends Area2D
 @export var speed := 120.0
 @export var projectile_scene: PackedScene
 @export var shoot_range := 500.0
-@export var shoot_delay := 1.5
+@export var shoot_delay := 0.8
+
 
 var direction := -1
 var is_night := false

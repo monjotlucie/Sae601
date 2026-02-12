@@ -3,6 +3,7 @@ extends Area2D
 @export var speed := 200.0
 @export var bounce_force := -350.0
 @export var max_bounces := 4
+@export var lifetime := 15.0
 
 var direction := 1
 var bounce_count := 0
@@ -14,12 +15,15 @@ var is_night := false
 func _ready():
 	sprite.play("idle")
 	
+	
+	
 	# 🔥 Connexion au GameState
 	GameState.day_night_changed.connect(_on_day_night_changed)
 	is_night = GameState.is_night
 	
 	body_entered.connect(_on_body_entered)
-
+	await get_tree().create_timer(lifetime).timeout
+	queue_free()
 
 func _on_day_night_changed(night: bool):
 	is_night = night
