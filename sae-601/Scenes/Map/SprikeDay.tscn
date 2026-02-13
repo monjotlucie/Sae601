@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://igfwg202tnxl"]
+[gd_scene load_steps=4 format=3 uid="uid://dogwm3cy0e1t1"]
 
-[ext_resource type="Script" uid="uid://dgam3yvgjc18w" path="res://Script/Map/sprike.gd" id="1_eyjhw"]
-[ext_resource type="Texture2D" uid="uid://6hsx3m56q5u6" path="res://Assets/Map/picot.png" id="2_ur2rh"]
+[ext_resource type="Script" uid="uid://dgam3yvgjc18w" path="res://Script/Map/sprike.gd" id="1_ngn7t"]
+[ext_resource type="Texture2D" uid="uid://kp4pfl1l2tsx" path="res://Assets/Map/picot_day.png" id="2_ngn7t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_105yp"]
 size = Vector2(66, 64)
 
 [node name="Sprike" type="Area2D"]
-script = ExtResource("1_eyjhw")
+script = ExtResource("1_ngn7t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(42.999992, 39.999992)
 scale = Vector2(0.3989899, 0.3989899)
-texture = ExtResource("2_ur2rh")
+texture = ExtResource("2_ngn7t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(44, 32)

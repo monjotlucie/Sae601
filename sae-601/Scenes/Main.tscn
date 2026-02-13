@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=18 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dalguskcesfah" path="res://Scenes/Map/MovingPlatform.tscn" id="12_grg3l"]
 [ext_resource type="PackedScene" uid="uid://kllwlhcgdi5n" path="res://Scenes/Paramètre/Checkpoint.tscn" id="13_frkhe"]
 [ext_resource type="PackedScene" uid="uid://igfwg202tnxl" path="res://Scenes/Map/Sprike.tscn" id="15_h1m7h"]
+[ext_resource type="PackedScene" uid="uid://dogwm3cy0e1t1" path="res://Scenes/Map/SprikeDay.tscn" id="16_2w5on"]
+[ext_resource type="PackedScene" uid="uid://c13ogoj2m4xvn" path="res://Scenes/Map/SprikeNight.tscn" id="17_346fj"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-134, -68)
@@ -75,3 +77,9 @@ position = Vector2(7548, 1440)
 
 [node name="Sprike" parent="." instance=ExtResource("15_h1m7h")]
 position = Vector2(340, 962)
+
+[node name="Sprike2" parent="." instance=ExtResource("16_2w5on")]
+position = Vector2(759, 961)
+
+[node name="Sprike3" parent="." instance=ExtResource("17_346fj")]
+position = Vector2(904, 962)

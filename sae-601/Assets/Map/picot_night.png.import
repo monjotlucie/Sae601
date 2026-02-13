@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6hsx3m56q5u6"
-path="res://.godot/imported/picot.png-41217990e2a444c0c8909deee640fff2.ctex"
+uid="uid://6r0smk6aigkw"
+path="res://.godot/imported/picot_night.png-be0ba7b7c4647c4a066eefdeb77bbdd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Paramètres/picot.png"
-dest_files=["res://.godot/imported/picot.png-41217990e2a444c0c8909deee640fff2.ctex"]
+source_file="res://Assets/Map/picot_night.png"
+dest_files=["res://.godot/imported/picot_night.png-be0ba7b7c4647c4a066eefdeb77bbdd3.ctex"]
 
 [params]
 
