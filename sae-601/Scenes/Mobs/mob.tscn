@@ -51,7 +51,7 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="champignon" type="Node2D"]
+[node name="champignon2" type="Node2D" groups=["enemies"]]
 
 [node name="champignon" type="Area2D" parent="."]
 script = ExtResource("1_oe7hw")

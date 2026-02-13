@@ -45,18 +45,11 @@ func switch_mode(night: bool) -> void:
 	is_night = night
 	animated_sprite.play("fixe")
 
-
-# ===============================
-#        CONTACT JOUEUR
-# ===============================
-
 func _on_body_entered(body: Node2D):
 	if body is Player:
 		if is_night and not body.invincible:
 			body.die()
-# ===============================
-#        SYSTÈME DE TIR
-# ===============================
+
 
 func shoot_loop():
 	while true:

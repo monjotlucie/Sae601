@@ -44,9 +44,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Choux" type="Node2D"]
+[node name="Choux" type="Node2D" groups=["enemies"]]
 
-[node name="Choux" type="Area2D" parent="."]
+[node name="Choux" type="Area2D" parent="." groups=["enemies"]]
 script = ExtResource("1_rpevr")
 projectile_scene = ExtResource("2_tglgp")
 

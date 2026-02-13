@@ -57,6 +57,5 @@ func bounce():
 
 func _on_body_entered(body: Node2D):
 	if body is Player:
-		# 🔥 Tue seulement la nuit
 		if is_night and not body.invincible:
 			body.die()

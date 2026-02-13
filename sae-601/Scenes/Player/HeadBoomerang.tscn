@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://dpeshpfdfb1fe"]
+
+[ext_resource type="Script" uid="uid://dysi78gkp06vp" path="res://Script/Player/head_boomerang.gd" id="1_nlp1y"]
+[ext_resource type="Texture2D" uid="uid://wrvjv86b5ewa" path="res://Assets/Players/tete_boule_de_feu.png" id="2_ww4j2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fqs2"]
+atlas = ExtResource("2_ww4j2")
+region = Rect2(0, 0, 170, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c716k"]
+atlas = ExtResource("2_ww4j2")
+region = Rect2(170, 0, 170, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp5db"]
+atlas = ExtResource("2_ww4j2")
+region = Rect2(340, 0, 170, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnuto"]
+atlas = ExtResource("2_ww4j2")
+region = Rect2(510, 0, 170, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1rxj"]
+atlas = ExtResource("2_ww4j2")
+region = Rect2(712, 0, 177, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dsbx"]
+atlas = ExtResource("2_ww4j2")
+region = Rect2(889, 0, 177, 194)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ke03h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fqs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c716k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp5db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnuto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1rxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dsbx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73fb8"]
+radius = 63.348244
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlp1y"]
+radius = 63.03174
+
+[node name="HeadBoomerang" type="CharacterBody2D"]
+script = ExtResource("1_nlp1y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ke03h")
+animation = &"idle"
+frame_progress = 0.36727053
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_73fb8")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_nlp1y")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

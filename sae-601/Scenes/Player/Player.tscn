@@ -1,8 +1,30 @@
-[gd_scene load_steps=28 format=3 uid="uid://btmfbnd8b0n3p"]
+[gd_scene load_steps=35 format=3 uid="uid://btmfbnd8b0n3p"]
 
-[ext_resource type="Script" uid="uid://j60vmkvvbawj" path="res://Script/player.gd" id="1_gntrk"]
+[ext_resource type="Script" uid="uid://j60vmkvvbawj" path="res://Script/Player/player.gd" id="1_gntrk"]
 [ext_resource type="Texture2D" uid="uid://bi3eq3l0ln8lj" path="res://Assets/Players/player_day.png" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://dw7hyhisa8gw1" path="res://Assets/Players/player_night.png" id="2_gntrk"]
+[ext_resource type="PackedScene" uid="uid://dpeshpfdfb1fe" path="res://Scenes/Player/HeadBoomerang.tscn" id="2_jmcll"]
+[ext_resource type="Texture2D" uid="uid://l452xlwk7es" path="res://Assets/Players/player_night_attaque.png" id="2_ude3g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmcll"]
+atlas = ExtResource("2_ude3g")
+region = Rect2(0, 0, 234, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wape"]
+atlas = ExtResource("2_ude3g")
+region = Rect2(234, 0, 234, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t26db"]
+atlas = ExtResource("2_ude3g")
+region = Rect2(468, 0, 234, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk5o5"]
+atlas = ExtResource("2_ude3g")
+region = Rect2(702, 0, 234, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_825xp"]
+atlas = ExtResource("2_ude3g")
+region = Rect2(936, 0, 234, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dewec"]
 atlas = ExtResource("1_kyqiw")
@@ -94,6 +116,26 @@ region = Rect2(952, 266, 238, 266)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8flut"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmcll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wape")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t26db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk5o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_825xp")
+}],
+"loop": true,
+"name": &"Attack_night",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dewec")
@@ -197,10 +239,13 @@ height = 206.0
 
 [node name="Joueur" type="CharacterBody2D"]
 script = ExtResource("1_gntrk")
+head_projectile = ExtResource("2_jmcll")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_8flut")
-animation = &"Saut_night"
+animation = &"Attack_night"
+frame_progress = 0.24126467
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(24, 7)
