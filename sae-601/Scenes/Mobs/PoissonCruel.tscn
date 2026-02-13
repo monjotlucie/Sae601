@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://idq54qrjg47h"]
+
+[ext_resource type="Script" uid="uid://dr2l5bpbrknfj" path="res://Script/Mob/poisson_cruel.gd" id="1_3emvu"]
+[ext_resource type="Texture2D" uid="uid://dyow6yulrt5w0" path="res://Assets/Enemies/Poisson_méchant.png" id="2_sgjuw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejdc5"]
+radius = 52.0
+height = 104.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bhrp"]
+atlas = ExtResource("2_sgjuw")
+region = Rect2(0, 0, 649, 530)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0viak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bhrp")
+}],
+"loop": true,
+"name": &"fixe",
+"speed": 3.0
+}]
+
+[node name="PoissonCruel" type="Node2D" groups=["enemies"]]
+
+[node name="PoissonCruel" type="Area2D" parent="."]
+script = ExtResource("1_3emvu")
+speed = null
+shoot_range = null
+shoot_delay = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoissonCruel"]
+position = Vector2(67, -30)
+shape = SubResource("CapsuleShape2D_ejdc5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PoissonCruel"]
+position = Vector2(59, -39)
+scale = Vector2(0.21650945, 0.21650945)
+sprite_frames = SubResource("SpriteFrames_0viak")
+animation = &"fixe"
+flip_h = true
+
+[node name="Leftlimit" type="Marker2D" parent="."]
+position = Vector2(-362, 3)
+
+[node name="Rightlimit" type="Marker2D" parent="."]
+position = Vector2(465, 3)
+
+[connection signal="body_entered" from="PoissonCruel" to="PoissonCruel" method="_on_body_entered"]
