@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://caddjyjih3kv0"]
+[gd_scene load_steps=15 format=3 uid="uid://caddjyjih3kv0"]
 
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player/Player.tscn" id="1_ko2s7"]
 [ext_resource type="PackedScene" uid="uid://bllgimnimmrlv" path="res://Scenes/Map/FondMap.tscn" id="1_rxb08"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bjpgctw3d7a4n" path="res://Scenes/Map/StaticPlatformNight.tscn" id="11_wjxug"]
 [ext_resource type="PackedScene" uid="uid://0bqy1cny0ncu" path="res://Scenes/Map/StaticPlatform.tscn" id="12_8d4ee"]
 [ext_resource type="PackedScene" uid="uid://dv1ka6eurov62" path="res://Scenes/Map/FallingPlatform.tscn" id="12_wjxug"]
+[ext_resource type="PackedScene" uid="uid://xdqpuak5swjb" path="res://Scenes/Paramètre/InputSettings.tscn" id="13_3la1u"]
 [ext_resource type="PackedScene" uid="uid://ddxnqh3v3hf66" path="res://Scenes/Map/StaticPlatformDay.tscn" id="13_8d4ee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxb1y"]
@@ -73,3 +74,9 @@ position = Vector2(1126, -312)
 
 [node name="FallingPlatform2" parent="." instance=ExtResource("12_wjxug")]
 position = Vector2(1246, -312)
+
+[node name="InputSettings" parent="." instance=ExtResource("13_3la1u")]
+offset_left = 797.0
+offset_top = -185.0
+offset_right = 797.0
+offset_bottom = -185.0

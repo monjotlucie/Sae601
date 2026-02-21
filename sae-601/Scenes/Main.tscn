@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=17 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -15,8 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dalguskcesfah" path="res://Scenes/Map/MovingPlatform.tscn" id="12_grg3l"]
 [ext_resource type="PackedScene" uid="uid://kllwlhcgdi5n" path="res://Scenes/Paramètre/Checkpoint.tscn" id="13_frkhe"]
 [ext_resource type="PackedScene" uid="uid://igfwg202tnxl" path="res://Scenes/Map/Sprike.tscn" id="15_h1m7h"]
-[ext_resource type="PackedScene" uid="uid://dn7xcnsyjoii1" path="res://Scenes/Map/Water.tscn" id="16_erwvk"]
-[ext_resource type="PackedScene" uid="uid://idq54qrjg47h" path="res://Scenes/Mobs/PoissonCruel.tscn" id="17_2w5on"]
+[ext_resource type="PackedScene" uid="uid://xdqpuak5swjb" path="res://Scenes/Paramètre/InputSettings.tscn" id="18_346fj"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-134, -68)
@@ -78,8 +77,8 @@ position = Vector2(7548, 1440)
 [node name="Sprike" parent="." instance=ExtResource("15_h1m7h")]
 position = Vector2(340, 962)
 
-[node name="Water" parent="." instance=ExtResource("16_erwvk")]
-position = Vector2(788, 601)
-
-[node name="PoissonCruel" parent="." instance=ExtResource("17_2w5on")]
-position = Vector2(1191, 924)
+[node name="InputSettings" parent="." instance=ExtResource("18_346fj")]
+offset_left = 1560.0
+offset_top = 620.0
+offset_right = 1560.0
+offset_bottom = 620.0

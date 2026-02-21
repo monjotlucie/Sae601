@@ -20,7 +20,8 @@ func _on_jouer_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Main.tscn")
 
 func _on_options_pressed() -> void:
-	print("Options (à venir)")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/Paramètre/InputSettings.tscn")
 
 func _on_quitter_pressed() -> void:
 	get_tree().quit()
