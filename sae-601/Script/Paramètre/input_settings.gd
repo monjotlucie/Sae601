@@ -4,6 +4,7 @@ const INPUT_BUTTON_SCENE := preload("res://Scenes/Paramètre/input_button.tscn")
 const SAVE_PATH := "user://input_bindings.cfg"
 
 @onready var action_list: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList
+@onready var validate_button: Button = $PanelContainer/MarginContainer/VBoxContainer/ValidateButton
 
 var is_remapping: bool = false
 var action_to_remap: StringName
@@ -12,6 +13,7 @@ var remapping_row: Node = null
 func _ready() -> void:
 	_load_bindings()
 	_create_action_list()
+	validate_button.pressed.connect(_on_validate_pressed)
 
 func _create_action_list() -> void:
 	InputMap.load_from_project_settings()
@@ -78,7 +80,7 @@ func _apply_remap(event: InputEvent) -> void:
 	InputMap.action_erase_events(action_to_remap)
 	InputMap.action_add_event(action_to_remap, event)
 
-	var label_input: Label = remapping_row.get_node("$MarginContainer/HBoxContainer/LabelAction")
+	var label_input: Label = remapping_row.get_node("MarginContainer/HBoxContainer/LabelInput")
 	label_input.text = event.as_text()
 
 	is_remapping = false
@@ -88,7 +90,7 @@ func _apply_remap(event: InputEvent) -> void:
 
 func _cancel_remap() -> void:
 	if remapping_row != null:
-		var label_input: Label = remapping_row.get_node("$MarginContainer/HBoxContainer/LabelInput")
+		var label_input: Label = remapping_row.get_node("MarginContainer/HBoxContainer/LabelInput")
 		label_input.text = _get_action_first_event_text(action_to_remap)
 
 	is_remapping = false
@@ -157,3 +159,14 @@ func _load_bindings() -> void:
 		if ev != null:
 			InputMap.action_erase_events(action)
 			InputMap.action_add_event(action, ev)
+
+func _on_validate_pressed() -> void:
+	# Si un remap est en cours → on annule proprement
+	if is_remapping:
+		_cancel_remap()
+
+	# Sauvegarde finale
+	_save_bindings()
+
+	# Retour au menu principal
+	get_tree().change_scene_to_file("res://Scenes/Paramètre/PauseMenu.tscn")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://xdqpuak5swjb"]
+[gd_scene load_steps=5 format=3 uid="uid://xdqpuak5swjb"]
 
 [ext_resource type="Script" uid="uid://b5wf042p6u4ye" path="res://Script/Paramètre/input_settings.gd" id="1_12ojo"]
 [ext_resource type="Texture2D" uid="uid://pyvxq3sma7w2" path="res://Assets/Paramètres/fond-settings.png" id="2_uw6r7"]
 [ext_resource type="PackedScene" uid="uid://c8e4l8jjc8xpx" path="res://Scenes/Paramètre/input_button.tscn" id="3_45kla"]
+[ext_resource type="FontFile" uid="uid://2pahkitvhgcc" path="res://Assets/Paramètres/Jaini/Jaini-Regular.ttf" id="4_uw6r7"]
 
 [node name="InputSettings" type="Control"]
 layout_mode = 3
@@ -60,3 +61,9 @@ layout_mode = 2
 
 [node name="InputButton4" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("3_45kla")]
 layout_mode = 2
+
+[node name="ValidateButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_uw6r7")
+theme_override_font_sizes/font_size = 36
+text = "Sauvegarder"
