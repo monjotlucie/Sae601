@@ -1,6 +1,9 @@
 extends CanvasLayer
 
+@onready var input_settings = get_parent().get_node("InputSettings")
+
 func _ready():
+	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	hide()
 
 func open():
@@ -16,12 +19,11 @@ func close():
 # === BOUTONS ===
 
 func _on_jouer_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/Main.tscn")
+	close()
 
 func _on_options_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/Paramètre/InputSettings.tscn")
+	hide()
+	input_settings.open_from_pause_menu()
 
 func _on_quitter_pressed() -> void:
 	get_tree().quit()

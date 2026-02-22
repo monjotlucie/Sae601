@@ -7,6 +7,11 @@ extends Node2D
 
 func _ready():
 	player.respawn_requested.connect(_on_player_respawn)
+	print("PAUSED ?", get_tree().paused)
+	
+	if GameState.open_pause_menu_on_load:
+		GameState.open_pause_menu_on_load = false
+		pause_menu.open()
 
 func _on_player_respawn():
 	print("Respawn demandé")

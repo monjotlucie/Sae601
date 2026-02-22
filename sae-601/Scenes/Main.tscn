@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player/Player.tscn" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://bllgimnimmrlv" path="res://Scenes/Map/FondMap.tscn" id="2_erwvk"]
 [ext_resource type="Script" uid="uid://jht7job213te" path="res://Script/Paramètre/fade_layer.gd" id="5_1p5hy"]
 [ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/white_candle.tscn" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://butqb2g5w47tc" path="res://Scenes/Mobs/enemy.tscn" id="6_jw32o"]
@@ -10,29 +11,28 @@
 [ext_resource type="PackedScene" uid="uid://brfarmlsb5nvk" path="res://Scenes/Mobs/epouvantail.tscn" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://b0xai1qyjla5n" path="res://Scenes/Mobs/choux.tscn" id="8_50glp"]
 [ext_resource type="PackedScene" uid="uid://djpbvt4n8u6jo" path="res://Scenes/Mobs/mob.tscn" id="9_vy5pj"]
-[ext_resource type="PackedScene" uid="uid://c4n5ml7ywv0xx" path="res://Scenes/Paramètre/ZoneReboot.tscn" id="10_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://b1ge38el2hyof" path="res://Scenes/Paramètre/PauseMenu.tscn" id="11_4kpch"]
-[ext_resource type="PackedScene" uid="uid://dalguskcesfah" path="res://Scenes/Map/MovingPlatform.tscn" id="12_grg3l"]
 [ext_resource type="PackedScene" uid="uid://kllwlhcgdi5n" path="res://Scenes/Paramètre/Checkpoint.tscn" id="13_frkhe"]
 [ext_resource type="PackedScene" uid="uid://igfwg202tnxl" path="res://Scenes/Map/Sprike.tscn" id="15_h1m7h"]
+[ext_resource type="PackedScene" uid="uid://0bqy1cny0ncu" path="res://Scenes/Map/StaticPlatform.tscn" id="16_2w5on"]
 [ext_resource type="PackedScene" uid="uid://xdqpuak5swjb" path="res://Scenes/Paramètre/InputSettings.tscn" id="18_346fj"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-134, -68)
 script = ExtResource("1_kln2b")
 
+[node name="FondMap" parent="." instance=ExtResource("2_erwvk")]
+position = Vector2(-9411, 59)
+
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(560, 850)
 
 [node name="Map" parent="." instance=ExtResource("1_idj7w")]
-position = Vector2(-253, 53)
+position = Vector2(-253, 67)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_frkhe")]
-position = Vector2(6102, 383)
+position = Vector2(6485, 1042)
 scale = Vector2(0.7, 0.7)
-
-[node name="Checkpoint2" parent="." instance=ExtResource("13_frkhe")]
-position = Vector2(7491, 164)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(551, 917)
@@ -66,19 +66,26 @@ position = Vector2(3458, 923)
 [node name="champignon" parent="." instance=ExtResource("9_vy5pj")]
 position = Vector2(1536, 906)
 
-[node name="ZoneReboot" parent="." instance=ExtResource("10_bmxlf")]
-position = Vector2(7866, 1797)
-
 [node name="PauseMenu" parent="." instance=ExtResource("11_4kpch")]
-
-[node name="MovingPlatforme" parent="." instance=ExtResource("12_grg3l")]
-position = Vector2(7548, 1440)
 
 [node name="Sprike" parent="." instance=ExtResource("15_h1m7h")]
 position = Vector2(340, 962)
 
 [node name="InputSettings" parent="." instance=ExtResource("18_346fj")]
-offset_left = 1560.0
-offset_top = 620.0
-offset_right = 1560.0
-offset_bottom = 620.0
+offset_left = 709.0
+offset_top = 773.0
+offset_right = 709.0
+offset_bottom = 773.0
+
+[node name="StaticPlatform" parent="." instance=ExtResource("16_2w5on")]
+position = Vector2(6563, 1682)
+
+[node name="ColorRect" parent="StaticPlatform/StaticBody2D" index="0"]
+offset_right = 2319.0
+offset_bottom = 435.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" parent="StaticPlatform/StaticBody2D" index="1"]
+position = Vector2(1157, 219)
+
+[editable path="StaticPlatform"]

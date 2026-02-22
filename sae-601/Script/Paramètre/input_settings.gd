@@ -9,10 +9,13 @@ const SAVE_PATH := "user://input_bindings.cfg"
 var is_remapping: bool = false
 var action_to_remap: StringName
 var remapping_row: Node = null
+var was_paused_before: bool = false
 
 func _ready() -> void:
+	visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	_load_bindings()
-	_create_action_list()
 	validate_button.pressed.connect(_on_validate_pressed)
 
 func _create_action_list() -> void:
@@ -34,16 +37,12 @@ func _create_action_list() -> void:
 		label_action.text = str(action)
 		label_input.text = _get_action_first_event_text(action)
 
-		# Stocker l'action dans la ligne (pratique)
 		row.set_meta("action_name", action)
 
-		# Clic sur la ligne => demande de remap
 		if row.has_signal("remap_requested"):
 			row.remap_requested.connect(_on_row_remap_requested)
-		else:
-			# Si tu n'as pas mis le script sur InputButton, fallback: on connecte pressed direct
-			if row is Button:
-				row.pressed.connect(_on_row_pressed_fallback.bind(row))
+		elif row is Button:
+			row.pressed.connect(_on_row_pressed_fallback.bind(row))
 
 func _on_row_pressed_fallback(row: Node) -> void:
 	_on_row_remap_requested(row)
@@ -53,6 +52,7 @@ func _on_row_remap_requested(row: Node) -> void:
 	remapping_row = row
 	action_to_remap = row.get_meta("action_name")
 
+	validate_button.disabled = true
 	var label_input: Label = remapping_row.get_node("MarginContainer/HBoxContainer/LabelInput")
 	label_input.text = "Appuie sur une touche..."
 
@@ -63,12 +63,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		return
 
-	if event is InputEventKey and not event.pressed:
-		return
-	if event is InputEventMouseButton and not event.pressed:
+	# IMPORTANT : ignorer la souris pendant le remap (sinon clic = nouvelle touche)
+	if event is InputEventMouseButton:
 		return
 
-	# ESC pour annuler
+	if event is InputEventKey and not event.pressed:
+		return
+
 	if event is InputEventKey and event.keycode == KEY_ESCAPE:
 		_cancel_remap()
 		return
@@ -85,6 +86,7 @@ func _apply_remap(event: InputEvent) -> void:
 
 	is_remapping = false
 	remapping_row = null
+	validate_button.disabled = false
 
 	_save_bindings()
 
@@ -95,6 +97,7 @@ func _cancel_remap() -> void:
 
 	is_remapping = false
 	remapping_row = null
+	validate_button.disabled = false
 
 func _get_action_first_event_text(action: StringName) -> String:
 	var events := InputMap.action_get_events(action)
@@ -102,7 +105,7 @@ func _get_action_first_event_text(action: StringName) -> String:
 		return ""
 	return events[0].as_text()
 
-# ---- Sauvegarde / chargement robuste ----
+# -------- Sauvegarde --------
 
 func _save_bindings() -> void:
 	var cfg := ConfigFile.new()
@@ -160,13 +163,30 @@ func _load_bindings() -> void:
 			InputMap.action_erase_events(action)
 			InputMap.action_add_event(action, ev)
 
+# -------- Bouton Valider --------
+
 func _on_validate_pressed() -> void:
-	# Si un remap est en cours → on annule proprement
 	if is_remapping:
 		_cancel_remap()
 
-	# Sauvegarde finale
 	_save_bindings()
 
-	# Retour au menu principal
-	get_tree().change_scene_to_file("res://Scenes/Paramètre/PauseMenu.tscn")
+	get_viewport().set_input_as_handled()
+	Input.flush_buffered_events()
+
+	close_to_pause_menu()
+
+func open_from_pause_menu() -> void:
+	visible = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	# le jeu est déjà en pause via PauseMenu.open()
+
+	_create_action_list()
+
+func close_to_pause_menu() -> void:
+	visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	# on laisse le jeu en pause, et on ré-affiche le pause menu
+	var pause_menu = get_parent().get_node("PauseMenu")
+	pause_menu.show()
