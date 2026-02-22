@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bljn076f8m7qr"]
+[gd_scene load_steps=6 format=3 uid="uid://bljn076f8m7qr"]
 
 [ext_resource type="Script" uid="uid://didb7hcwvol7r" path="res://Script/Candle/violet_candle.gd" id="1_wgifr"]
 [ext_resource type="Texture2D" uid="uid://csqm7n0t0160v" path="res://Assets/candle/Violet_candle.png" id="1_yl7h2"]
+[ext_resource type="Script" uid="uid://b6yda1rhetaf6" path="res://Script/Candle/CandlePickup.gd" id="3_rj6k2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rj6k2"]
 radius = 22.36068
@@ -20,6 +21,7 @@ texture = ExtResource("1_yl7h2")
 shape = SubResource("CircleShape2D_rj6k2")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_rj6k2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_bk0kx")

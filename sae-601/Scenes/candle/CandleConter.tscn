@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://qnac8jgb51nh"]
+
+[ext_resource type="Script" uid="uid://nmm6wm08e3mp" path="res://Script/Candle/candle_conter.gd" id="1_0ef38"]
+[ext_resource type="FontFile" uid="uid://2pahkitvhgcc" path="res://Assets/Paramètres/Jaini/Jaini-Regular.ttf" id="2_bs3kb"]
+
+[node name="CandleConter" type="CanvasLayer"]
+script = ExtResource("1_0ef38")
+
+[node name="CandlesLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_top = 35.0
+offset_right = -44.0
+offset_bottom = 115.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.6509804, 0.17254902, 0.12156863, 1)
+theme_override_fonts/font = ExtResource("2_bs3kb")
+theme_override_font_sizes/font_size = 50

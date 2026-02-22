@@ -11,21 +11,26 @@ func _ready():
 	player.respawn_requested.connect(_on_player_respawn)
 	print("PAUSED ?", get_tree().paused)
 
+	# Connexion au compteur de bougies
+	GameState.candles_changed.connect(_on_candles_changed)
+
 	# ---- Camera créée en code ----
 	cam = Camera2D.new()
 	add_child(cam)
 	cam.make_current()
 
-	# Optionnel : adoucir le suivi
 	cam.position_smoothing_enabled = true
 	cam.position_smoothing_speed = 8.0
-
-	# Optionnel : voir plus en dessous du perso
 	cam.position = Vector2(0, 150)
 
 	if GameState.open_pause_menu_on_load:
 		GameState.open_pause_menu_on_load = false
 		pause_menu.open()
+
+func _on_candles_changed(current: int, total: int) -> void:
+	if current >= total:
+		print("Toutes les bougies ont été récupérées !")
+		# Exemple : tu peux lancer une cinématique, ouvrir une porte, changer de scène, etc.
 
 func _on_player_respawn():
 	await fade.fade_out(0.3)
@@ -42,10 +47,9 @@ func _process(delta):
 	if player == null or cam == null:
 		return
 
-	# Suivi caméra sur le joueur + offset vers le bas
 	cam.global_position.x = player.global_position.x
 	cam.global_position.y = player.global_position.y - 150
-	
+
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if pause_menu.visible:
