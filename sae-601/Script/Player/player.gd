@@ -25,10 +25,6 @@ func _ready():
 	add_to_group("player")
 
 
-# ======================
-#       ATTAQUE
-# ======================
-
 func launch_head():
 
 	if head_projectile == null:
@@ -42,14 +38,14 @@ func launch_head():
 
 	var projectile = head_projectile.instantiate()
 
-	var offset_x = 100  # distance devant le joueur
+	var offset_x = 100 
 
-	# Position devant le joueur
+
 	projectile.global_position = global_position + Vector2(facing_direction * offset_x, -20)
 
 	projectile.direction = facing_direction
 
-	# Orientation visuelle correcte
+
 	projectile.get_node("AnimatedSprite2D").flip_h = (facing_direction == -1)
 
 	get_tree().current_scene.add_child(projectile)
@@ -70,10 +66,6 @@ func finish_attack():
 	attacking = false
 	current_head = null
 
-
-# ======================
-#       MORT
-# ======================
 
 func die():
 	if is_dead or invincible:
@@ -103,40 +95,30 @@ func start_invincibility():
 	animated_sprite_2d.modulate.a = 1.0
 
 
-# ======================
-#       JOUR / NUIT
-# ======================
 
 func _on_day_night_changed(night: bool):
 	is_night = night
 
 
-# ======================
-#       PHYSICS
-# ======================
 
 func _physics_process(delta):
 
-	# Toggle jour/nuit
 	if Input.is_action_just_pressed("toggle_mode"):
 		GameState.toggle_day_night()
 
-	# Attaque (seulement la nuit)
 	if Input.is_action_just_pressed("attack") and is_night and not attacking:
 		launch_head()
 
 	if is_dead:
 		return
 
-	# Gravité
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Saut
+
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Mouvement horizontal
 	var direction := Input.get_axis("ui_left", "ui_right")
 	velocity.x = direction * SPEED
 
@@ -148,7 +130,6 @@ func _physics_process(delta):
 		facing_direction = -1
 
 
-	# Animations
 	if not attacking:
 		if not is_on_floor():
 			play_anim("Saut")
@@ -160,9 +141,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-# ======================
-#       ANIMATIONS
-# ======================
 
 func play_anim(base_name: String):
 	var suffix := "_night" if is_night else "_day"
