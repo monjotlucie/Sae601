@@ -5,18 +5,29 @@ extends Node2D
 @onready var pause_menu = $PauseMenu
 @onready var fade = $FadeLayer
 
+var cam: Camera2D
+
 func _ready():
 	player.respawn_requested.connect(_on_player_respawn)
 	print("PAUSED ?", get_tree().paused)
-	
+
+	# ---- Camera créée en code ----
+	cam = Camera2D.new()
+	add_child(cam)
+	cam.make_current()
+
+	# Optionnel : adoucir le suivi
+	cam.position_smoothing_enabled = true
+	cam.position_smoothing_speed = 8.0
+
+	# Optionnel : voir plus en dessous du perso
+	cam.position = Vector2(0, 150)
+
 	if GameState.open_pause_menu_on_load:
 		GameState.open_pause_menu_on_load = false
 		pause_menu.open()
 
 func _on_player_respawn():
-	print("Respawn demandé")
-	print("Position sauvegardée :", GameState.respawn_position)
-
 	await fade.fade_out(0.3)
 
 	if GameState.respawn_position != Vector2.ZERO:
@@ -25,11 +36,16 @@ func _on_player_respawn():
 		player.global_position = spawn_point.global_position
 
 	player.revive()
-
 	await fade.fade_in(0.3)
 
+func _process(delta):
+	if player == null or cam == null:
+		return
 
-
+	# Suivi caméra sur le joueur + offset vers le bas
+	cam.global_position.x = player.global_position.x
+	cam.global_position.y = player.global_position.y - 150
+	
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if pause_menu.visible:

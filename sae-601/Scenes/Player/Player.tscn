@@ -238,6 +238,7 @@ radius = 63.0
 height = 206.0
 
 [node name="Joueur" type="CharacterBody2D"]
+position = Vector2(521, -6)
 script = ExtResource("1_gntrk")
 head_projectile = ExtResource("2_jmcll")
 
@@ -252,11 +253,9 @@ position = Vector2(24, 7)
 shape = SubResource("CapsuleShape2D_u7x0b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(27, 7)
 limit_left = 15
 limit_bottom = 1040
+position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_left_margin = 0.3
-drag_top_margin = 0.25
-drag_right_margin = 0.3
-drag_bottom_margin = 0.15

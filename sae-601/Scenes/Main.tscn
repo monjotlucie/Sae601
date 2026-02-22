@@ -45,9 +45,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(798, 716)
-
 [node name="White_candle" parent="." instance=ExtResource("5_pbw6q")]
 position = Vector2(9113, 828)
 
@@ -71,11 +68,13 @@ position = Vector2(1536, 906)
 [node name="Sprike" parent="." instance=ExtResource("15_h1m7h")]
 position = Vector2(340, 962)
 
-[node name="InputSettings" parent="." instance=ExtResource("18_346fj")]
-offset_left = 709.0
-offset_top = 773.0
-offset_right = 709.0
-offset_bottom = 773.0
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="InputSettings" parent="UILayer" instance=ExtResource("18_346fj")]
+offset_left = -1.0
+offset_top = -2.0
+offset_right = -1.0
+offset_bottom = -2.0
 
 [node name="StaticPlatform" parent="." instance=ExtResource("16_2w5on")]
 position = Vector2(6563, 1682)

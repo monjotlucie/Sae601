@@ -5,6 +5,7 @@ const SAVE_PATH := "user://input_bindings.cfg"
 
 @onready var action_list: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList
 @onready var validate_button: Button = $PanelContainer/MarginContainer/VBoxContainer/ValidateButton
+@onready var panel: Control = $PanelContainer
 
 var is_remapping: bool = false
 var action_to_remap: StringName
@@ -180,13 +181,32 @@ func open_from_pause_menu() -> void:
 	visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-	# le jeu est déjà en pause via PauseMenu.open()
 
 	_create_action_list()
 
+	# Laisse le layout se calculer
+	await get_tree().process_frame
+	await get_tree().process_frame
+
+	_center_panel()
+	
+	
 func close_to_pause_menu() -> void:
 	visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	# on laisse le jeu en pause, et on ré-affiche le pause menu
-	var pause_menu = get_parent().get_node("PauseMenu")
+
+	var pause_menu = get_tree().current_scene.get_node_or_null("PauseMenu")
+	if pause_menu == null:
+		push_error("PauseMenu introuvable : attendu /root/Main/PauseMenu (node direct de la scène).")
+		return
+
 	pause_menu.show()
+	
+func _center_panel() -> void:
+	# Root full screen (pour centrer par rapport à l'écran)
+	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_offsets_preset(Control.PRESET_FULL_RECT)
+
+	# On centre le PanelContainer via preset (Godot calcule les offsets)
+	panel.set_anchors_preset(Control.PRESET_CENTER)
+	panel.set_offsets_preset(Control.PRESET_CENTER)
