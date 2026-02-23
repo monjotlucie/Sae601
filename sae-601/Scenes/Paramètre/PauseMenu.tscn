@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1ge38el2hyof"]
+[gd_scene load_steps=12 format=3 uid="uid://b1ge38el2hyof"]
 
 [ext_resource type="Script" uid="uid://drfm0dftma1y6" path="res://Script/Paramètre/pause_menu.gd" id="1_q7gi8"]
 [ext_resource type="Texture2D" uid="uid://c63c6spr2plwi" path="res://Assets/Paramètres/Barre de pause.png" id="2_7vea1"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://k55atgmxyshk" path="res://Assets/Paramètres/Bouton_options.png" id="5_ndylh"]
 [ext_resource type="Texture2D" uid="uid://cb4o2t1tux4fh" path="res://Assets/Paramètres/Bouton_options_hover.png" id="6_ubbl8"]
 [ext_resource type="Texture2D" uid="uid://c107gx2cp5jgb" path="res://Assets/Paramètres/Bouton_quitter.png" id="7_h1pud"]
+[ext_resource type="Texture2D" uid="uid://ditca834f3xae" path="res://Assets/Paramètres/Bouton_menu.png" id="7_x0ijh"]
 [ext_resource type="Texture2D" uid="uid://ch3bqov82mx2g" path="res://Assets/Paramètres/Bouton_quitter_hover.png" id="8_05y87"]
+[ext_resource type="Texture2D" uid="uid://cvg1vephcarqh" path="res://Assets/Paramètres/Bouton_menu_hover.png" id="8_swsf4"]
 
 [sub_resource type="Theme" id="Theme_37uvp"]
 
@@ -61,12 +63,19 @@ layout_mode = 2
 texture_normal = ExtResource("5_ndylh")
 texture_hover = ExtResource("6_ubbl8")
 
+[node name="Menu" type="TextureButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_x0ijh")
+texture_hover = ExtResource("8_swsf4")
+
 [node name="Quitter" type="TextureButton" parent="Panel/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("7_h1pud")
 texture_hover = ExtResource("8_05y87")
 
-[connection signal="pressed" from="Panel/VBoxContainer/Jouer" to="." method="_on_reprendre_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Jouer" to="." method="_on_reprendre_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Menu" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Quitter" to="." method="_on_quitter_pressed"]

@@ -25,6 +25,11 @@ func _on_options_pressed() -> void:
 		return
 	hide()
 	input_settings.open_from_pause_menu()
-
+	
+func _on_menu_pressed() -> void:
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().change_scene_to_file("res://Scenes/Paramètre/MenuPrincipal.tscn")
+	
 func _on_quitter_pressed() -> void:
 	get_tree().quit()

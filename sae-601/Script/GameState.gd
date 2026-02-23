@@ -83,3 +83,20 @@ func load_game() -> bool:
 
 	print("Chargement OK :", parsed)
 	return true
+
+func delete_save() -> void:
+	if FileAccess.file_exists(SAVE_PATH):
+		DirAccess.remove_absolute(SAVE_PATH)
+		print("Sauvegarde supprimée")
+
+func new_game() -> void:
+	is_night = false
+	respawn_position = Vector2.ZERO
+	collected_candles.clear()
+	candles_collected = 0
+
+	day_night_changed.emit(is_night)
+	candles_changed.emit(candles_collected, total_candles)
+
+func continue_game() -> bool:
+	return load_game()

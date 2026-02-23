@@ -183,7 +183,6 @@ func open_from_pause_menu() -> void:
 
 
 	await get_tree().process_frame
-	await get_tree().process_frame
 
 	_center_panel()
 	
