@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=30 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -17,9 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://djpbvt4n8u6jo" path="res://Scenes/Mobs/mob.tscn" id="9_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://8p61mghub46q" path="res://Assets/candle/White_candle.png" id="10_kpo4j"]
 [ext_resource type="PackedScene" uid="uid://b1ge38el2hyof" path="res://Scenes/Paramètre/PauseMenu.tscn" id="11_4kpch"]
+[ext_resource type="PackedScene" uid="uid://bljn076f8m7qr" path="res://Scenes/candle/violet_candle.tscn" id="12_5jffn"]
 [ext_resource type="PackedScene" uid="uid://kllwlhcgdi5n" path="res://Scenes/Paramètre/Checkpoint.tscn" id="13_frkhe"]
+[ext_resource type="PackedScene" uid="uid://c3ialfwsj5y6h" path="res://Scenes/candle/green_candle.tscn" id="13_kpo4j"]
+[ext_resource type="PackedScene" uid="uid://nvo24kbok8jd" path="res://Scenes/candle/blue_candle.tscn" id="14_4n42c"]
 [ext_resource type="PackedScene" uid="uid://igfwg202tnxl" path="res://Scenes/Map/Sprike.tscn" id="15_h1m7h"]
+[ext_resource type="PackedScene" uid="uid://dogwm3cy0e1t1" path="res://Scenes/Map/SprikeDay.tscn" id="15_kpo4j"]
 [ext_resource type="PackedScene" uid="uid://0bqy1cny0ncu" path="res://Scenes/Map/StaticPlatform.tscn" id="16_2w5on"]
+[ext_resource type="PackedScene" uid="uid://c13ogoj2m4xvn" path="res://Scenes/Map/SprikeNight.tscn" id="16_4n42c"]
 [ext_resource type="PackedScene" uid="uid://qnac8jgb51nh" path="res://Scenes/candle/CandleConter.tscn" id="17_2w5on"]
 [ext_resource type="PackedScene" uid="uid://djt7pc331jrgl" path="res://Scenes/candle/dark_candle.tscn" id="18_0sclb"]
 [ext_resource type="PackedScene" uid="uid://xdqpuak5swjb" path="res://Scenes/Paramètre/InputSettings.tscn" id="18_346fj"]
@@ -77,6 +82,24 @@ visible = false
 position = Vector2(706, 1009)
 scale = Vector2(1.0909091, 1.0909091)
 texture = ExtResource("10_kpo4j")
+
+[node name="White_candle" parent="CircleCandles" instance=ExtResource("5_pbw6q")]
+position = Vector2(947, 966)
+
+[node name="Violet_candle" parent="CircleCandles" instance=ExtResource("12_5jffn")]
+position = Vector2(1069, 1001)
+
+[node name="Green_candle" parent="CircleCandles" instance=ExtResource("13_kpo4j")]
+position = Vector2(1209, 953)
+
+[node name="Blue_candle" parent="CircleCandles" instance=ExtResource("14_4n42c")]
+position = Vector2(1669, 967)
+
+[node name="Sprike" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
+position = Vector2(736, 975)
+
+[node name="Sprike2" parent="CircleCandles" instance=ExtResource("16_4n42c")]
+position = Vector2(839, 978)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(556, 926)
