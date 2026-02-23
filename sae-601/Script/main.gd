@@ -8,6 +8,7 @@ extends Node2D
 
 var cam: Camera2D
 
+
 func _ready():
 	player.respawn_requested.connect(_on_player_respawn)
 	print("PAUSED ?", get_tree().paused)
@@ -25,6 +26,11 @@ func _ready():
 	cam.position_smoothing_enabled = false
 	cam.position_smoothing_speed = 8.0
 	cam.position = Vector2(0, 150)
+	
+	cam.limit_left = 0
+	cam.limit_top = 0
+	cam.limit_right = 2800    
+	cam.limit_bottom = 1040  
 
 	if GameState.open_pause_menu_on_load:
 		GameState.open_pause_menu_on_load = false
@@ -58,7 +64,7 @@ func _process(delta):
 		return
 
 	cam.global_position.x = player.global_position.x
-	cam.global_position.y = player.global_position.y - 150
+	cam.global_position.y = player.global_position.y + 150
 
 func _input(event):
 	if event.is_action_pressed("pause"):

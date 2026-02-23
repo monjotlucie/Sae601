@@ -48,6 +48,9 @@ position = Vector2(-253, 67)
 position = Vector2(6485, 1042)
 scale = Vector2(0.7, 0.7)
 
+[node name="Checkpoint2" parent="." instance=ExtResource("13_frkhe")]
+position = Vector2(1435, 133)
+
 [node name="CircleCandles" type="Node2D" parent="."]
 
 [node name="orange" type="Sprite2D" parent="CircleCandles"]
@@ -107,9 +110,6 @@ position = Vector2(6138, 2210)
 
 [node name="Checkpoint" parent="CircleCandles" instance=ExtResource("13_frkhe")]
 position = Vector2(7418, 833)
-
-[node name="Checkpoint2" parent="CircleCandles" instance=ExtResource("13_frkhe")]
-position = Vector2(1387, 248)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(556, 926)

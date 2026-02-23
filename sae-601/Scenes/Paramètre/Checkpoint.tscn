@@ -104,13 +104,13 @@ sprite_frames = SubResource("SpriteFrames_ql7kt")
 animation = &"active"
 frame_progress = 0.4548505
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Checkpoint"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Checkpoint/AnimatedSprite2D"]
 
-[node name="Label" type="Label" parent="Checkpoint/CanvasLayer"]
-offset_left = 771.0
-offset_top = 82.0
-offset_right = 982.0
-offset_bottom = 164.0
+[node name="Label" type="Label" parent="Checkpoint/AnimatedSprite2D/CanvasLayer"]
+offset_left = 771.00006
+offset_top = 81.99994
+offset_right = 982.00006
+offset_bottom = 163.99994
 pivot_offset = Vector2(428, -81)
 theme_override_styles/normal = SubResource("StyleBoxFlat_oohs6")
 

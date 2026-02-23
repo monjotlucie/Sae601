@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var spawn_point: Marker2D = $SpawnPoint
-@onready var label: Label = $CanvasLayer/Label
+@onready var label: Label = $AnimatedSprite2D/CanvasLayer/Label
 
 var player_inside := false
 var player_ref: Player = null
