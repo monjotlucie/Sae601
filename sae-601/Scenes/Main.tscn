@@ -108,6 +108,9 @@ position = Vector2(6138, 2210)
 [node name="Checkpoint" parent="CircleCandles" instance=ExtResource("13_frkhe")]
 position = Vector2(7418, 833)
 
+[node name="Checkpoint2" parent="CircleCandles" instance=ExtResource("13_frkhe")]
+position = Vector2(1387, 248)
+
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(556, 926)
 
