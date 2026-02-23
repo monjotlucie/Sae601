@@ -11,15 +11,14 @@ func _ready():
 	player.respawn_requested.connect(_on_player_respawn)
 	print("PAUSED ?", get_tree().paused)
 
-	# Connexion au compteur de bougies
+
 	GameState.candles_changed.connect(_on_candles_changed)
 
-	# ---- Camera créée en code ----
 	cam = Camera2D.new()
 	add_child(cam)
 	cam.make_current()
 
-	cam.position_smoothing_enabled = true
+	cam.position_smoothing_enabled = false
 	cam.position_smoothing_speed = 8.0
 	cam.position = Vector2(0, 150)
 
@@ -30,7 +29,6 @@ func _ready():
 func _on_candles_changed(current: int, total: int) -> void:
 	if current >= total:
 		print("Toutes les bougies ont été récupérées !")
-		# Exemple : tu peux lancer une cinématique, ouvrir une porte, changer de scène, etc.
 
 func _on_player_respawn():
 	await fade.fade_out(0.3)

@@ -7,7 +7,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.animation = mob_types.pick_random()
 	$AnimatedSprite2D.play()
 
-	# Lancer le mob dans une direction aléatoire
+
 	var direction = Vector2.LEFT if randf() < 0.5 else Vector2.RIGHT
 	linear_velocity = direction * speed
 

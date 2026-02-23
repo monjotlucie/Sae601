@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var gravity := 900.0
 @export var bounce_force := -180.0 # rebond plus faible
 @export var lifetime := 20.0       # reste 20 secondes
-@export var max_distance := 200.0  # distance max parcourue
+@export var max_distance := 200.0  # distance max parcourue par le projectile
 
 var direction := 1
 var start_position := Vector2.ZERO

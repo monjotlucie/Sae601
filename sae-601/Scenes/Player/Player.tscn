@@ -256,6 +256,5 @@ shape = SubResource("CapsuleShape2D_u7x0b")
 position = Vector2(27, 7)
 limit_left = 15
 limit_bottom = 1040
-position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true

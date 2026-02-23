@@ -18,10 +18,9 @@ func _ready():
 	var random_scale = randf_range(0.9, 1)
 	scale = Vector2(random_scale, random_scale)
 
-	# Direction aléatoire
+
 	direction = [-1, 1].pick_random()
 
-	# Flip sprite si besoin
 	sprite.flip_h = direction < 0
 
 	sprite.play("idle")

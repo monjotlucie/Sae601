@@ -64,7 +64,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		return
 
-	# IMPORTANT : ignorer la souris pendant le remap (sinon clic = nouvelle touche)
 	if event is InputEventMouseButton:
 		return
 
@@ -106,7 +105,6 @@ func _get_action_first_event_text(action: StringName) -> String:
 		return ""
 	return events[0].as_text()
 
-# -------- Sauvegarde --------
 
 func _save_bindings() -> void:
 	var cfg := ConfigFile.new()
@@ -164,7 +162,6 @@ func _load_bindings() -> void:
 			InputMap.action_erase_events(action)
 			InputMap.action_add_event(action, ev)
 
-# -------- Bouton Valider --------
 
 func _on_validate_pressed() -> void:
 	if is_remapping:
@@ -184,7 +181,7 @@ func open_from_pause_menu() -> void:
 
 	_create_action_list()
 
-	# Laisse le layout se calculer
+
 	await get_tree().process_frame
 	await get_tree().process_frame
 
@@ -203,10 +200,10 @@ func close_to_pause_menu() -> void:
 	pause_menu.show()
 	
 func _center_panel() -> void:
-	# Root full screen (pour centrer par rapport à l'écran)
+
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	set_offsets_preset(Control.PRESET_FULL_RECT)
 
-	# On centre le PanelContainer via preset (Godot calcule les offsets)
+	
 	panel.set_anchors_preset(Control.PRESET_CENTER)
 	panel.set_offsets_preset(Control.PRESET_CENTER)

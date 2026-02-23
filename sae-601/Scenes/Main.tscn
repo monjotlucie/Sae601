@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=19 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://igfwg202tnxl" path="res://Scenes/Map/Sprike.tscn" id="15_h1m7h"]
 [ext_resource type="PackedScene" uid="uid://0bqy1cny0ncu" path="res://Scenes/Map/StaticPlatform.tscn" id="16_2w5on"]
 [ext_resource type="PackedScene" uid="uid://qnac8jgb51nh" path="res://Scenes/candle/CandleConter.tscn" id="17_2w5on"]
+[ext_resource type="PackedScene" uid="uid://djt7pc331jrgl" path="res://Scenes/candle/dark_candle.tscn" id="18_0sclb"]
 [ext_resource type="PackedScene" uid="uid://xdqpuak5swjb" path="res://Scenes/Paramètre/InputSettings.tscn" id="18_346fj"]
 
 [node name="Main" type="Node2D"]
@@ -89,5 +90,8 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1157, 219)
 
 [node name="CandleConter" parent="." instance=ExtResource("17_2w5on")]
+
+[node name="Dark_candle" parent="." instance=ExtResource("18_0sclb")]
+position = Vector2(1405, 944)
 
 [editable path="StaticPlatform"]

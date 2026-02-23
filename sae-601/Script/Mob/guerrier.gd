@@ -36,5 +36,5 @@ func switch_mode(night: bool) -> void:
 func _on_body_entered(body):
 	if body is Player:
 		if is_night:
-			return # 🌙 inoffensif
+			return 
 		body.die()
