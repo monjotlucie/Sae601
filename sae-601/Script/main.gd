@@ -11,7 +11,7 @@ var cam: Camera2D
 func _ready():
 	player.respawn_requested.connect(_on_player_respawn)
 	print("PAUSED ?", get_tree().paused)
-	
+	GameState.start_position = spawn_point.global_position
 
 	GameState.candles_changed.connect(_on_candles_changed)
 	GameState.candle_collected.connect(_on_candle_collected)

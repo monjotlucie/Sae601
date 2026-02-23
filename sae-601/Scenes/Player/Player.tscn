@@ -1,10 +1,12 @@
-[gd_scene load_steps=35 format=3 uid="uid://btmfbnd8b0n3p"]
+[gd_scene load_steps=39 format=3 uid="uid://btmfbnd8b0n3p"]
 
 [ext_resource type="Script" uid="uid://j60vmkvvbawj" path="res://Script/Player/player.gd" id="1_gntrk"]
 [ext_resource type="Texture2D" uid="uid://bi3eq3l0ln8lj" path="res://Assets/Players/player_day.png" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://dw7hyhisa8gw1" path="res://Assets/Players/player_night.png" id="2_gntrk"]
 [ext_resource type="PackedScene" uid="uid://dpeshpfdfb1fe" path="res://Scenes/Player/HeadBoomerang.tscn" id="2_jmcll"]
 [ext_resource type="Texture2D" uid="uid://l452xlwk7es" path="res://Assets/Players/player_night_attaque.png" id="2_ude3g"]
+[ext_resource type="Texture2D" uid="uid://ccd3yox2ul1fi" path="res://Assets/Players/Retour_surface_day.png" id="6_t26db"]
+[ext_resource type="Texture2D" uid="uid://dlibyyvk17528" path="res://Assets/Players/Retour_surface_night.png" id="7_fk5o5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jmcll"]
 atlas = ExtResource("2_ude3g")
@@ -73,6 +75,14 @@ region = Rect2(714, 0, 238, 266)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1e7my"]
 atlas = ExtResource("2_gntrk")
 region = Rect2(952, 0, 238, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji083"]
+atlas = ExtResource("6_t26db")
+region = Rect2(0, 0, 264, 361)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kmp4"]
+atlas = ExtResource("7_fk5o5")
+region = Rect2(0, 0, 266, 359)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arntx"]
 atlas = ExtResource("1_kyqiw")
@@ -194,6 +204,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ji083")
+}],
+"loop": true,
+"name": &"Respawn_day",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kmp4")
+}],
+"loop": true,
+"name": &"Respawn_night",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_arntx")
 }, {
 "duration": 1.0,
@@ -245,8 +271,7 @@ head_projectile = ExtResource("2_jmcll")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_8flut")
-animation = &"Attack_night"
-frame_progress = 0.24126467
+animation = &"Respawn_night"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(24, 7)

@@ -15,6 +15,8 @@ var invincible := false
 var attacking := false
 var current_head = null
 var facing_direction := 1
+var control_locked := false
+var teleporting := false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -37,9 +39,7 @@ func launch_head():
 	play_anim("Attack")
 
 	var projectile = head_projectile.instantiate()
-
 	var offset_x = 100 
-
 
 	projectile.global_position = global_position + Vector2(facing_direction * offset_x, -20)
 
@@ -111,6 +111,11 @@ func _physics_process(delta):
 
 	if is_dead:
 		return
+	
+	if control_locked:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -149,3 +154,33 @@ func play_anim(base_name: String):
 	if animated_sprite_2d.sprite_frames.has_animation(anim):
 		if animated_sprite_2d.animation != anim:
 			animated_sprite_2d.play(anim)
+			
+func return_to_start_with_respawn(target_pos: Vector2) -> void:
+	if teleporting:
+		return
+	teleporting = true
+	control_locked = true
+	attacking = false
+
+	play_anim("Respawn")
+
+	var up_height := 180.0
+	var up_time := 0.35
+	var down_time := 0.35
+
+	velocity = Vector2.ZERO
+
+	var tween := create_tween()
+	tween.tween_property(self, "global_position:y", global_position.y - up_height, up_time)
+	await tween.finished
+
+	global_position = target_pos + Vector2(0, -up_height)
+
+	var tween2 := create_tween()
+	tween2.tween_property(self, "global_position:y", target_pos.y, down_time)
+	await tween2.finished
+
+	control_locked = false
+	teleporting = false
+
+	start_invincibility()

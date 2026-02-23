@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=31 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://0bqy1cny0ncu" path="res://Scenes/Map/StaticPlatform.tscn" id="16_2w5on"]
 [ext_resource type="PackedScene" uid="uid://c13ogoj2m4xvn" path="res://Scenes/Map/SprikeNight.tscn" id="16_4n42c"]
 [ext_resource type="PackedScene" uid="uid://qnac8jgb51nh" path="res://Scenes/candle/CandleConter.tscn" id="17_2w5on"]
+[ext_resource type="PackedScene" uid="uid://c4n5ml7ywv0xx" path="res://Scenes/Paramètre/ZoneReboot.tscn" id="17_c5snn"]
 [ext_resource type="PackedScene" uid="uid://djt7pc331jrgl" path="res://Scenes/candle/dark_candle.tscn" id="18_0sclb"]
 [ext_resource type="PackedScene" uid="uid://xdqpuak5swjb" path="res://Scenes/Paramètre/InputSettings.tscn" id="18_346fj"]
 [ext_resource type="Texture2D" uid="uid://buv5oul5isp73" path="res://Assets/candle/Orange_candle.png" id="19_0sclb"]
@@ -100,6 +101,12 @@ position = Vector2(736, 975)
 
 [node name="Sprike2" parent="CircleCandles" instance=ExtResource("16_4n42c")]
 position = Vector2(839, 978)
+
+[node name="ZoneReboot" parent="CircleCandles" instance=ExtResource("17_c5snn")]
+position = Vector2(6138, 2210)
+
+[node name="Checkpoint" parent="CircleCandles" instance=ExtResource("13_frkhe")]
+position = Vector2(7418, 833)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(556, 926)
