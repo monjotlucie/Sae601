@@ -36,7 +36,7 @@ position = Vector2(-134, -68)
 script = ExtResource("1_kln2b")
 
 [node name="FondMap" parent="." instance=ExtResource("2_erwvk")]
-position = Vector2(-9411, 59)
+position = Vector2(-9408, 59)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(560, 850)

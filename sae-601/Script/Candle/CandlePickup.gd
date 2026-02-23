@@ -6,7 +6,12 @@ extends Area2D
 var picked := false
 
 func _ready() -> void:
+	if candle_id != "" and GameState.collected_candles.has(candle_id):
+		get_parent().queue_free()
+		return
+		
 	body_entered.connect(_on_body_entered)
+	print("Candle", candle_id, "saved list:", GameState.collected_candles)
 
 func _on_body_entered(body: Node) -> void:
 	if picked:
