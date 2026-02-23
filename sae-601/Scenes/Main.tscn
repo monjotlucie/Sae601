@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=25 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -6,11 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://bllgimnimmrlv" path="res://Scenes/Map/FondMap.tscn" id="2_erwvk"]
 [ext_resource type="Script" uid="uid://jht7job213te" path="res://Script/Paramètre/fade_layer.gd" id="5_1p5hy"]
 [ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/white_candle.tscn" id="5_pbw6q"]
+[ext_resource type="Texture2D" uid="uid://deyffmhvdp5qd" path="res://Assets/candle/Blue_candle.png" id="6_3tgeq"]
 [ext_resource type="PackedScene" uid="uid://butqb2g5w47tc" path="res://Scenes/Mobs/enemy.tscn" id="6_jw32o"]
 [ext_resource type="PackedScene" uid="uid://cqqxp0l1dk2xb" path="res://Scenes/candle/orange_candle.tscn" id="6_v1gob"]
+[ext_resource type="Texture2D" uid="uid://cfuessmx7j6sd" path="res://Assets/candle/Dark_candle.png" id="7_c4ay3"]
 [ext_resource type="PackedScene" uid="uid://brfarmlsb5nvk" path="res://Scenes/Mobs/epouvantail.tscn" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://b0xai1qyjla5n" path="res://Scenes/Mobs/choux.tscn" id="8_50glp"]
+[ext_resource type="Texture2D" uid="uid://csqm7n0t0160v" path="res://Assets/candle/Violet_candle.png" id="8_aht7i"]
+[ext_resource type="Texture2D" uid="uid://bo4gk1ojmxm5u" path="res://Assets/candle/Green_candle.png" id="9_5jffn"]
 [ext_resource type="PackedScene" uid="uid://djpbvt4n8u6jo" path="res://Scenes/Mobs/mob.tscn" id="9_vy5pj"]
+[ext_resource type="Texture2D" uid="uid://8p61mghub46q" path="res://Assets/candle/White_candle.png" id="10_kpo4j"]
 [ext_resource type="PackedScene" uid="uid://b1ge38el2hyof" path="res://Scenes/Paramètre/PauseMenu.tscn" id="11_4kpch"]
 [ext_resource type="PackedScene" uid="uid://kllwlhcgdi5n" path="res://Scenes/Paramètre/Checkpoint.tscn" id="13_frkhe"]
 [ext_resource type="PackedScene" uid="uid://igfwg202tnxl" path="res://Scenes/Map/Sprike.tscn" id="15_h1m7h"]
@@ -18,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://qnac8jgb51nh" path="res://Scenes/candle/CandleConter.tscn" id="17_2w5on"]
 [ext_resource type="PackedScene" uid="uid://djt7pc331jrgl" path="res://Scenes/candle/dark_candle.tscn" id="18_0sclb"]
 [ext_resource type="PackedScene" uid="uid://xdqpuak5swjb" path="res://Scenes/Paramètre/InputSettings.tscn" id="18_346fj"]
+[ext_resource type="Texture2D" uid="uid://buv5oul5isp73" path="res://Assets/candle/Orange_candle.png" id="19_0sclb"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-134, -68)
@@ -36,8 +42,44 @@ position = Vector2(-253, 67)
 position = Vector2(6485, 1042)
 scale = Vector2(0.7, 0.7)
 
+[node name="CircleCandles" type="Node2D" parent="."]
+
+[node name="orange" type="Sprite2D" parent="CircleCandles"]
+visible = false
+position = Vector2(458.99997, 1032)
+scale = Vector2(0.9700415, 0.94998944)
+texture = ExtResource("19_0sclb")
+
+[node name="blue" type="Sprite2D" parent="CircleCandles"]
+visible = false
+position = Vector2(450, 944)
+texture = ExtResource("6_3tgeq")
+
+[node name="dark" type="Sprite2D" parent="CircleCandles"]
+visible = false
+position = Vector2(525.0001, 918)
+scale = Vector2(1.0785124, 1.0785124)
+texture = ExtResource("7_c4ay3")
+
+[node name="violet" type="Sprite2D" parent="CircleCandles"]
+visible = false
+position = Vector2(596.00006, 1051)
+scale = Vector2(1.048387, 1.048387)
+texture = ExtResource("8_aht7i")
+
+[node name="green" type="Sprite2D" parent="CircleCandles"]
+visible = false
+position = Vector2(670, 931)
+texture = ExtResource("9_5jffn")
+
+[node name="white" type="Sprite2D" parent="CircleCandles"]
+visible = false
+position = Vector2(706, 1009)
+scale = Vector2(1.0909091, 1.0909091)
+texture = ExtResource("10_kpo4j")
+
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
-position = Vector2(551, 917)
+position = Vector2(556, 926)
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_1p5hy")
@@ -68,7 +110,7 @@ position = Vector2(1536, 906)
 [node name="PauseMenu" parent="." instance=ExtResource("11_4kpch")]
 
 [node name="Sprike" parent="." instance=ExtResource("15_h1m7h")]
-position = Vector2(340, 962)
+position = Vector2(344, 975)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

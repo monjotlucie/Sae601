@@ -77080,7 +77080,7 @@ size = Vector2(7873, 165)
 size = Vector2(1640.375, 259.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d75t5"]
-size = Vector2(383.20313, 987)
+size = Vector2(510.20313, 987)
 
 [node name="Map01" type="Node2D"]
 script = ExtResource("1_d75t5")
@@ -77109,5 +77109,5 @@ position = Vector2(3341.2031, 806)
 shape = SubResource("RectangleShape2D_d75t5")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-5816.6016, 820)
+position = Vector2(-5753.1016, 820)
 shape = SubResource("RectangleShape2D_d75t5")

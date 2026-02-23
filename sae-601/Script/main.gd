@@ -4,16 +4,20 @@ extends Node2D
 @onready var spawn_point: Marker2D = $Marker2D
 @onready var pause_menu = $PauseMenu
 @onready var fade = $FadeLayer
+@onready var circle_candles: Node = $CircleCandles
 
 var cam: Camera2D
 
 func _ready():
 	player.respawn_requested.connect(_on_player_respawn)
 	print("PAUSED ?", get_tree().paused)
-
+	
 
 	GameState.candles_changed.connect(_on_candles_changed)
+	GameState.candle_collected.connect(_on_candle_collected)
 
+	for cid in GameState.collected_candles:
+		_show_circle_candle(cid)
 	cam = Camera2D.new()
 	add_child(cam)
 	cam.make_current()
@@ -29,6 +33,14 @@ func _ready():
 func _on_candles_changed(current: int, total: int) -> void:
 	if current >= total:
 		print("Toutes les bougies ont été récupérées !")
+
+func _on_candle_collected(candle_id: String) -> void:
+	_show_circle_candle(candle_id)
+
+func _show_circle_candle(candle_id: String) -> void:
+	var n := circle_candles.get_node_or_null(candle_id)
+	if n != null:
+		n.visible = true
 
 func _on_player_respawn():
 	await fade.fade_out(0.3)

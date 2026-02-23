@@ -22,6 +22,7 @@ shape = SubResource("CircleShape2D_xfw0d")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("3_gfkuj")
+candle_id = "dark"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2, 24)
