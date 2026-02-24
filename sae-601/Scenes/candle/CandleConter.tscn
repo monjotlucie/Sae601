@@ -18,3 +18,12 @@ grow_horizontal = 0
 theme_override_colors/font_color = Color(0.6509804, 0.17254902, 0.12156863, 1)
 theme_override_fonts/font = ExtResource("2_bs3kb")
 theme_override_font_sizes/font_size = 50
+
+[node name="WinLabel" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 145.0
+offset_right = 1082.0
+offset_bottom = 407.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_bs3kb")
+theme_override_font_sizes/font_size = 126
