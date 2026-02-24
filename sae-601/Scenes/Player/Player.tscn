@@ -271,7 +271,13 @@ head_projectile = ExtResource("2_jmcll")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_8flut")
-animation = &"Respawn_night"
+animation = &"Fixe_day"
+
+[node name="HeadSpawn" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(24, -32)
+
+[node name="HeadTarget" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(647, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(24, 7)

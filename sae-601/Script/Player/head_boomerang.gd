@@ -1,34 +1,44 @@
-extends CharacterBody2D
+extends Node2D
 
 @export var speed := 800.0
-@export var max_distance := 500.0
 
-var direction := 1
-var start_position := Vector2.ZERO
+var target_position: Vector2
+
+@onready var hitbox: Area2D = $Hitbox
+
 
 func _ready():
-	start_position = global_position
-	
-	$Hitbox.body_entered.connect(_on_hitbox_body_entered)
-	$Hitbox.area_entered.connect(_on_hitbox_area_entered)
+	hitbox.body_entered.connect(_on_hitbox_body_entered)
+	hitbox.area_entered.connect(_on_hitbox_area_entered)
 
-func _physics_process(delta):
-	velocity = Vector2(direction * speed, 0)
-	move_and_slide()
+	z_index = 100
+	z_as_relative = false
 
-	if global_position.distance_to(start_position) > max_distance:
+
+func _process(delta):
+	global_position = global_position.move_toward(target_position, speed * delta)
+
+	if global_position.distance_to(target_position) <= 2.0:
 		queue_free()
 
-func _on_hitbox_area_entered(area):
-	if area.is_in_group("enemies"):
-		if area.has_method("die"):
-			area.die()
-		else:
-			area.queue_free()
 
-func _on_hitbox_body_entered(body):
-	if body.is_in_group("enemies"):
-		if body.has_method("die"):
-			body.die()
+func _kill(target: Node):
+	if target == null:
+		return
+
+	if not target.is_in_group("enemies") and target.get_parent() != null and target.get_parent().is_in_group("enemies"):
+		target = target.get_parent()
+
+	if target.is_in_group("enemies"):
+		if target.has_method("die"):
+			target.die()
 		else:
-			body.queue_free()
+			target.queue_free()
+
+
+func _on_hitbox_area_entered(area: Area2D):
+	_kill(area)
+
+
+func _on_hitbox_body_entered(body: Node):
+	_kill(body)

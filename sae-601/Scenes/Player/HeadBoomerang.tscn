@@ -59,7 +59,7 @@ radius = 63.348244
 [sub_resource type="CircleShape2D" id="CircleShape2D_nlp1y"]
 radius = 63.03174
 
-[node name="HeadBoomerang" type="CharacterBody2D"]
+[node name="HeadBoomerang" type="Node2D"]
 script = ExtResource("1_nlp1y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
