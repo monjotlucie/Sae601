@@ -10,6 +10,9 @@ const MAX_SLOTS: int = 6
 
 var current_slot_id: int = 1
 
+var _session_start_unix: int = 0
+var _session_loaded_playtime_sec: int = 0
+
 var total_candles: int = 6
 var candles_collected: int = 0
 var collected_candles: Array[String] = []
@@ -30,9 +33,7 @@ func _slot_path(slot_id: int) -> String:
 func _ensure_save_dir() -> void:
 	DirAccess.make_dir_recursive_absolute(SAVE_DIR)
 
-# -------------------------
-# INDEX (noms des slots)
-# -------------------------
+
 func _default_index() -> Dictionary:
 	var slots: Array[Dictionary] = []
 	for i: int in range(1, MAX_SLOTS + 1):
@@ -59,8 +60,7 @@ func _load_index() -> Dictionary:
 	if typeof(parsed_variant) != TYPE_DICTIONARY:
 		return _default_index()
 
-	var parsed: Dictionary = parsed_variant as Dictionary
-	return parsed
+	return parsed_variant as Dictionary
 
 func _save_index(idx: Dictionary) -> void:
 	var f: FileAccess = FileAccess.open(INDEX_PATH, FileAccess.WRITE)
@@ -85,7 +85,6 @@ func set_slot_name(slot_id: int, new_name: String) -> void:
 		name = "Partie %d" % slot_id
 
 	var idx: Dictionary = _load_index()
-
 	var slots_variant: Variant = idx.get("slots", [])
 	var slots: Array = slots_variant as Array
 
@@ -104,9 +103,7 @@ func set_slot_name(slot_id: int, new_name: String) -> void:
 	idx["slots"] = slots
 	_save_index(idx)
 
-# -------------------------
-# GAME STATE
-# -------------------------
+
 func add_candle(candle_id: String) -> void:
 	if collected_candles.has(candle_id):
 		return
@@ -115,8 +112,23 @@ func add_candle(candle_id: String) -> void:
 	candle_collected.emit(candle_id)
 	candles_changed.emit(candles_collected, total_candles)
 
+func toggle_day_night() -> void:
+	is_night = !is_night
+	day_night_changed.emit(is_night)
+
+
+func has_save(slot_id: int = current_slot_id) -> bool:
+	return FileAccess.file_exists(_slot_path(slot_id))
+
 func save_game(slot_id: int = current_slot_id) -> void:
 	_ensure_save_dir()
+
+	var now: int = Time.get_unix_time_from_system()
+	var elapsed: int = 0
+	if _session_start_unix > 0:
+		elapsed = maxi(0, now - _session_start_unix)
+
+	var total_playtime: int = _session_loaded_playtime_sec + elapsed
 
 	var data: Dictionary = {
 		"version": 1,
@@ -124,7 +136,8 @@ func save_game(slot_id: int = current_slot_id) -> void:
 		"respawn_x": respawn_position.x,
 		"respawn_y": respawn_position.y,
 		"collected_candles": collected_candles,
-		"saved_unix": Time.get_unix_time_from_system()
+		"saved_unix": now,
+		"playtime_sec": total_playtime
 	}
 
 	var path: String = _slot_path(slot_id)
@@ -133,12 +146,8 @@ func save_game(slot_id: int = current_slot_id) -> void:
 		f.store_string(JSON.stringify(data))
 		print("Sauvegarde OK (slot ", slot_id, ")")
 
-func has_save(slot_id: int = current_slot_id) -> bool:
-	return FileAccess.file_exists(_slot_path(slot_id))
-
-func toggle_day_night() -> void:
-	is_night = !is_night
-	day_night_changed.emit(is_night)
+	_session_loaded_playtime_sec = total_playtime
+	_session_start_unix = now
 
 func load_game(slot_id: int = current_slot_id) -> bool:
 	var path: String = _slot_path(slot_id)
@@ -178,6 +187,9 @@ func load_game(slot_id: int = current_slot_id) -> bool:
 	for cid: String in collected_candles:
 		candle_collected.emit(cid)
 
+	_session_start_unix = Time.get_unix_time_from_system()
+	_session_loaded_playtime_sec = int(data.get("playtime_sec", 0))
+
 	print("Chargement OK (slot ", slot_id, ")")
 	return true
 
@@ -193,11 +205,15 @@ func new_game() -> void:
 	collected_candles.clear()
 	candles_collected = 0
 
+	_session_start_unix = Time.get_unix_time_from_system()
+	_session_loaded_playtime_sec = 0
+
 	day_night_changed.emit(is_night)
 	candles_changed.emit(candles_collected, total_candles)
 
 func continue_game(slot_id: int = current_slot_id) -> bool:
 	return load_game(slot_id)
+
 
 func get_last_saved_unix(slot_id: int) -> int:
 	var path: String = _slot_path(slot_id)
@@ -215,3 +231,20 @@ func get_last_saved_unix(slot_id: int) -> int:
 
 	var data: Dictionary = parsed_variant as Dictionary
 	return int(data.get("saved_unix", 0))
+
+func get_playtime_sec(slot_id: int) -> int:
+	var path: String = _slot_path(slot_id)
+	if not FileAccess.file_exists(path):
+		return 0
+
+	var f: FileAccess = FileAccess.open(path, FileAccess.READ)
+	if f == null:
+		return 0
+
+	var text: String = f.get_as_text()
+	var parsed_variant: Variant = JSON.parse_string(text)
+	if typeof(parsed_variant) != TYPE_DICTIONARY:
+		return 0
+
+	var data: Dictionary = parsed_variant as Dictionary
+	return int(data.get("playtime_sec", 0))

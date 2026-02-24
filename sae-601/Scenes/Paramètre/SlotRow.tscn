@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://f15yd2upi0j3"]
+[gd_scene load_steps=7 format=3 uid="uid://f15yd2upi0j3"]
 
 [ext_resource type="Script" uid="uid://cfvjy5fned7ba" path="res://Script/Paramètre/slot_row.gd" id="1_tjxwk"]
 [ext_resource type="Texture2D" uid="uid://0rr2rgcrgljc" path="res://Assets/Paramètres/Trash.png" id="2_ri464"]
+[ext_resource type="Texture2D" uid="uid://dkaubdnlf6tup" path="res://Assets/Paramètres/crayon.png" id="2_se76e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se76e"]
 bg_color = Color(0, 0, 0, 0.3019608)
@@ -48,6 +49,7 @@ layout_mode = 2
 
 [node name="RenameButton" type="Button" parent="Inputbutton/MarginContainer/HBoxContainer"]
 layout_mode = 2
+icon = ExtResource("2_se76e")
 
 [node name="DeleteButton" type="Button" parent="Inputbutton/MarginContainer/HBoxContainer"]
 layout_mode = 2

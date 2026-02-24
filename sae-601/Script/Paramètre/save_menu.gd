@@ -1,27 +1,43 @@
 extends Control
 
 @export var slot_row_scene: PackedScene
-@export var game_scene_path := "res://Scenes/Main.tscn"
-@export var back_scene_path := "res://Scenes/Paramètre/MenuPrincipal.tscn"
+@export var game_scene_path: String = "res://Scenes/Main.tscn"
+@export var back_scene_path: String = "res://Scenes/Paramètre/MenuPrincipal.tscn"
 
 @onready var slots_list: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/SlotsList
 @onready var back_btn: Button = $PanelContainer/MarginContainer/VBoxContainer/BackButton
 @onready var confirm_delete: ConfirmationDialog = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/ConfirmDelete
+
 @onready var loading_layer: CanvasLayer = $LoadingLayer
 @onready var loading_text: Label = $LoadingLayer/Text
 
+@onready var rename_dialog: AcceptDialog = $RenameDialog
+@onready var rename_input: LineEdit = $RenameDialog/RenameInput
+
+var pending_rename_slot_id: int = -1
 var pending_delete_slot_id: int = -1
+
 var _loading_running: bool = false
 var _loading_task_id: int = 0
 
 func _ready() -> void:
 	_apply_layout()
+
+	rename_dialog.title = "Changer le nom de la partie"
+	rename_dialog.ok_button_text = "Valider"
+	
+	rename_dialog.min_size = Vector2(520, 180) 
+	rename_dialog.exclusive = true         
+	rename_input.custom_minimum_size = Vector2(480, 40)
+	rename_input.placeholder_text = "Entrez un nom"
+	rename_dialog.confirmed.connect(_do_rename)
+
 	$LoadingLayer/Bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	$LoadingLayer/Text.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	loading_layer.visible = false
 
 	if slot_row_scene == null:
-		push_error("SaveMenu: slot_row_scene n'est pas assigné (glisse SlotRow.tscn dans l'inspecteur).")
+		push_error("SaveMenu: slot_row_scene n'est pas assigné.")
 		return
 
 	back_btn.pressed.connect(_on_back_pressed)
@@ -36,19 +52,19 @@ func _refresh_slots() -> void:
 	for c in slots_list.get_children():
 		c.queue_free()
 
-	for id in range(1, GameState.MAX_SLOTS + 1):
-		var exists := GameState.has_save(id)
-		var last_saved := GameState.get_last_saved_unix(id)
+	for id: int in range(1, GameState.MAX_SLOTS + 1):
+		var exists: bool = GameState.has_save(id)
+		var last_saved: int = GameState.get_last_saved_unix(id)
+		var name: String = GameState.get_slot_name(id)
 
 		var row = slot_row_scene.instantiate()
 		slots_list.add_child(row)
 
-		row.setup(id, "Partie %d" % id, last_saved, exists)
+		row.setup(id, name, last_saved, exists)
 
-		# Connexions
 		row.play.connect(_on_slot_play)
 		row.delete.connect(_on_slot_delete)
-		row.rename.connect(_on_slot_rename) 
+		row.rename.connect(_on_slot_rename)
 
 func _on_slot_play(slot_id: int) -> void:
 	GameState.current_slot_id = slot_id
@@ -75,7 +91,25 @@ func _do_delete() -> void:
 	_refresh_slots()
 
 func _on_slot_rename(slot_id: int) -> void:
-	print("Rename demandé pour le slot :", slot_id)
+	pending_rename_slot_id = slot_id
+	rename_input.text = GameState.get_slot_name(slot_id)
+	rename_dialog.popup_centered()
+	await get_tree().process_frame
+	rename_input.grab_focus()
+	rename_input.select_all()
+	
+func _do_rename() -> void:
+	if pending_rename_slot_id < 0:
+		return
+
+	var new_name: String = rename_input.text.strip_edges()
+	if new_name.is_empty():
+		new_name = "Partie %d" % pending_rename_slot_id
+
+	GameState.set_slot_name(pending_rename_slot_id, new_name)
+	pending_rename_slot_id = -1
+	_refresh_slots()
+
 
 func _apply_layout() -> void:
 	var scroll := $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer as ScrollContainer
@@ -89,13 +123,19 @@ func _apply_layout() -> void:
 
 	if slots_list is VBoxContainer:
 		(slots_list as VBoxContainer).add_theme_constant_override("separation", 12)
+	
+	var total_w: int = 560 + 420 + 56 + 56 + 12
+	slots_list.custom_minimum_size = Vector2(total_w, 0)
 
-func _show_loading(msg: String = "Chargement...") -> void:
+	slots_list.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	slots_list.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+
+
+func _show_loading(msg: String = "Chargement") -> void:
 	loading_layer.visible = true
-	_start_loading_animation(msg)
-	loading_layer.layer = 100 
-	loading_text.text = msg
+	loading_layer.layer = 100
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_start_loading_animation(msg)
 	await get_tree().process_frame
 
 func _hide_loading() -> void:
@@ -104,7 +144,7 @@ func _hide_loading() -> void:
 	loading_layer.visible = false
 
 func _go_to_game_scene_async() -> void:
-	await _show_loading("Chargement...")
+	await _show_loading("Chargement")
 
 	var path: String = game_scene_path
 	ResourceLoader.load_threaded_request(path)
@@ -115,6 +155,7 @@ func _go_to_game_scene_async() -> void:
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
 			var packed := ResourceLoader.load_threaded_get(path) as PackedScene
 			if packed != null:
+				_hide_loading()
 				get_tree().change_scene_to_packed(packed)
 			else:
 				push_error("Chargement: PackedScene null pour " + path)
@@ -131,8 +172,7 @@ func _go_to_game_scene_async() -> void:
 func _start_loading_animation(base_text: String = "Chargement") -> void:
 	_loading_running = true
 	_loading_task_id += 1
-	var my_id := _loading_task_id
-
+	var my_id: int = _loading_task_id
 	_loading_loop(base_text, my_id)
 
 func _stop_loading_animation() -> void:
@@ -141,10 +181,8 @@ func _stop_loading_animation() -> void:
 func _loading_loop(base_text: String, my_id: int) -> void:
 	await get_tree().process_frame
 
-	var step := 0
+	var step: int = 0
 	while _loading_running and my_id == _loading_task_id:
-		var dots := ".".repeat(step)
-		loading_text.text = base_text + dots
-		step = (step + 1) % 4  # 0..3
-
+		loading_text.text = base_text + ".".repeat(step)
+		step = (step + 1) % 4
 		await get_tree().create_timer(0.2).timeout
