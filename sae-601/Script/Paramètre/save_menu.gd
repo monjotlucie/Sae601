@@ -7,11 +7,16 @@ extends Control
 @onready var slots_list: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/SlotsList
 @onready var back_btn: Button = $PanelContainer/MarginContainer/VBoxContainer/BackButton
 @onready var confirm_delete: ConfirmationDialog = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/ConfirmDelete
+@onready var loading_layer: CanvasLayer = $LoadingLayer
+@onready var loading_text: Label = $LoadingLayer/Text
 
 var pending_delete_slot_id: int = -1
 
 func _ready() -> void:
 	_apply_layout()
+	$LoadingLayer/Bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	$LoadingLayer/Text.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	loading_layer.visible = false
 
 	if slot_row_scene == null:
 		push_error("SaveMenu: slot_row_scene n'est pas assigné (glisse SlotRow.tscn dans l'inspecteur).")
@@ -52,7 +57,7 @@ func _on_slot_play(slot_id: int) -> void:
 		GameState.new_game()
 		GameState.save_game(slot_id)
 
-	get_tree().change_scene_to_file(game_scene_path)
+	await _go_to_game_scene_async()
 
 func _on_slot_delete(slot_id: int) -> void:
 	pending_delete_slot_id = slot_id
@@ -82,3 +87,39 @@ func _apply_layout() -> void:
 
 	if slots_list is VBoxContainer:
 		(slots_list as VBoxContainer).add_theme_constant_override("separation", 12)
+
+func _show_loading(msg: String = "Chargement...") -> void:
+	loading_layer.visible = true
+	loading_layer.layer = 100 # au-dessus de tout
+	loading_text.text = msg
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	await get_tree().process_frame
+
+func _hide_loading() -> void:
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	loading_layer.visible = false
+
+func _go_to_game_scene_async() -> void:
+	await _show_loading("Chargement...")
+
+	var path: String = game_scene_path
+	ResourceLoader.load_threaded_request(path)
+
+	while true:
+		var status := ResourceLoader.load_threaded_get_status(path)
+
+		if status == ResourceLoader.THREAD_LOAD_LOADED:
+			var packed := ResourceLoader.load_threaded_get(path) as PackedScene
+			if packed != null:
+				get_tree().change_scene_to_packed(packed)
+			else:
+				push_error("Chargement: PackedScene null pour " + path)
+				_hide_loading()
+			return
+
+		if status == ResourceLoader.THREAD_LOAD_FAILED:
+			push_error("Chargement échoué: " + path)
+			_hide_loading()
+			return
+
+		await get_tree().process_frame
