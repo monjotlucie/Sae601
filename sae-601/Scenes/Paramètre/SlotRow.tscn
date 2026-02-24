@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://f15yd2upi0j3"]
+
+[ext_resource type="Script" uid="uid://cfvjy5fned7ba" path="res://Script/Paramètre/slot_row.gd" id="1_tjxwk"]
+[ext_resource type="Texture2D" uid="uid://0rr2rgcrgljc" path="res://Assets/Paramètres/Trash.png" id="2_ri464"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se76e"]
+bg_color = Color(0, 0, 0, 0.3019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3brjg"]
+bg_color = Color(1, 1, 1, 0.101960786)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_174o6"]
+bg_color = Color(1, 1, 1, 0.101960786)
+
+[node name="SlotRow" type="HBoxContainer"]
+size_flags_horizontal = 0
+script = ExtResource("1_tjxwk")
+
+[node name="Inputbutton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_se76e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3brjg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_174o6")
+
+[node name="MarginContainer" type="MarginContainer" parent="Inputbutton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 121.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inputbutton/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="Inputbutton/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Inputbutton/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="DateLabel" type="Label" parent="Inputbutton/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="RenameButton" type="Button" parent="Inputbutton/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="DeleteButton" type="Button" parent="Inputbutton/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+icon = ExtResource("2_ri464")

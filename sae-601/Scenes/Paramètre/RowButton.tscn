@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8e4l8jjc8xpx"]
+[gd_scene load_steps=5 format=3 uid="uid://ci50dbfpbi872"]
 
-[ext_resource type="FontFile" uid="uid://2pahkitvhgcc" path="res://Assets/Paramètres/Jaini/Jaini-Regular.ttf" id="1_fvuxg"]
-[ext_resource type="Script" uid="uid://dmxwa00xb2ebr" path="res://Script/Paramètre/input_button.gd" id="1_kraqu"]
+[ext_resource type="Script" uid="uid://dmxwa00xb2ebr" path="res://Script/Paramètre/input_button.gd" id="1_5qhg5"]
+[ext_resource type="FontFile" uid="uid://2pahkitvhgcc" path="res://Assets/Paramètres/Jaini/Jaini-Regular.ttf" id="2_mxh8m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kraqu"]
 bg_color = Color(0, 0, 0, 0.3)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8rmd"]
-bg_color = Color(1, 1, 1, 0.101960786)
+bg_color = Color(1, 1, 1, 0.1)
 
-[node name="InputButton" type="Button"]
+[node name="RowButton" type="Button"]
 custom_minimum_size = Vector2(0, 55)
 anchors_preset = 10
 anchor_right = 1.0
@@ -19,7 +19,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_kraqu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y8rmd")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_y8rmd")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_y8rmd")
-script = ExtResource("1_kraqu")
+script = ExtResource("1_5qhg5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -39,9 +39,9 @@ layout_mode = 2
 [node name="LabelAction" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
-theme_override_fonts/font = ExtResource("1_fvuxg")
+theme_override_fonts/font = ExtResource("2_mxh8m")
 theme_override_font_sizes/font_size = 36
-text = "Change de mode (black / light mode)"
+text = "Reprendre la partie"
 vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
@@ -52,7 +52,7 @@ mouse_filter = 1
 [node name="LabelInput" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
-theme_override_fonts/font = ExtResource("1_fvuxg")
+theme_override_fonts/font = ExtResource("2_mxh8m")
 theme_override_font_sizes/font_size = 36
-text = "Input Key"
+text = "Dernière sauvegarde :23/02/2026"
 vertical_alignment = 1
