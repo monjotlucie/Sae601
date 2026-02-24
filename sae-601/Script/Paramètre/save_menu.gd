@@ -11,6 +11,8 @@ extends Control
 @onready var loading_text: Label = $LoadingLayer/Text
 
 var pending_delete_slot_id: int = -1
+var _loading_running: bool = false
+var _loading_task_id: int = 0
 
 func _ready() -> void:
 	_apply_layout()
@@ -90,13 +92,15 @@ func _apply_layout() -> void:
 
 func _show_loading(msg: String = "Chargement...") -> void:
 	loading_layer.visible = true
-	loading_layer.layer = 100 # au-dessus de tout
+	_start_loading_animation(msg)
+	loading_layer.layer = 100 
 	loading_text.text = msg
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	await get_tree().process_frame
 
 func _hide_loading() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	_stop_loading_animation()
 	loading_layer.visible = false
 
 func _go_to_game_scene_async() -> void:
@@ -123,3 +127,24 @@ func _go_to_game_scene_async() -> void:
 			return
 
 		await get_tree().process_frame
+
+func _start_loading_animation(base_text: String = "Chargement") -> void:
+	_loading_running = true
+	_loading_task_id += 1
+	var my_id := _loading_task_id
+
+	_loading_loop(base_text, my_id)
+
+func _stop_loading_animation() -> void:
+	_loading_running = false
+
+func _loading_loop(base_text: String, my_id: int) -> void:
+	await get_tree().process_frame
+
+	var step := 0
+	while _loading_running and my_id == _loading_task_id:
+		var dots := ".".repeat(step)
+		loading_text.text = base_text + dots
+		step = (step + 1) % 4  # 0..3
+
+		await get_tree().create_timer(0.2).timeout
