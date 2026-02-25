@@ -17,6 +17,9 @@ var current_head: Node = null
 var control_locked := false
 var teleporting := false
 var facing_direction: int = 1 
+var controls_inverted := false
+var gravity_dir: int = 1
+var pending_gravity_reset := false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var head_spawn: Marker2D = $AnimatedSprite2D/HeadSpawn
@@ -122,13 +125,18 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	
+	if not is_on_ground():
+		velocity.y += get_gravity().y * gravity_dir * delta
+	else:
+		velocity.y = 0
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("ui_accept") and is_on_ground():
+		velocity.y = JUMP_VELOCITY * gravity_dir
 
 	var direction := Input.get_axis("ui_left", "ui_right")
+	if controls_inverted:
+		direction = -direction
 	velocity.x = direction * SPEED
 
 	if direction > 0:
@@ -144,9 +152,8 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 
-	# Animations
 	if not attacking:
-		if not is_on_floor():
+		if not is_on_ground():
 			play_anim("Saut")
 		elif direction == 0:
 			play_anim("Fixe")
@@ -194,3 +201,19 @@ func return_to_start_with_respawn(target_pos: Vector2) -> void:
 	teleporting = false
 
 	start_invincibility()
+
+
+func set_gravity_flipped(active: bool) -> void:
+	gravity_dir = -1 if active else 1
+
+	animated_sprite_2d.flip_v = (gravity_dir == -1)
+
+func reset_gravity_after_delay(delay: float = 0.2) -> void:
+	pending_gravity_reset = true
+	await get_tree().create_timer(delay).timeout
+	if pending_gravity_reset:
+		set_gravity_flipped(false)
+		pending_gravity_reset = false
+
+func is_on_ground() -> bool:
+	return is_on_floor() if gravity_dir == 1 else is_on_ceiling()

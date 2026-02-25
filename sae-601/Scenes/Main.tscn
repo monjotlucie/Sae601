@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=38 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -35,6 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://ddxnqh3v3hf66" path="res://Scenes/Map/StaticPlatformDay.tscn" id="21_x3rx7"]
 [ext_resource type="PackedScene" uid="uid://bahow5oqgk4ok" path="res://Scenes/Map/MovingPlateformeNight.tscn" id="33_x3rx7"]
 [ext_resource type="PackedScene" uid="uid://bjpgctw3d7a4n" path="res://Scenes/Map/StaticPlatformNight.tscn" id="34_qta6b"]
+[ext_resource type="PackedScene" uid="uid://ctpvlx8q0s18h" path="res://Scenes/Map/GravityFlipZone.tscn" id="35_vvnwx"]
+[ext_resource type="PackedScene" uid="uid://c4pddpvuyhkhh" path="res://Scenes/Map/InvertZone.tscn" id="36_6heos"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-134, -68)
@@ -50,7 +52,6 @@ position = Vector2(560, 850)
 position = Vector2(-253, 67)
 
 [node name="Frame6" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(7091, 6183)
 texture = ExtResource("4_4yxf6")
 
@@ -164,7 +165,7 @@ position = Vector2(11268, 2080)
 scale = Vector2(2.61, 12.47)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
-position = Vector2(556, 926)
+position = Vector2(7850, 1482)
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_1p5hy")
@@ -276,9 +277,16 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" parent="MovingPlatformeNight2/MovingPlatformNight" index="1"]
 position = Vector2(-5.2716064, 35.254005)
 
+[node name="GravityFlipZone" parent="." instance=ExtResource("35_vvnwx")]
+position = Vector2(6478, 1069)
+scale = Vector2(0.555, 0.585)
+
 [node name="StaticPlatformNight" parent="." instance=ExtResource("34_qta6b")]
 position = Vector2(10159.001, 1418)
 scale = Vector2(1.64, 2.33)
+
+[node name="InvertZone" parent="." instance=ExtResource("36_6heos")]
+position = Vector2(3772, 327)
 
 [editable path="Epouvantail2"]
 [editable path="champignon2"]
