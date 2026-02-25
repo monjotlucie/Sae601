@@ -12,7 +12,6 @@ func _ready() -> void:
 	GameState.candles_changed.connect(_on_candles_changed)
 
 func _on_candles_changed(current: int, total: int) -> void:
-	# Affichage compteur
 	candles_label.text = str(current) + "/" + str(total)
 	candles_label.visible = true
 
@@ -20,7 +19,6 @@ func _on_candles_changed(current: int, total: int) -> void:
 	var my_id := hide_task_id
 	_hide_counter_later(my_id)
 
-	# Victoire
 	if not win_shown and total > 0 and current >= total:
 		win_shown = true
 		_show_win_message()
@@ -31,6 +29,11 @@ func _hide_counter_later(my_id: int) -> void:
 		candles_label.visible = false
 
 func _show_win_message() -> void:
-	win_label.text = "Vous avez tout trouvé !\nVous avez gagné !"
+	win_label.text = "Victoire !\nVous avez récupéré toutes\nles bougies !"
 	win_label.visible = true
 	candles_label.visible = false
+	_hide_win_later() 
+
+func _hide_win_later() -> void:
+	await get_tree().create_timer(5.0).timeout
+	win_label.visible = false
