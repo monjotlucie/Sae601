@@ -7,7 +7,7 @@ signal respawn_requested
 @export var head_projectile: PackedScene
 
 const SPEED := 300.0
-const JUMP_VELOCITY := -500.0
+const JUMP_VELOCITY := -600.0
 
 var is_night := false
 var is_dead := false
@@ -16,7 +16,7 @@ var attacking := false
 var current_head: Node = null
 var control_locked := false
 var teleporting := false
-var facing_direction: int = 1 # 1 droite, -1 gauche
+var facing_direction: int = 1 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var head_spawn: Marker2D = $AnimatedSprite2D/HeadSpawn
@@ -45,17 +45,14 @@ func launch_head():
 	var projectile = head_projectile.instantiate()
 	var dir: int = facing_direction
 
-	# Spawn (local -> monde), mirrorré gauche/droite
 	var spawn_local := head_spawn.position
 	spawn_local.x = abs(spawn_local.x) * dir
 	projectile.global_position = global_position + spawn_local
 
-	# Target (local -> monde), mirrorré gauche/droite
 	var target_local := head_target.position
 	target_local.x = abs(target_local.x) * dir
 	projectile.target_position = global_position + target_local
 
-	# Visuel
 	var head_sprite := projectile.get_node_or_null("AnimatedSprite2D")
 	if head_sprite != null and head_sprite is AnimatedSprite2D:
 		(head_sprite as AnimatedSprite2D).flip_h = (dir == -1)
@@ -63,7 +60,6 @@ func launch_head():
 	get_tree().current_scene.add_child(projectile)
 	current_head = projectile
 
-	# Quand le projectile disparaît, on ré-autorise l’attaque
 	projectile.tree_exited.connect(func():
 		if current_head == projectile:
 			current_head = null
@@ -135,7 +131,6 @@ func _physics_process(delta):
 	var direction := Input.get_axis("ui_left", "ui_right")
 	velocity.x = direction * SPEED
 
-	# Orientation (source de vérité)
 	if direction > 0:
 		facing_direction = 1
 		animated_sprite_2d.flip_h = false
@@ -143,7 +138,6 @@ func _physics_process(delta):
 		facing_direction = -1
 		animated_sprite_2d.flip_h = true
 
-	# Attaque
 	if Input.is_action_just_pressed("attack") and is_night and not attacking:
 		launch_head()
 		velocity = Vector2.ZERO

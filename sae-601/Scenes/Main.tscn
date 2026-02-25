@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=36 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player/Player.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://bllgimnimmrlv" path="res://Scenes/Map/FondMap.tscn" id="2_erwvk"]
+[ext_resource type="Texture2D" uid="uid://bpc7tyvmds5o3" path="res://Assets/Paramètres/Frame 6.png" id="4_4yxf6"]
 [ext_resource type="Script" uid="uid://jht7job213te" path="res://Script/Paramètre/fade_layer.gd" id="5_1p5hy"]
 [ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/white_candle.tscn" id="5_pbw6q"]
 [ext_resource type="Texture2D" uid="uid://deyffmhvdp5qd" path="res://Assets/candle/Blue_candle.png" id="6_3tgeq"]
@@ -30,6 +31,10 @@
 [ext_resource type="PackedScene" uid="uid://djt7pc331jrgl" path="res://Scenes/candle/dark_candle.tscn" id="18_0sclb"]
 [ext_resource type="PackedScene" uid="uid://xdqpuak5swjb" path="res://Scenes/Paramètre/InputSettings.tscn" id="18_346fj"]
 [ext_resource type="Texture2D" uid="uid://buv5oul5isp73" path="res://Assets/candle/Orange_candle.png" id="19_0sclb"]
+[ext_resource type="PackedScene" uid="uid://curkyw1re4nue" path="res://Scenes/Map/MediumStaticPlatform.tscn" id="19_qta6b"]
+[ext_resource type="PackedScene" uid="uid://ddxnqh3v3hf66" path="res://Scenes/Map/StaticPlatformDay.tscn" id="21_x3rx7"]
+[ext_resource type="PackedScene" uid="uid://bahow5oqgk4ok" path="res://Scenes/Map/MovingPlateformeNight.tscn" id="33_x3rx7"]
+[ext_resource type="PackedScene" uid="uid://bjpgctw3d7a4n" path="res://Scenes/Map/StaticPlatformNight.tscn" id="34_qta6b"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-134, -68)
@@ -44,8 +49,13 @@ position = Vector2(560, 850)
 [node name="Map" parent="." instance=ExtResource("1_idj7w")]
 position = Vector2(-253, 67)
 
+[node name="Frame6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(7091, 6183)
+texture = ExtResource("4_4yxf6")
+
 [node name="Checkpoint" parent="." instance=ExtResource("13_frkhe")]
-position = Vector2(6485, 1042)
+position = Vector2(6623, 990.0001)
 scale = Vector2(0.7, 0.7)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("13_frkhe")]
@@ -88,10 +98,10 @@ scale = Vector2(1.0909091, 1.0909091)
 texture = ExtResource("10_kpo4j")
 
 [node name="White_candle" parent="CircleCandles" instance=ExtResource("5_pbw6q")]
-position = Vector2(947, 966)
+position = Vector2(942, 953)
 
 [node name="Violet_candle" parent="CircleCandles" instance=ExtResource("12_5jffn")]
-position = Vector2(1069, 1001)
+position = Vector2(11629, 1016)
 
 [node name="Green_candle" parent="CircleCandles" instance=ExtResource("13_kpo4j")]
 position = Vector2(1209, 953)
@@ -106,10 +116,52 @@ position = Vector2(736, 975)
 position = Vector2(839, 978)
 
 [node name="ZoneReboot" parent="CircleCandles" instance=ExtResource("17_c5snn")]
-position = Vector2(6138, 2210)
+position = Vector2(11767, 5503)
+scale = Vector2(3.076, 5.285)
 
-[node name="Checkpoint" parent="CircleCandles" instance=ExtResource("13_frkhe")]
-position = Vector2(7418, 833)
+[node name="MiniStaticPlatform" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(8091, 1729)
+scale = Vector2(4, 4)
+
+[node name="MiniStaticPlatform9" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(11270, 2668)
+scale = Vector2(5.365, 4)
+
+[node name="MiniStaticPlatform7" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(9491, 2801)
+scale = Vector2(10.28, 4)
+
+[node name="MiniStaticPlatform5" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(8980, 1915.0001)
+scale = Vector2(1.535, 96.705)
+
+[node name="MiniStaticPlatform6" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(9511, 2985)
+scale = Vector2(1.945, 73.415)
+
+[node name="MiniStaticPlatform8" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(9511, 2985)
+scale = Vector2(1.945, 73.415)
+
+[node name="MiniStaticPlatform3" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(11105, 1087)
+scale = Vector2(3.48, 4)
+
+[node name="MiniStaticPlatform2" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(5541, 1724)
+scale = Vector2(3.53, 5.49)
+
+[node name="MiniStaticPlatform4" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(4594, 1845)
+scale = Vector2(3.265, 5.905)
+
+[node name="Sprike3" parent="CircleCandles" instance=ExtResource("15_h1m7h")]
+position = Vector2(9533, 2618)
+scale = Vector2(2.83, 2.83)
+
+[node name="StaticPlatformDay" parent="CircleCandles" instance=ExtResource("21_x3rx7")]
+position = Vector2(11268, 2080)
+scale = Vector2(2.61, 12.47)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(556, 926)
@@ -137,6 +189,32 @@ position = Vector2(4270, 909)
 [node name="Choux" parent="." instance=ExtResource("8_50glp")]
 position = Vector2(3458, 923)
 
+[node name="Epouvantail2" parent="." instance=ExtResource("7_jw32o")]
+position = Vector2(11603, 971)
+
+[node name="Epouvantail" parent="Epouvantail2" index="0"]
+position = Vector2(229, 0)
+
+[node name="champignon2" parent="." instance=ExtResource("9_vy5pj")]
+position = Vector2(5019, 1710)
+
+[node name="Choux2" parent="." instance=ExtResource("8_50glp")]
+position = Vector2(6777, 1514)
+
+[node name="CollisionShape2D" parent="Choux2/Choux" index="0"]
+position = Vector2(-143, -55)
+scale = Vector2(1.43, 1.43)
+
+[node name="AnimatedSprite2D" parent="Choux2/Choux" index="1"]
+position = Vector2(-163, -51)
+scale = Vector2(1, 1)
+
+[node name="ShootPoint" parent="Choux2/Choux" index="2"]
+position = Vector2(-128, -11)
+
+[node name="Rightlimit" parent="Choux2" index="2"]
+position = Vector2(1994, -2)
+
 [node name="champignon" parent="." instance=ExtResource("9_vy5pj")]
 position = Vector2(1536, 906)
 
@@ -154,7 +232,8 @@ offset_right = -1.0
 offset_bottom = -2.0
 
 [node name="StaticPlatform" parent="." instance=ExtResource("16_2w5on")]
-position = Vector2(6563, 1682)
+position = Vector2(6464, 1614)
+scale = Vector2(1, 0.5)
 
 [node name="ColorRect" parent="StaticPlatform/StaticBody2D" index="0"]
 offset_right = 2319.0
@@ -162,11 +241,48 @@ offset_bottom = 435.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" parent="StaticPlatform/StaticBody2D" index="1"]
-position = Vector2(1157, 219)
+position = Vector2(1163, 215.5)
 
 [node name="CandleConter" parent="." instance=ExtResource("17_2w5on")]
 
 [node name="Dark_candle" parent="." instance=ExtResource("18_0sclb")]
 position = Vector2(1405, 944)
 
+[node name="MovingPlatformeNight" parent="." instance=ExtResource("33_x3rx7")]
+position = Vector2(9864, 1545.9999)
+scale = Vector2(0.405, 3.15)
+
+[node name="ColorRect" parent="MovingPlatformeNight/MovingPlatformNight" index="0"]
+offset_left = -338.2716
+offset_top = 8.254007
+offset_right = 325.7284
+offset_bottom = 63.254005
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" parent="MovingPlatformeNight/MovingPlatformNight" index="1"]
+position = Vector2(-5.2716064, 35.254005)
+
+[node name="MovingPlatformeNight2" parent="." instance=ExtResource("33_x3rx7")]
+position = Vector2(10801, 1213)
+scale = Vector2(0.62, 3.15)
+
+[node name="ColorRect" parent="MovingPlatformeNight2/MovingPlatformNight" index="0"]
+offset_left = -338.2716
+offset_top = 8.254007
+offset_right = 325.7284
+offset_bottom = 63.254005
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" parent="MovingPlatformeNight2/MovingPlatformNight" index="1"]
+position = Vector2(-5.2716064, 35.254005)
+
+[node name="StaticPlatformNight" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(10159.001, 1418)
+scale = Vector2(1.64, 2.33)
+
+[editable path="Epouvantail2"]
+[editable path="champignon2"]
+[editable path="Choux2"]
 [editable path="StaticPlatform"]
+[editable path="MovingPlatformeNight"]
+[editable path="MovingPlatformeNight2"]

@@ -31,7 +31,7 @@ func _ready():
 
 	cam.limit_left = 0
 	cam.limit_top = 0
-	cam.limit_right = 10000
+	cam.limit_right = 100000
 	cam.limit_bottom = 8040
 
 	if GameState.open_pause_menu_on_load:
