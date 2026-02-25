@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://345jjnyngk70"]
+
+[ext_resource type="Texture2D" uid="uid://hhmi3755fpjq" path="res://Assets/Map/portal.png" id="1_qy0a5"]
+[ext_resource type="Script" uid="uid://dqhhnbp6vwxc1" path="res://Script/Map/portal_in.gd" id="1_u0onm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0onm"]
+size = Vector2(188, 407.25)
+
+[node name="PortalPair" type="Node2D"]
+position = Vector2(0, -2)
+
+[node name="PortalIn" type="Area2D" parent="."]
+script = ExtResource("1_u0onm")
+
+[node name="Rectangle" type="CollisionShape2D" parent="PortalIn"]
+position = Vector2(182, 285.375)
+shape = SubResource("RectangleShape2D_u0onm")
+
+[node name="TextureRect" type="TextureRect" parent="PortalIn"]
+offset_top = 3.0
+offset_right = 305.0
+offset_bottom = 504.0
+texture = ExtResource("1_qy0a5")
+metadata/_edit_use_anchors_ = true
+
+[node name="PortalOut" type="Marker2D" parent="."]
+position = Vector2(2587, 278)

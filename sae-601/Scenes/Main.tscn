@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=39 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://bjpgctw3d7a4n" path="res://Scenes/Map/StaticPlatformNight.tscn" id="34_qta6b"]
 [ext_resource type="PackedScene" uid="uid://ctpvlx8q0s18h" path="res://Scenes/Map/GravityFlipZone.tscn" id="35_vvnwx"]
 [ext_resource type="PackedScene" uid="uid://c4pddpvuyhkhh" path="res://Scenes/Map/InvertZone.tscn" id="36_6heos"]
+[ext_resource type="PackedScene" uid="uid://345jjnyngk70" path="res://Scenes/Map/PortalPair.tscn" id="38_btbly"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-134, -68)
@@ -52,6 +53,7 @@ position = Vector2(560, 850)
 position = Vector2(-253, 67)
 
 [node name="Frame6" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(7091, 6183)
 texture = ExtResource("4_4yxf6")
 
@@ -97,9 +99,6 @@ visible = false
 position = Vector2(706, 1009)
 scale = Vector2(1.0909091, 1.0909091)
 texture = ExtResource("10_kpo4j")
-
-[node name="White_candle" parent="CircleCandles" instance=ExtResource("5_pbw6q")]
-position = Vector2(942, 953)
 
 [node name="Violet_candle" parent="CircleCandles" instance=ExtResource("12_5jffn")]
 position = Vector2(11629, 1016)
@@ -176,7 +175,7 @@ offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
 [node name="White_candle" parent="." instance=ExtResource("5_pbw6q")]
-position = Vector2(9113, 828)
+position = Vector2(9126, 862)
 
 [node name="Orange_candle" parent="." instance=ExtResource("6_v1gob")]
 position = Vector2(1213, 826)
@@ -220,9 +219,6 @@ position = Vector2(1994, -2)
 position = Vector2(1536, 906)
 
 [node name="PauseMenu" parent="." instance=ExtResource("11_4kpch")]
-
-[node name="Sprike" parent="." instance=ExtResource("15_h1m7h")]
-position = Vector2(344, 975)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
@@ -287,6 +283,9 @@ scale = Vector2(1.64, 2.33)
 
 [node name="InvertZone" parent="." instance=ExtResource("36_6heos")]
 position = Vector2(3772, 327)
+
+[node name="PortalPair" parent="." instance=ExtResource("38_btbly")]
+position = Vector2(165, 588)
 
 [editable path="Epouvantail2"]
 [editable path="champignon2"]

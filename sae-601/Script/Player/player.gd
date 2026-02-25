@@ -20,6 +20,7 @@ var facing_direction: int = 1
 var controls_inverted := false
 var gravity_dir: int = 1
 var pending_gravity_reset := false
+var portal_lock := false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var head_spawn: Marker2D = $AnimatedSprite2D/HeadSpawn
@@ -217,3 +218,6 @@ func reset_gravity_after_delay(delay: float = 0.2) -> void:
 
 func is_on_ground() -> bool:
 	return is_on_floor() if gravity_dir == 1 else is_on_ceiling()
+
+func set_player_velocity(v: Vector2) -> void:
+	velocity = v
