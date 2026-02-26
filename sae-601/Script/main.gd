@@ -8,6 +8,10 @@ extends Node2D
 
 var cam: Camera2D
 var loaded := GameState.has_save()
+const CAM_OFFSET_WINDOW_Y := -150.0
+const CAM_OFFSET_FULLSCREEN_Y := -200.0 
+var _cam_offset_y := CAM_OFFSET_WINDOW_Y
+
 
 func _ready():
 	player.respawn_requested.connect(_on_player_respawn)
@@ -44,6 +48,10 @@ func _ready():
 		else:
 			player.global_position = spawn_point.global_position
 			
+			
+	_update_camera_offset()
+	get_viewport().size_changed.connect(_update_camera_offset)
+	
 func _on_candles_changed(current: int, total: int) -> void:
 	if current >= total:
 		print("Toutes les bougies ont été récupérées !")
@@ -72,7 +80,7 @@ func _process(delta):
 		return
 
 	cam.global_position.x = player.global_position.x
-	cam.global_position.y = player.global_position.y - 150
+	cam.global_position.y = player.global_position.y + _cam_offset_y
 
 func _input(event):
 	if event.is_action_pressed("pause"):
@@ -80,3 +88,13 @@ func _input(event):
 			pause_menu.close()
 		else:
 			pause_menu.open()
+
+
+func _update_camera_offset() -> void:
+	var mode := DisplayServer.window_get_mode()
+	var is_fullscreen := (
+		mode == DisplayServer.WINDOW_MODE_FULLSCREEN
+		or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+	)
+
+	_cam_offset_y = CAM_OFFSET_FULLSCREEN_Y if is_fullscreen else CAM_OFFSET_WINDOW_Y

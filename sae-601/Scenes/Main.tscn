@@ -1,10 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=38 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player/Player.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://bllgimnimmrlv" path="res://Scenes/Map/FondMap.tscn" id="2_erwvk"]
-[ext_resource type="Texture2D" uid="uid://bpc7tyvmds5o3" path="res://Assets/Paramètres/Frame 6.png" id="4_4yxf6"]
 [ext_resource type="Script" uid="uid://jht7job213te" path="res://Script/Paramètre/fade_layer.gd" id="5_1p5hy"]
 [ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/white_candle.tscn" id="5_pbw6q"]
 [ext_resource type="Texture2D" uid="uid://deyffmhvdp5qd" path="res://Assets/candle/Blue_candle.png" id="6_3tgeq"]
@@ -52,17 +51,15 @@ position = Vector2(560, 850)
 [node name="Map" parent="." instance=ExtResource("1_idj7w")]
 position = Vector2(-253, 67)
 
-[node name="Frame6" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(7091, 6183)
-texture = ExtResource("4_4yxf6")
-
 [node name="Checkpoint" parent="." instance=ExtResource("13_frkhe")]
 position = Vector2(6623, 990.0001)
 scale = Vector2(0.7, 0.7)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("13_frkhe")]
 position = Vector2(1435, 133)
+
+[node name="PortalPair" parent="." instance=ExtResource("38_btbly")]
+position = Vector2(165, 588)
 
 [node name="CircleCandles" type="Node2D" parent="."]
 
@@ -283,9 +280,6 @@ scale = Vector2(1.64, 2.33)
 
 [node name="InvertZone" parent="." instance=ExtResource("36_6heos")]
 position = Vector2(3772, 327)
-
-[node name="PortalPair" parent="." instance=ExtResource("38_btbly")]
-position = Vector2(165, 588)
 
 [editable path="Epouvantail2"]
 [editable path="champignon2"]

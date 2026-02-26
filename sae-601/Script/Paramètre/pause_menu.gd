@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var input_settings: Node = get_tree().current_scene.get_node_or_null("UILayer/InputSettings")
 
 func _ready():
+	Engine.max_fps = 30
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	hide()
 

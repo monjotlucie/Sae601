@@ -13,6 +13,7 @@ var remapping_row: Node = null
 var was_paused_before: bool = false
 
 func _ready() -> void:
+	Engine.max_fps = 30
 	visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
