@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=44 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://buv5oul5isp73" path="res://Assets/candle/Orange_candle.png" id="19_0sclb"]
 [ext_resource type="PackedScene" uid="uid://curkyw1re4nue" path="res://Scenes/Map/MediumStaticPlatform.tscn" id="19_qta6b"]
 [ext_resource type="PackedScene" uid="uid://ddxnqh3v3hf66" path="res://Scenes/Map/StaticPlatformDay.tscn" id="21_x3rx7"]
+[ext_resource type="PackedScene" uid="uid://dv1ka6eurov62" path="res://Scenes/Map/FallingPlatform.tscn" id="24_clvyn"]
 [ext_resource type="PackedScene" uid="uid://bahow5oqgk4ok" path="res://Scenes/Map/MovingPlateformeNight.tscn" id="33_x3rx7"]
 [ext_resource type="PackedScene" uid="uid://bjpgctw3d7a4n" path="res://Scenes/Map/StaticPlatformNight.tscn" id="34_qta6b"]
 [ext_resource type="PackedScene" uid="uid://ctpvlx8q0s18h" path="res://Scenes/Map/GravityFlipZone.tscn" id="35_vvnwx"]
@@ -40,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://345jjnyngk70" path="res://Scenes/Map/PortalPair.tscn" id="38_btbly"]
 [ext_resource type="PackedScene" uid="uid://dalguskcesfah" path="res://Scenes/Map/MovingPlatform.tscn" id="39_6ehlx"]
 [ext_resource type="PackedScene" uid="uid://xk1jpadogpor" path="res://Scenes/Map/MovingPlateformeDay.tscn" id="40_utia5"]
+[ext_resource type="PackedScene" uid="uid://cjoepfno5iso4" path="res://Scenes/Map/VerticalPlatformDay.tscn" id="41_utia5"]
+[ext_resource type="PackedScene" uid="uid://cx2dpge3epnk4" path="res://Scenes/Map/PortalPairFire.tscn" id="43_d8m2u"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(11, -19)
@@ -52,7 +55,8 @@ position = Vector2(-9408, 59)
 position = Vector2(560, 850)
 
 [node name="Frame6" type="Sprite2D" parent="."]
-position = Vector2(7076, 6194)
+visible = false
+position = Vector2(7050, 6179)
 texture = ExtResource("4_4yxf6")
 
 [node name="Map" parent="." instance=ExtResource("1_idj7w")]
@@ -111,7 +115,7 @@ position = Vector2(11629, 1016)
 position = Vector2(-631, 1981)
 
 [node name="Blue_candle" parent="CircleCandles" instance=ExtResource("14_4n42c")]
-position = Vector2(1669, 967)
+position = Vector2(6560, 3478)
 
 [node name="Sprike" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
 position = Vector2(736, 975)
@@ -140,8 +144,8 @@ position = Vector2(4180, 2646)
 scale = Vector2(3.04, 4.58)
 
 [node name="MiniStaticPlatform20" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(3203, 3468.0002)
-scale = Vector2(2.3, 12.53)
+position = Vector2(3203, 3572.0002)
+scale = Vector2(2.3, 10.1)
 
 [node name="MiniStaticPlatform7" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(9491, 2801)
@@ -179,6 +183,13 @@ scale = Vector2(1.47, 9.53)
 position = Vector2(10443, 1910)
 scale = Vector2(7.615, 4.05)
 
+[node name="StaticPlatformNight" parent="CircleCandles" instance=ExtResource("34_qta6b")]
+position = Vector2(7621, 1831)
+scale = Vector2(1.5, 8.365)
+
+[node name="ColorRect" parent="CircleCandles/StaticPlatformNight/StaticPlatformNight" index="0"]
+color = Color(0.5019608, 0.49803922, 0.5019608, 1)
+
 [node name="MiniStaticPlatform13" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(11478.001, 1687)
 scale = Vector2(7.615, 4.755)
@@ -213,7 +224,7 @@ scale = Vector2(2.346, 4.243)
 
 [node name="MiniStaticPlatform23" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(5676, 3252)
-scale = Vector2(2.041, 3.691)
+scale = Vector2(2.026, 3.691)
 
 [node name="MiniStaticPlatform24" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(5820.0005, 3103.0002)
@@ -238,6 +249,22 @@ scale = Vector2(3.076, 4.083)
 [node name="MiniStaticPlatform29" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(6410.9995, 2680)
 scale = Vector2(2.706, 2.848)
+
+[node name="MiniStaticPlatform34" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(6958, 2350)
+scale = Vector2(1.196, 7.748)
+
+[node name="MiniStaticPlatform33" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(6740.0005, 3440.9998)
+scale = Vector2(0.836, 5.808)
+
+[node name="MiniStaticPlatform31" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(6320, 2281)
+scale = Vector2(2.166, 1.698)
+
+[node name="MiniStaticPlatform32" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(6744, 2222)
+scale = Vector2(3.211, 2.958)
 
 [node name="MiniStaticPlatform30" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(-1160.9999, 4242)
@@ -275,8 +302,60 @@ scale = Vector2(0.825, 0.825)
 position = Vector2(-613, 3526)
 scale = Vector2(0.825, 0.825)
 
+[node name="SprikeDay" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
+position = Vector2(7040, 3594)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeDay2" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
+position = Vector2(7266.0005, 3593.9998)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeDay3" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
+position = Vector2(7489, 3594)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeDay4" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
+position = Vector2(7724, 3595)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeNight" parent="CircleCandles" instance=ExtResource("16_4n42c")]
+position = Vector2(7148, 3598)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeNight2" parent="CircleCandles" instance=ExtResource("16_4n42c")]
+position = Vector2(7378, 3595)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeNight3" parent="CircleCandles" instance=ExtResource("16_4n42c")]
+position = Vector2(7608, 3595.0002)
+scale = Vector2(1.605, 1.605)
+
+[node name="FallingPlatform" parent="CircleCandles" instance=ExtResource("24_clvyn")]
+position = Vector2(7052, 3310)
+
+[node name="FallingPlatform2" parent="CircleCandles" instance=ExtResource("24_clvyn")]
+position = Vector2(7386, 3284)
+
+[node name="FallingPlatform3" parent="CircleCandles" instance=ExtResource("24_clvyn")]
+position = Vector2(7658, 3302)
+
+[node name="FallingPlatform4" parent="CircleCandles" instance=ExtResource("24_clvyn")]
+position = Vector2(7941, 3296)
+
+[node name="FallingPlatform5" parent="CircleCandles" instance=ExtResource("24_clvyn")]
+position = Vector2(8063, 3296)
+
+[node name="FallingPlatform6" parent="CircleCandles" instance=ExtResource("24_clvyn")]
+position = Vector2(8181, 3296)
+
+[node name="FallingPlatform7" parent="CircleCandles" instance=ExtResource("24_clvyn")]
+position = Vector2(8301, 3296)
+
+[node name="FallingPlatform8" parent="CircleCandles" instance=ExtResource("24_clvyn")]
+position = Vector2(8424, 3298)
+
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
-position = Vector2(7850, 1482)
+position = Vector2(7124, 2089)
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_1p5hy")
@@ -309,6 +388,9 @@ position = Vector2(229, 0)
 
 [node name="champignon2" parent="." instance=ExtResource("9_vy5pj")]
 position = Vector2(5019, 1710)
+
+[node name="ShootPoint" parent="champignon2/champignon" index="2"]
+position = Vector2(-3, 116)
 
 [node name="Choux2" parent="." instance=ExtResource("8_50glp")]
 position = Vector2(6777, 1514)
@@ -397,7 +479,7 @@ scale = Vector2(1.64, 2.33)
 position = Vector2(3772, 327)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("39_6ehlx")]
-position = Vector2(5495.0005, 2519)
+position = Vector2(5506.0005, 2641.9998)
 scale = Vector2(0.565, 1.845)
 
 [node name="ColorRect" parent="MovingPlatform/AnimatableBody2D" index="0"]
@@ -415,6 +497,16 @@ scale = Vector2(1.98, 3.165)
 position = Vector2(-873, 2073)
 scale = Vector2(1.23, 3.125)
 
+[node name="VerticalPlatformDay" parent="." instance=ExtResource("41_utia5")]
+position = Vector2(5870, 2093)
+
+[node name="PortalPair2" parent="." instance=ExtResource("43_d8m2u")]
+position = Vector2(8677, 3232)
+
+[node name="PortalOut" parent="PortalPair2" index="1"]
+position = Vector2(3786, 216)
+
+[editable path="CircleCandles/StaticPlatformNight"]
 [editable path="CircleCandles/StaticPlatformDay"]
 [editable path="CircleCandles/champignon2"]
 [editable path="Epouvantail2"]
@@ -426,3 +518,4 @@ scale = Vector2(1.23, 3.125)
 [editable path="MovingPlatform"]
 [editable path="MovingPlatformDay2"]
 [editable path="MovingPlatformeNight3"]
+[editable path="PortalPair2"]

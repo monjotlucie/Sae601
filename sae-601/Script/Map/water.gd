@@ -10,3 +10,4 @@ func _on_body_entered(body):
 		if GameState.is_night:
 			print("Mort eau")
 			body.die()
+s

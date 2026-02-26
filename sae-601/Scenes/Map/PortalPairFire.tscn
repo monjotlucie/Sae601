@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx2dpge3epnk4"]
+
+[ext_resource type="Script" uid="uid://dqhhnbp6vwxc1" path="res://Script/Map/portal_in.gd" id="1_p85o2"]
+[ext_resource type="Texture2D" uid="uid://dbg4lgfnn0ed3" path="res://Assets/Map/portalfire.png" id="2_p85o2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0onm"]
+size = Vector2(188, 407.25)
+
+[node name="PortalPairFire" type="Node2D"]
+position = Vector2(0, -2)
+
+[node name="PortalIn" type="Area2D" parent="."]
+script = ExtResource("1_p85o2")
+
+[node name="Rectangle" type="CollisionShape2D" parent="PortalIn"]
+position = Vector2(182, 285.375)
+shape = SubResource("RectangleShape2D_u0onm")
+
+[node name="TextureRect" type="TextureRect" parent="PortalIn"]
+offset_top = 3.0
+offset_right = 305.0
+offset_bottom = 504.0
+texture = ExtResource("2_p85o2")
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PortalOut" type="Marker2D" parent="."]
+position = Vector2(2587, 278)
