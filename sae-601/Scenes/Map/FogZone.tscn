@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr8ygpn40m4pk"]
+
+[ext_resource type="Script" uid="uid://cjg8ueigglkl7" path="res://Script/Map/fog_zone.gd" id="1_oqn8w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj7dw"]
+size = Vector2(2565, 1167.5)
+
+[node name="FogZone" type="Area2D"]
+script = ExtResource("1_oqn8w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1283.5, 584.25)
+shape = SubResource("RectangleShape2D_xj7dw")

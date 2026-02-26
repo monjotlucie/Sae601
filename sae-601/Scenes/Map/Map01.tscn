@@ -77087,9 +77087,9 @@ script = ExtResource("1_d75t5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 17.0
-offset_top = 933.0
+offset_top = 881.9997
 offset_right = 57.0
-offset_bottom = 973.0
+offset_bottom = 921.9997
 scale = Vector2(240.755, 6.48)
 color = Color(0.24705882, 0.20392157, 0.16470589, 1)
 
@@ -77098,7 +77098,7 @@ offset_left = 7870.0
 offset_top = 930.99994
 offset_right = 7910.0
 offset_bottom = 970.99994
-scale = Vector2(3.26, 6.48)
+scale = Vector2(3.26, 5.23)
 color = Color(0.02745098, 0.02745098, 0.02745098, 1)
 
 [node name="Background_Night" type="TileMapLayer" parent="."]

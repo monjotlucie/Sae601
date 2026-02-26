@@ -21,6 +21,9 @@ var controls_inverted := false
 var gravity_dir: int = 1
 var pending_gravity_reset := false
 var portal_lock := false
+var in_fog := false
+var fog_jump_multiplier := 0.75
+var fog_gravity_multiplier := 1.2
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var head_spawn: Marker2D = $AnimatedSprite2D/HeadSpawn
@@ -128,12 +131,12 @@ func _physics_process(delta):
 
 	
 	if not is_on_ground():
-		velocity.y += get_gravity().y * gravity_dir * delta
+		velocity.y += get_current_gravity_y() * delta
 	else:
 		velocity.y = 0
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_ground():
-		velocity.y = JUMP_VELOCITY * gravity_dir
+		velocity.y = get_current_jump_velocity()
 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if controls_inverted:
@@ -221,3 +224,18 @@ func is_on_ground() -> bool:
 
 func set_player_velocity(v: Vector2) -> void:
 	velocity = v
+
+func set_fog_mode(active: bool) -> void:
+	in_fog = active
+
+func get_current_gravity_y() -> float:
+	var g := get_gravity().y * gravity_dir
+	if in_fog:
+		g *= fog_gravity_multiplier
+	return g
+
+func get_current_jump_velocity() -> float:
+	var j := JUMP_VELOCITY * gravity_dir
+	if in_fog:
+		j *= fog_jump_multiplier
+	return j

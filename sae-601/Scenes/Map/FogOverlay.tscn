@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmntble7w8vdt"]
+
+[ext_resource type="Shader" uid="uid://bcuuxxbasi4md" path="res://Scenes/Map/FogOverlay.gdshader" id="1_et8w8"]
+[ext_resource type="Script" uid="uid://cpm41gmnyjqxv" path="res://Script/Map/fog_rect.gd" id="2_8ksxg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a8ba"]
+shader = ExtResource("1_et8w8")
+shader_parameter/player_pos = Vector2(0.5, 0.5)
+shader_parameter/radius = 200.0
+shader_parameter/softness = 30.0
+shader_parameter/fog_color = Color(0, 0, 0, 1)
+
+[node name="FogOverlay" type="CanvasLayer"]
+
+[node name="FogRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_6a8ba")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.045, 2.225)
+color = Color(0.18359032, 0.1835905, 0.18359044, 1)
+script = ExtResource("2_8ksxg")
