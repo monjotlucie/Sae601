@@ -33,7 +33,7 @@ func _ready():
 	cam.position_smoothing_speed = 8.0
 	cam.position = Vector2(0, 150)
 
-	cam.limit_left = 0
+	cam.limit_left = -3000
 	cam.limit_top = 0
 	cam.limit_right = 100000
 	cam.limit_bottom = 8040
