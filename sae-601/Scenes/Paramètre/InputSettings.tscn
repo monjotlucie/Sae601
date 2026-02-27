@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://xdqpuak5swjb"]
 
 [ext_resource type="Script" uid="uid://b5wf042p6u4ye" path="res://Script/Paramètre/input_settings.gd" id="1_12ojo"]
-[ext_resource type="Texture2D" uid="uid://pyvxq3sma7w2" path="res://Assets/Paramètres/fond-settings.png" id="2_uw6r7"]
+[ext_resource type="Texture2D" uid="uid://b4mc8cfb5ks8" path="res://Assets/Paramètres/fond-settings.jpg" id="2_uw6r7"]
 [ext_resource type="PackedScene" uid="uid://c8e4l8jjc8xpx" path="res://Scenes/Paramètre/input_button.tscn" id="3_45kla"]
 [ext_resource type="FontFile" uid="uid://2pahkitvhgcc" path="res://Assets/Paramètres/Jaini/Jaini-Regular.ttf" id="4_uw6r7"]
 

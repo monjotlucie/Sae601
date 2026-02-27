@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://rfabvb0v54tf"]
 
 [ext_resource type="Script" uid="uid://dfs8vp1iti6e2" path="res://Script/Paramètre/input_settings_principal.gd" id="1_o0nry"]
-[ext_resource type="Texture2D" uid="uid://pyvxq3sma7w2" path="res://Assets/Paramètres/fond-settings.png" id="2_p7kyf"]
+[ext_resource type="Texture2D" uid="uid://b4mc8cfb5ks8" path="res://Assets/Paramètres/fond-settings.jpg" id="2_o0nry"]
 [ext_resource type="PackedScene" uid="uid://c8e4l8jjc8xpx" path="res://Scenes/Paramètre/input_button.tscn" id="3_stjyc"]
 [ext_resource type="FontFile" uid="uid://2pahkitvhgcc" path="res://Assets/Paramètres/Jaini/Jaini-Regular.ttf" id="4_i2p46"]
 
@@ -34,7 +34,7 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2
-texture = ExtResource("2_p7kyf")
+texture = ExtResource("2_o0nry")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
