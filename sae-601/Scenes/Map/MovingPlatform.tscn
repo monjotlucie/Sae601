@@ -48,7 +48,7 @@ _data = {
 [node name="ColorRect" type="ColorRect" parent="AnimatableBody2D"]
 offset_right = 664.0
 offset_bottom = 55.0
-color = Color(0.4249623, 0.33040604, 0.4249623, 1)
+color = Color(0.5019608, 0.49803922, 0.5019608, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(333.5, 27)

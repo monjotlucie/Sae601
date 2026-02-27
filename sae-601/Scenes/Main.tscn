@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=48 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -41,9 +41,12 @@
 [ext_resource type="PackedScene" uid="uid://345jjnyngk70" path="res://Scenes/Map/PortalPair.tscn" id="38_btbly"]
 [ext_resource type="PackedScene" uid="uid://dalguskcesfah" path="res://Scenes/Map/MovingPlatform.tscn" id="39_6ehlx"]
 [ext_resource type="PackedScene" uid="uid://xk1jpadogpor" path="res://Scenes/Map/MovingPlateformeDay.tscn" id="40_utia5"]
+[ext_resource type="PackedScene" uid="uid://7rxxb4ce8akh" path="res://Scenes/Map/VerticalPlatform.tscn" id="41_5psol"]
 [ext_resource type="PackedScene" uid="uid://cjoepfno5iso4" path="res://Scenes/Map/VerticalPlatformDay.tscn" id="41_utia5"]
 [ext_resource type="PackedScene" uid="uid://cx2dpge3epnk4" path="res://Scenes/Map/PortalPairFire.tscn" id="43_d8m2u"]
 [ext_resource type="PackedScene" uid="uid://1y162skjhfgy" path="res://Scenes/Map/MovingPlateformeDay2.tscn" id="44_d8m2u"]
+[ext_resource type="PackedScene" uid="uid://cmq1tycjwqirq" path="res://Scenes/Map/VerticalPlatformNight.tscn" id="46_lac6x"]
+[ext_resource type="PackedScene" uid="uid://cxihmadgqnt2i" path="res://Scenes/Map/MiniStaticPlatform.tscn" id="47_hpjjw"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(11, -19)
@@ -51,6 +54,10 @@ script = ExtResource("1_kln2b")
 
 [node name="FondMap" parent="." instance=ExtResource("2_erwvk")]
 position = Vector2(-9408, 59)
+
+[node name="MiniStaticPlatform40" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(-2210, 997)
+scale = Vector2(5.726, 4.573)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(560, 850)
@@ -64,14 +71,277 @@ texture = ExtResource("4_4yxf6")
 position = Vector2(-253, 67)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_frkhe")]
-position = Vector2(6623, 990.0001)
-scale = Vector2(0.7, 0.7)
+position = Vector2(6651, 1076)
+scale = Vector2(0.63, 0.63)
+
+[node name="Sprike2" parent="." instance=ExtResource("15_kpo4j")]
+position = Vector2(7917, 1546)
+
+[node name="Sprike3" parent="." instance=ExtResource("16_4n42c")]
+position = Vector2(8782, 1659)
+
+[node name="ZoneReboot5" parent="." instance=ExtResource("17_c5snn")]
+position = Vector2(11694.999, 5491)
+scale = Vector2(3.316, 5.697)
+
+[node name="StaticPlatformDay6" parent="." instance=ExtResource("21_x3rx7")]
+position = Vector2(4906, 2830)
+scale = Vector2(1.775, 24.285)
+
+[node name="MiniStaticPlatform2" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(8091, 1729)
+scale = Vector2(4, 4)
+
+[node name="MiniStaticPlatform11" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(11247, 2634)
+scale = Vector2(5.44, 4)
+
+[node name="MiniStaticPlatform18" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(4024.9998, 3695)
+scale = Vector2(14.145, 7.49)
+
+[node name="MiniStaticPlatform19" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(4180, 2646)
+scale = Vector2(3.04, 4.58)
+
+[node name="MiniStaticPlatform20" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(3203, 3572.0002)
+scale = Vector2(2.3, 10.1)
+
+[node name="MiniStaticPlatform7" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(9491, 2801)
+scale = Vector2(10.265, 4.13)
+
+[node name="MiniStaticPlatform5" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(8980, 1876.31)
+scale = Vector2(1.55, 97.52)
+
+[node name="MiniStaticPlatform6" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(9511, 2985)
+scale = Vector2(1.945, 73.415)
+
+[node name="MiniStaticPlatform12" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(9965, 2038)
+scale = Vector2(1.47, 6.755)
+
+[node name="MiniStaticPlatform15" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(12054, 240)
+scale = Vector2(0.859, 22.29)
+
+[node name="MiniStaticPlatform16" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(12814.001, 660)
+scale = Vector2(4.51, 3.275)
+
+[node name="MiniStaticPlatform52" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(13352, 1568)
+scale = Vector2(2.855, 3.275)
+
+[node name="MiniStaticPlatform53" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(13614, 1461)
+scale = Vector2(1.63, 3.275)
+
+[node name="MiniStaticPlatform54" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(13785, 1391)
+scale = Vector2(1.63, 3.275)
+
+[node name="MiniStaticPlatform55" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(12978.001, 1183)
+scale = Vector2(0.875, 1.51)
+
+[node name="MiniStaticPlatform13" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(10443, 1910)
+scale = Vector2(1.47, 9.53)
+
+[node name="MiniStaticPlatform14" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(10443, 1910)
+scale = Vector2(7.615, 4.05)
+
+[node name="StaticPlatformNight6" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(7621, 1831)
+scale = Vector2(1.5, 8.365)
+
+[node name="ColorRect" parent="StaticPlatformNight6/StaticPlatformNight" index="0"]
+color = Color(0.5019608, 0.49803922, 0.5019608, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MiniStaticPlatform17" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(11478.001, 1687)
+scale = Vector2(7.615, 4.755)
+
+[node name="MiniStaticPlatform21" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(10986.001, 3637.0002)
+scale = Vector2(8.545, 5.575)
+
+[node name="MiniStaticPlatform37" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(10206.001, 4227)
+scale = Vector2(1.535, 1.685)
+
+[node name="MiniStaticPlatform22" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(9331, 72.00012)
+scale = Vector2(14.09, 4.755)
+
+[node name="MiniStaticPlatform3" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(11105, 1087)
+scale = Vector2(3.48, 4)
+
+[node name="MiniStaticPlatform4" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(5541, 1724)
+scale = Vector2(3.53, 5.49)
+
+[node name="MiniStaticPlatform23" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(4594, 1845)
+scale = Vector2(3.265, 5.905)
+
+[node name="MiniStaticPlatform24" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(5441, 3534)
+scale = Vector2(2.675, 4.838)
+
+[node name="MiniStaticPlatform25" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(5562, 3393)
+scale = Vector2(2.346, 4.243)
+
+[node name="MiniStaticPlatform26" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(5676, 3252)
+scale = Vector2(2.026, 3.691)
+
+[node name="MiniStaticPlatform27" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(5820.0005, 3103.0002)
+scale = Vector2(1.641, 3.758)
+
+[node name="MiniStaticPlatform28" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(4932.0005, 2041)
+scale = Vector2(0.966, 13.853)
+
+[node name="MiniStaticPlatform29" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(6007, 2965)
+scale = Vector2(1.121, 6.663)
+
+[node name="MiniStaticPlatform33" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(6136.0005, 2836)
+scale = Vector2(0.771, 4.808)
+
+[node name="MiniStaticPlatform34" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(6278, 2744)
+scale = Vector2(3.076, 4.083)
+
+[node name="MiniStaticPlatform38" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(6410.9995, 2680)
+scale = Vector2(2.706, 2.848)
+
+[node name="MiniStaticPlatform43" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(6958, 2350)
+scale = Vector2(1.196, 7.748)
+
+[node name="MiniStaticPlatform44" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(6740.0005, 3440.9998)
+scale = Vector2(0.836, 5.808)
+
+[node name="MiniStaticPlatform45" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(6320, 2281)
+scale = Vector2(2.166, 1.698)
+
+[node name="MiniStaticPlatform46" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(6744, 2222)
+scale = Vector2(3.211, 2.958)
+
+[node name="MiniStaticPlatform47" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(2858, 3970.9998)
+scale = Vector2(0.801, 5.143)
+
+[node name="MiniStaticPlatform48" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(2364, 2768.0002)
+scale = Vector2(0.801, 13.073)
+
+[node name="MiniStaticPlatform49" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(-1477, 1996.0002)
+scale = Vector2(1.041, 1.458)
+
+[node name="MiniStaticPlatform50" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(13702, 6313)
+scale = Vector2(0.911, 1.258)
+
+[node name="MiniStaticPlatform51" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(13067, 2934.0002)
+scale = Vector2(0.911, 1.258)
+
+[node name="Sprike4" parent="." instance=ExtResource("15_h1m7h")]
+position = Vector2(9533, 2618)
+scale = Vector2(2.83, 2.83)
+
+[node name="StaticPlatformNight7" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(8266, 6753)
+
+[node name="champignon3" parent="." instance=ExtResource("9_vy5pj")]
+position = Vector2(10769, 2682)
+
+[node name="ShootPoint" parent="champignon3/champignon" index="2"]
+position = Vector2(2, 109)
+
+[node name="Leftlimit" parent="champignon3" index="1"]
+position = Vector2(-979, 7)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("13_frkhe")]
-position = Vector2(1435, 133)
+position = Vector2(11671, 2911)
+scale = Vector2(0.825, 0.825)
 
-[node name="PortalPair" parent="." instance=ExtResource("38_btbly")]
-position = Vector2(165, 588)
+[node name="Checkpoint3" parent="." instance=ExtResource("13_frkhe")]
+position = Vector2(-613, 3526)
+scale = Vector2(0.825, 0.825)
+
+[node name="SprikeDay" parent="." instance=ExtResource("15_kpo4j")]
+position = Vector2(7040, 3594)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeDay2" parent="." instance=ExtResource("15_kpo4j")]
+position = Vector2(7266.0005, 3593.9998)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeDay3" parent="." instance=ExtResource("15_kpo4j")]
+position = Vector2(7489, 3594)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeDay4" parent="." instance=ExtResource("15_kpo4j")]
+position = Vector2(7724, 3595)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeNight" parent="." instance=ExtResource("16_4n42c")]
+position = Vector2(7148, 3598)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeNight2" parent="." instance=ExtResource("16_4n42c")]
+position = Vector2(7378, 3595)
+scale = Vector2(1.605, 1.605)
+
+[node name="SprikeNight3" parent="." instance=ExtResource("16_4n42c")]
+position = Vector2(7608, 3595.0002)
+scale = Vector2(1.605, 1.605)
+
+[node name="FallingPlatform4" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(7052, 3310)
+
+[node name="FallingPlatform5" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(7386, 3284)
+
+[node name="FallingPlatform6" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(7658, 3302)
+
+[node name="FallingPlatform7" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(7941, 3296)
+
+[node name="FallingPlatform8" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(8063, 3296)
+
+[node name="FallingPlatform9" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(8181, 3296)
+
+[node name="FallingPlatform10" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(8301, 3296)
+
+[node name="FallingPlatform11" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(8424, 3298)
+
+[node name="Epouvantail4" parent="." instance=ExtResource("7_jw32o")]
+position = Vector2(7143, 2109)
 
 [node name="CircleCandles" type="Node2D" parent="."]
 
@@ -113,254 +383,10 @@ texture = ExtResource("10_kpo4j")
 position = Vector2(11629, 1016)
 
 [node name="Green_candle" parent="CircleCandles" instance=ExtResource("13_kpo4j")]
-position = Vector2(-631, 1981)
+position = Vector2(-1320, 1907)
 
 [node name="Blue_candle" parent="CircleCandles" instance=ExtResource("14_4n42c")]
 position = Vector2(6560, 3478)
-
-[node name="Sprike" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
-position = Vector2(736, 975)
-
-[node name="Sprike2" parent="CircleCandles" instance=ExtResource("16_4n42c")]
-position = Vector2(839, 978)
-
-[node name="ZoneReboot" parent="CircleCandles" instance=ExtResource("17_c5snn")]
-position = Vector2(11694.999, 5491)
-scale = Vector2(3.316, 5.697)
-
-[node name="MiniStaticPlatform" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(8091, 1729)
-scale = Vector2(4, 4)
-
-[node name="MiniStaticPlatform9" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(11247, 2634)
-scale = Vector2(5.44, 4)
-
-[node name="MiniStaticPlatform18" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(4024.9998, 3695)
-scale = Vector2(14.145, 7.49)
-
-[node name="MiniStaticPlatform19" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(4180, 2646)
-scale = Vector2(3.04, 4.58)
-
-[node name="MiniStaticPlatform20" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(3203, 3572.0002)
-scale = Vector2(2.3, 10.1)
-
-[node name="MiniStaticPlatform7" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(9491, 2801)
-scale = Vector2(10.265, 4.13)
-
-[node name="MiniStaticPlatform5" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(8980, 1876.31)
-scale = Vector2(1.55, 97.145)
-
-[node name="MiniStaticPlatform6" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(9511, 2985)
-scale = Vector2(1.945, 73.415)
-
-[node name="MiniStaticPlatform10" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(9965, 2038)
-scale = Vector2(1.47, 6.755)
-
-[node name="MiniStaticPlatform15" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(12054, 240)
-scale = Vector2(0.865, 19.32)
-
-[node name="MiniStaticPlatform16" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(12814.001, 660)
-scale = Vector2(4.51, 3.275)
-
-[node name="MiniStaticPlatform11" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(10443, 1910)
-scale = Vector2(1.47, 9.53)
-
-[node name="MiniStaticPlatform12" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(10443, 1910)
-scale = Vector2(7.615, 4.05)
-
-[node name="StaticPlatformNight" parent="CircleCandles" instance=ExtResource("34_qta6b")]
-position = Vector2(7621, 1831)
-scale = Vector2(1.5, 8.365)
-
-[node name="ColorRect" parent="CircleCandles/StaticPlatformNight/StaticPlatformNight" index="0"]
-color = Color(0.5019608, 0.49803922, 0.5019608, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="MiniStaticPlatform13" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(11478.001, 1687)
-scale = Vector2(7.615, 4.755)
-
-[node name="MiniStaticPlatform17" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(10986.001, 3637.0002)
-scale = Vector2(8.545, 5.575)
-
-[node name="MiniStaticPlatform35" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(10206.001, 4227)
-scale = Vector2(1.535, 1.685)
-
-[node name="MiniStaticPlatform14" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(9331, 72.00012)
-scale = Vector2(14.09, 4.755)
-
-[node name="MiniStaticPlatform3" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(11105, 1087)
-scale = Vector2(3.48, 4)
-
-[node name="MiniStaticPlatform2" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(5541, 1724)
-scale = Vector2(3.53, 5.49)
-
-[node name="MiniStaticPlatform4" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(4594, 1845)
-scale = Vector2(3.265, 5.905)
-
-[node name="MiniStaticPlatform21" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(5441, 3534)
-scale = Vector2(2.675, 4.838)
-
-[node name="MiniStaticPlatform22" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(5562, 3393)
-scale = Vector2(2.346, 4.243)
-
-[node name="MiniStaticPlatform23" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(5676, 3252)
-scale = Vector2(2.026, 3.691)
-
-[node name="MiniStaticPlatform24" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(5820.0005, 3103.0002)
-scale = Vector2(1.641, 3.193)
-
-[node name="MiniStaticPlatform25" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(4932.0005, 2041)
-scale = Vector2(0.966, 13.853)
-
-[node name="MiniStaticPlatform26" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(6007, 2965)
-scale = Vector2(1.121, 6.663)
-
-[node name="MiniStaticPlatform27" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(6136.0005, 2836)
-scale = Vector2(0.771, 4.808)
-
-[node name="MiniStaticPlatform28" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(6278, 2744)
-scale = Vector2(3.076, 4.083)
-
-[node name="MiniStaticPlatform29" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(6410.9995, 2680)
-scale = Vector2(2.706, 2.848)
-
-[node name="MiniStaticPlatform34" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(6958, 2350)
-scale = Vector2(1.196, 7.748)
-
-[node name="MiniStaticPlatform33" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(6740.0005, 3440.9998)
-scale = Vector2(0.836, 5.808)
-
-[node name="MiniStaticPlatform31" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(6320, 2281)
-scale = Vector2(2.166, 1.698)
-
-[node name="MiniStaticPlatform32" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(6744, 2222)
-scale = Vector2(3.211, 2.958)
-
-[node name="MiniStaticPlatform30" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(-1160.9999, 4242)
-scale = Vector2(5.726, 4.573)
-
-[node name="Sprike3" parent="CircleCandles" instance=ExtResource("15_h1m7h")]
-position = Vector2(9533, 2618)
-scale = Vector2(2.83, 2.83)
-
-[node name="StaticPlatformDay" parent="CircleCandles" instance=ExtResource("21_x3rx7")]
-position = Vector2(11270.805, 2080)
-scale = Vector2(2.625, 15.03)
-
-[node name="ColorRect" parent="CircleCandles/StaticPlatformDay/StaticPlatformDay" index="0"]
-offset_left = 0.45535716
-offset_top = -0.7833921
-offset_right = 210.45535
-offset_bottom = 46.216606
-color = Color(0.5019608, 0.49803922, 0.5019608, 1)
-
-[node name="CollisionShape2D" parent="CircleCandles/StaticPlatformDay/StaticPlatformDay" index="1"]
-position = Vector2(105.979164, 22.40501)
-
-[node name="champignon2" parent="CircleCandles" instance=ExtResource("9_vy5pj")]
-position = Vector2(10769, 2682)
-
-[node name="ShootPoint" parent="CircleCandles/champignon2/champignon" index="2"]
-position = Vector2(2, 109)
-
-[node name="Leftlimit" parent="CircleCandles/champignon2" index="1"]
-position = Vector2(-979, 7)
-
-[node name="Checkpoint" parent="CircleCandles" instance=ExtResource("13_frkhe")]
-position = Vector2(11671, 2911)
-scale = Vector2(0.825, 0.825)
-
-[node name="Checkpoint2" parent="CircleCandles" instance=ExtResource("13_frkhe")]
-position = Vector2(-613, 3526)
-scale = Vector2(0.825, 0.825)
-
-[node name="SprikeDay" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
-position = Vector2(7040, 3594)
-scale = Vector2(1.605, 1.605)
-
-[node name="SprikeDay2" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
-position = Vector2(7266.0005, 3593.9998)
-scale = Vector2(1.605, 1.605)
-
-[node name="SprikeDay3" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
-position = Vector2(7489, 3594)
-scale = Vector2(1.605, 1.605)
-
-[node name="SprikeDay4" parent="CircleCandles" instance=ExtResource("15_kpo4j")]
-position = Vector2(7724, 3595)
-scale = Vector2(1.605, 1.605)
-
-[node name="SprikeNight" parent="CircleCandles" instance=ExtResource("16_4n42c")]
-position = Vector2(7148, 3598)
-scale = Vector2(1.605, 1.605)
-
-[node name="SprikeNight2" parent="CircleCandles" instance=ExtResource("16_4n42c")]
-position = Vector2(7378, 3595)
-scale = Vector2(1.605, 1.605)
-
-[node name="SprikeNight3" parent="CircleCandles" instance=ExtResource("16_4n42c")]
-position = Vector2(7608, 3595.0002)
-scale = Vector2(1.605, 1.605)
-
-[node name="FallingPlatform" parent="CircleCandles" instance=ExtResource("24_clvyn")]
-position = Vector2(7052, 3310)
-
-[node name="FallingPlatform2" parent="CircleCandles" instance=ExtResource("24_clvyn")]
-position = Vector2(7386, 3284)
-
-[node name="FallingPlatform3" parent="CircleCandles" instance=ExtResource("24_clvyn")]
-position = Vector2(7658, 3302)
-
-[node name="FallingPlatform4" parent="CircleCandles" instance=ExtResource("24_clvyn")]
-position = Vector2(7941, 3296)
-
-[node name="FallingPlatform5" parent="CircleCandles" instance=ExtResource("24_clvyn")]
-position = Vector2(8063, 3296)
-
-[node name="FallingPlatform6" parent="CircleCandles" instance=ExtResource("24_clvyn")]
-position = Vector2(8181, 3296)
-
-[node name="FallingPlatform7" parent="CircleCandles" instance=ExtResource("24_clvyn")]
-position = Vector2(8301, 3296)
-
-[node name="FallingPlatform8" parent="CircleCandles" instance=ExtResource("24_clvyn")]
-position = Vector2(8424, 3298)
-
-[node name="Epouvantail" parent="CircleCandles" instance=ExtResource("7_jw32o")]
-position = Vector2(7143, 2109)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(7124, 2089)
@@ -374,13 +400,34 @@ offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
 [node name="White_candle" parent="." instance=ExtResource("5_pbw6q")]
-position = Vector2(9126, 862)
+position = Vector2(8652, 862)
 
 [node name="Orange_candle" parent="." instance=ExtResource("6_v1gob")]
-position = Vector2(1213, 826)
+position = Vector2(13857, 6233)
 
 [node name="Enemy" parent="." instance=ExtResource("6_jw32o")]
 position = Vector2(2929, 942)
+
+[node name="Choux5" parent="." instance=ExtResource("8_50glp")]
+position = Vector2(-373, 6087)
+
+[node name="Rightlimit" parent="Choux5" index="2"]
+position = Vector2(709, 17)
+
+[node name="champignon5" parent="." instance=ExtResource("9_vy5pj")]
+position = Vector2(-760, 6064)
+
+[node name="Leftlimit" parent="champignon5" index="1"]
+position = Vector2(-654, 22)
+
+[node name="Rightlimit" parent="champignon5" index="2"]
+position = Vector2(1183, 30)
+
+[node name="Enemy4" parent="." instance=ExtResource("6_jw32o")]
+position = Vector2(10665, 4136)
+
+[node name="Rightlimit" parent="Enemy4" index="2"]
+position = Vector2(94, 2)
 
 [node name="Epouvantail" parent="." instance=ExtResource("7_jw32o")]
 position = Vector2(4270, 909)
@@ -399,6 +446,15 @@ position = Vector2(5019, 1710)
 
 [node name="ShootPoint" parent="champignon2/champignon" index="2"]
 position = Vector2(-3, 116)
+
+[node name="champignon6" parent="." instance=ExtResource("9_vy5pj")]
+position = Vector2(7167, 2100)
+
+[node name="ShootPoint" parent="champignon6/champignon" index="2"]
+position = Vector2(-3, 116)
+
+[node name="Rightlimit" parent="champignon6" index="2"]
+position = Vector2(408, 12)
 
 [node name="Choux2" parent="." instance=ExtResource("8_50glp")]
 position = Vector2(6777, 1514)
@@ -445,7 +501,7 @@ position = Vector2(1163, 213.5)
 [node name="CandleConter" parent="." instance=ExtResource("17_2w5on")]
 
 [node name="Dark_candle" parent="." instance=ExtResource("18_0sclb")]
-position = Vector2(1405, 944)
+position = Vector2(6209, 6339)
 
 [node name="MovingPlatformeNight" parent="." instance=ExtResource("33_x3rx7")]
 position = Vector2(9864, 1545.9999)
@@ -476,16 +532,24 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-5.2716064, 35.254005)
 
 [node name="GravityFlipZone" parent="." instance=ExtResource("35_vvnwx")]
-position = Vector2(6478, 1069)
-scale = Vector2(0.555, 0.585)
+position = Vector2(859, 2618.9998)
+scale = Vector2(1.025, 1.385)
 
 [node name="StaticPlatformNight" parent="." instance=ExtResource("34_qta6b")]
 position = Vector2(10159.001, 1418)
 scale = Vector2(1.64, 2.33)
 
 [node name="InvertZone" parent="." instance=ExtResource("36_6heos")]
-position = Vector2(9507, 2073)
-scale = Vector2(1.23, 1)
+position = Vector2(9507, 2081)
+scale = Vector2(0.705, 1.021)
+
+[node name="InvertZone2" parent="." instance=ExtResource("36_6heos")]
+position = Vector2(11408, 2004)
+scale = Vector2(0.63, 0.861)
+
+[node name="InvertZone3" parent="." instance=ExtResource("36_6heos")]
+position = Vector2(7885, 4675.44)
+scale = Vector2(0.395, 3.871)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("39_6ehlx")]
 position = Vector2(5506.0005, 2641.9998)
@@ -502,6 +566,13 @@ scale = Vector2(1.98, 3.165)
 position = Vector2(10518, 4523.0005)
 scale = Vector2(1.38, 2.16)
 
+[node name="VerticalPlatform" parent="." instance=ExtResource("41_5psol")]
+position = Vector2(1711, 3059.0002)
+scale = Vector2(1.09, 2.13)
+
+[node name="ColorRect" parent="VerticalPlatform/VerticalPlatform" index="0"]
+metadata/_edit_use_anchors_ = true
+
 [node name="MovingPlatformeNight3" parent="." instance=ExtResource("33_x3rx7")]
 position = Vector2(-873, 2073)
 scale = Vector2(1.23, 3.125)
@@ -516,7 +587,7 @@ position = Vector2(8677, 3232)
 position = Vector2(-1246, -1161)
 
 [node name="Sprike" parent="." instance=ExtResource("15_h1m7h")]
-position = Vector2(13205.999, 2751)
+position = Vector2(13199.999, 2795.9998)
 scale = Vector2(2.285, 2.285)
 
 [node name="Lave" type="ColorRect" parent="."]
@@ -526,31 +597,342 @@ offset_right = 14005.0
 offset_bottom = 5906.0
 color = Color(0.8962329, 0.48942626, 0.039009202, 1)
 
+[node name="Lave2" type="ColorRect" parent="."]
+offset_left = -1706.0
+offset_top = 2462.0
+offset_right = 3133.0
+offset_bottom = 2829.0
+color = Color(0.8962329, 0.48942626, 0.039009202, 1)
+
+[node name="Lave3" type="ColorRect" parent="."]
+offset_left = 810.0
+offset_top = 4342.0
+offset_right = 5756.0
+offset_bottom = 4718.0
+color = Color(0.8962329, 0.48942626, 0.039009202, 1)
+
+[node name="StaticPlatformNight2" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(9864.002, 6370)
+scale = Vector2(1.822, 20.695)
+
 [node name="MiniStaticPlatform8" parent="." instance=ExtResource("19_qta6b")]
 position = Vector2(9511, 2985)
 scale = Vector2(1.945, 73.415)
 
+[node name="MiniStaticPlatform9" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(7373.0005, 4656.0005)
+scale = Vector2(1.945, 73.415)
+
+[node name="MiniStaticPlatform10" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(6663, 3951.0002)
+scale = Vector2(1.945, 84.46)
+
 [node name="MiniStaticPlatform35" parent="." instance=ExtResource("19_qta6b")]
-position = Vector2(13997.001, 233.99988)
-scale = Vector2(1.23, 147.695)
+position = Vector2(14007, 67)
+scale = Vector2(2.25, 167.92)
+
+[node name="MiniStaticPlatform36" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(-2291, 1173)
+scale = Vector2(2.25, 153.67)
 
 [node name="MovingPlatformDay4" parent="." instance=ExtResource("44_d8m2u")]
 position = Vector2(12148, 4531)
 scale = Vector2(1.29, 2.075)
 
+[node name="StaticPlatformDay" parent="." instance=ExtResource("21_x3rx7")]
+position = Vector2(11245, 2073)
+scale = Vector2(2.625, 15.03)
+
+[node name="ColorRect" parent="StaticPlatformDay/StaticPlatformDay" index="0"]
+offset_left = 0.45535716
+offset_top = -0.7833921
+offset_right = 210.45535
+offset_bottom = 46.216606
+color = Color(0.5019608, 0.49803922, 0.5019608, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" parent="StaticPlatformDay/StaticPlatformDay" index="1"]
+position = Vector2(105.979164, 22.40501)
+
 [node name="MovingPlatformDay2" parent="." instance=ExtResource("44_d8m2u")]
 position = Vector2(-77, 1699)
 scale = Vector2(2.02, 3)
 
-[editable path="CircleCandles/StaticPlatformNight"]
-[editable path="CircleCandles/StaticPlatformDay"]
-[editable path="CircleCandles/champignon2"]
+[node name="MiniStaticPlatform39" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(8432.001, 7213.9995)
+scale = Vector2(17.045, 12.405)
+
+[node name="GravityFlipZone2" parent="." instance=ExtResource("35_vvnwx")]
+position = Vector2(5292.0005, 4536)
+scale = Vector2(0.325, 1.42)
+
+[node name="GravityFlipZone3" parent="." instance=ExtResource("35_vvnwx")]
+position = Vector2(7997.0005, 3868.9995)
+scale = Vector2(0.325, 1.25)
+
+[node name="PortalPair3" parent="." instance=ExtResource("38_btbly")]
+position = Vector2(13534.001, 6629)
+scale = Vector2(1.255, 1.255)
+
+[node name="Rectangle" parent="PortalPair3/PortalIn" index="0"]
+position = Vector2(182, 266.235)
+
+[node name="TextureRect" parent="PortalPair3/PortalIn" index="1"]
+offset_left = 44.621513
+offset_top = -7.171424
+offset_right = 349.62152
+offset_bottom = 493.82858
+flip_h = true
+
+[node name="PortalOut" parent="PortalPair3" index="1"]
+position = Vector2(-1387.2515, -1380.8767)
+
+[node name="Epouvantail3" parent="." instance=ExtResource("7_jw32o")]
+position = Vector2(12813, 6961)
+scale = Vector2(2.065, 2.065)
+
+[node name="Leftlimit" parent="Epouvantail3" index="1"]
+position = Vector2(-1122.0339, 23.244524)
+
+[node name="StaticPlatformDay2" parent="." instance=ExtResource("21_x3rx7")]
+position = Vector2(8987, 6356)
+scale = Vector2(2.53, 19.915)
+
+[node name="ColorRect" parent="StaticPlatformDay2/StaticPlatformDay" index="0"]
+color = Color(0.5019608, 0.49803922, 0.5019608, 1)
+
+[node name="Choux3" parent="." instance=ExtResource("8_50glp")]
+position = Vector2(10922.001, 6992.0005)
+scale = Vector2(2.065, 2.065)
+
+[node name="Rightlimit" parent="Choux3" index="2"]
+position = Vector2(1118.1592, 18.885963)
+
+[node name="ZoneReboot" parent="." instance=ExtResource("17_c5snn")]
+position = Vector2(683.99994, 2634)
+scale = Vector2(4.795, 2.195)
+
+[node name="ZoneReboot2" parent="." instance=ExtResource("17_c5snn")]
+position = Vector2(3290, 4532)
+scale = Vector2(4.795, 2.195)
+
+[node name="ZoneReboot3" parent="." instance=ExtResource("17_c5snn")]
+position = Vector2(3058.0002, 6371)
+scale = Vector2(4.495, 2.07)
+
+[node name="MiniStaticPlatform41" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(3099, 2445)
+scale = Vector2(0.951, 7.713)
+
+[node name="MiniStaticPlatform42" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(2648, 2799)
+scale = Vector2(2.196, 3.503)
+
+[node name="StaticPlatformNight3" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(957.99994, 3382)
+scale = Vector2(1.775, 1.6)
+
+[node name="MiniStaticPlatform30" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(-1605, 4242.0005)
+scale = Vector2(6.975, 10.625)
+
+[node name="PortalPair" parent="." instance=ExtResource("38_btbly")]
+position = Vector2(-1436, 3776)
+
+[node name="PortalOut" parent="PortalPair" index="1"]
+position = Vector2(294, 2097)
+
+[node name="StaticPlatformNight4" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(462, 5987)
+scale = Vector2(3.835, 4.1)
+
+[node name="StaticPlatformNight5" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(2635, 5930)
+scale = Vector2(1.825, 5.715)
+
+[node name="StaticPlatformDay3" parent="." instance=ExtResource("21_x3rx7")]
+position = Vector2(2974.9998, 5929.0005)
+scale = Vector2(1.645, 5.725)
+
+[node name="StaticPlatformDay4" parent="." instance=ExtResource("21_x3rx7")]
+position = Vector2(4980, 5922.0005)
+scale = Vector2(1.645, 5.725)
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("39_6ehlx")]
+position = Vector2(3634, 5761)
+scale = Vector2(1, 1.965)
+
+[node name="ColorRect" parent="MovingPlatform2/AnimatableBody2D" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Eau" type="ColorRect" parent="."]
+offset_left = 798.0
+offset_top = 6150.0
+offset_right = 5376.0
+offset_bottom = 6932.0
+color = Color(0.26802498, 0.6691558, 0.7793512, 1)
+
+[node name="MiniStaticPlatform31" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(-1672, 6193)
+scale = Vector2(6.975, 10.625)
+
+[node name="MiniStaticPlatform32" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(-1693, 7755)
+scale = Vector2(40, 10.625)
+
+[node name="VerticalPlatformNight" parent="." instance=ExtResource("46_lac6x")]
+position = Vector2(1652.9999, 5710)
+scale = Vector2(2.79, 1.855)
+
+[node name="ColorRect" parent="VerticalPlatformNight/VerticalPlatformNight" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="PortalPairFire" parent="." instance=ExtResource("43_d8m2u")]
+position = Vector2(7520, 4164)
+
+[node name="TextureRect" parent="PortalPairFire/PortalIn" index="1"]
+flip_h = false
+
+[node name="PortalOut" parent="PortalPairFire" index="1"]
+position = Vector2(-7195, -3248)
+
+[node name="MiniStaticPlatform" parent="." instance=ExtResource("47_hpjjw")]
+position = Vector2(5559, 5177)
+
+[node name="VerticalPlatform2" parent="." instance=ExtResource("41_5psol")]
+position = Vector2(6081, 6059)
+
+[node name="ZoneReboot4" parent="." instance=ExtResource("17_c5snn")]
+position = Vector2(6251, 7708)
+scale = Vector2(4.655, 1)
+
+[node name="FallingPlatform" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(8341, 7027)
+
+[node name="FallingPlatform2" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(8212, 6936)
+
+[node name="FallingPlatform12" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(8313, 5728)
+
+[node name="FallingPlatform3" parent="." instance=ExtResource("24_clvyn")]
+position = Vector2(8075, 6856)
+
+[node name="VerticalPlatformDay2" parent="." instance=ExtResource("41_utia5")]
+position = Vector2(8495, 6255)
+
+[node name="VerticalPlatformNight2" parent="." instance=ExtResource("46_lac6x")]
+position = Vector2(8725, 5759)
+
+[node name="MediumStaticPlatform" parent="." instance=ExtResource("19_qta6b")]
+position = Vector2(7878, 5607)
+
+[node name="StaticPlatformDay5" parent="." instance=ExtResource("21_x3rx7")]
+position = Vector2(8451, 5505)
+
+[node name="VerticalPlatform3" parent="." instance=ExtResource("41_5psol")]
+position = Vector2(8735, 4985)
+
+[node name="CollisionShape2D" parent="VerticalPlatform3/VerticalPlatform" index="1"]
+position = Vector2(121.5, 45)
+
+[node name="StaticPlatformDay7" parent="." instance=ExtResource("21_x3rx7")]
+position = Vector2(13410, 1266)
+
+[node name="StaticPlatformDay8" parent="." instance=ExtResource("21_x3rx7")]
+position = Vector2(12354, 1042)
+
+[node name="StaticPlatformNight8" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(12623, 1132)
+
+[node name="Enemy3" parent="." instance=ExtResource("6_jw32o")]
+position = Vector2(12308, 2544)
+
+[node name="Leftlimit" parent="Enemy3" index="1"]
+position = Vector2(-453, 5)
+
+[node name="Rightlimit" parent="Enemy3" index="2"]
+position = Vector2(883, 12)
+
+[node name="champignon4" parent="." instance=ExtResource("9_vy5pj")]
+position = Vector2(12390, 1566)
+
+[node name="ShootPoint" parent="champignon4/champignon" index="2"]
+position = Vector2(4, 114)
+
+[node name="Leftlimit" parent="champignon4" index="1"]
+position = Vector2(-907, 34)
+
+[node name="Rightlimit" parent="champignon4" index="2"]
+position = Vector2(893, 6)
+
+[node name="VerticalPlatform4" parent="." instance=ExtResource("41_5psol")]
+position = Vector2(12633, 635)
+scale = Vector2(0.45, 0.77)
+
+[node name="Enemy2" parent="." instance=ExtResource("6_jw32o")]
+position = Vector2(13550, 570)
+
+[node name="Leftlimit" parent="Enemy2" index="1"]
+position = Vector2(-722, 2)
+
+[node name="Epouvantail5" parent="." instance=ExtResource("7_jw32o")]
+position = Vector2(13514, 3525)
+
+[node name="Leftlimit" parent="Epouvantail5" index="1"]
+position = Vector2(-2388, 23)
+
+[node name="Choux4" parent="." instance=ExtResource("8_50glp")]
+position = Vector2(11599, 3535)
+
+[node name="Leftlimit" parent="Choux4" index="1"]
+position = Vector2(-581, 18)
+
+[node name="Rightlimit" parent="Choux4" index="2"]
+position = Vector2(2220, 3)
+
+[node name="Choux6" parent="." instance=ExtResource("8_50glp")]
+position = Vector2(-1238, 1897)
+
+[node name="Leftlimit" parent="Choux6" index="1"]
+position = Vector2(-228, 14)
+
+[node name="Rightlimit" parent="Choux6" index="2"]
+position = Vector2(133, 17)
+
+[node name="Enemy5" parent="." instance=ExtResource("6_jw32o")]
+position = Vector2(4489, 3604)
+
+[editable path="StaticPlatformNight6"]
+[editable path="champignon3"]
+[editable path="Choux5"]
+[editable path="champignon5"]
+[editable path="Enemy4"]
 [editable path="Epouvantail2"]
 [editable path="champignon2"]
+[editable path="champignon6"]
 [editable path="Choux2"]
 [editable path="StaticPlatform"]
 [editable path="MovingPlatformeNight"]
 [editable path="MovingPlatformeNight2"]
 [editable path="MovingPlatform"]
+[editable path="VerticalPlatform"]
 [editable path="MovingPlatformeNight3"]
 [editable path="PortalPair2"]
+[editable path="StaticPlatformDay"]
+[editable path="PortalPair3"]
+[editable path="Epouvantail3"]
+[editable path="StaticPlatformDay2"]
+[editable path="Choux3"]
+[editable path="PortalPair"]
+[editable path="MovingPlatform2"]
+[editable path="VerticalPlatformNight"]
+[editable path="PortalPairFire"]
+[editable path="VerticalPlatform3"]
+[editable path="Enemy3"]
+[editable path="champignon4"]
+[editable path="VerticalPlatform4"]
+[editable path="Enemy2"]
+[editable path="Epouvantail5"]
+[editable path="Choux4"]
+[editable path="Choux6"]
