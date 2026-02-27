@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqbt7ji3syv0e"
-path="res://.godot/imported/boule_de_choux(1).png-f118adb2d94bfb6445022b848563791e.ctex"
+path.s3tc="res://.godot/imported/boule_de_choux(1).png-f118adb2d94bfb6445022b848563791e.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enemies/boule_de_choux(1).png"
-dest_files=["res://.godot/imported/boule_de_choux(1).png-f118adb2d94bfb6445022b848563791e.ctex"]
+dest_files=["res://.godot/imported/boule_de_choux(1).png-f118adb2d94bfb6445022b848563791e.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

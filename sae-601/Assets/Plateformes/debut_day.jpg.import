@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ye8d75als4tw"
-path="res://.godot/imported/poisson_nemo.png-bdc8ca1faeb42fe6a4af8efb3136e030.ctex"
+uid="uid://ckyq7nxhpkv52"
+path.s3tc="res://.godot/imported/debut_day.jpg-ff870b0fe29bf61b2c6111906df703e8.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/poisson_nemo.png"
-dest_files=["res://.godot/imported/poisson_nemo.png-bdc8ca1faeb42fe6a4af8efb3136e030.ctex"]
+source_file="res://Assets/Plateformes/debut_day.jpg"
+dest_files=["res://.godot/imported/debut_day.jpg-ff870b0fe29bf61b2c6111906df703e8.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

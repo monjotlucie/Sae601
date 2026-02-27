@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxwih4eicrlpq"
-path="res://.godot/imported/Hover_Options_menu.png-b2db20b72cb295cde5b10bc7dbf517fc.ctex"
+path.s3tc="res://.godot/imported/Hover_Options_menu.png-b2db20b72cb295cde5b10bc7dbf517fc.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Paramètres/Hover_Options_menu.png"
-dest_files=["res://.godot/imported/Hover_Options_menu.png-b2db20b72cb295cde5b10bc7dbf517fc.ctex"]
+dest_files=["res://.godot/imported/Hover_Options_menu.png-b2db20b72cb295cde5b10bc7dbf517fc.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

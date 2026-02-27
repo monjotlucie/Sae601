@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6h8wrp3mntb7"
-path="res://.godot/imported/champignon.png-fde2a86d785260a4a4c65915aa134ba9.ctex"
+path.s3tc="res://.godot/imported/champignon.png-fde2a86d785260a4a4c65915aa134ba9.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enemies/champignon.png"
-dest_files=["res://.godot/imported/champignon.png-fde2a86d785260a4a4c65915aa134ba9.ctex"]
+dest_files=["res://.godot/imported/champignon.png-fde2a86d785260a4a4c65915aa134ba9.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

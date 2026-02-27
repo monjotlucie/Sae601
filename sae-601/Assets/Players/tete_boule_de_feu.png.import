@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wrvjv86b5ewa"
-path="res://.godot/imported/tete_boule_de_feu.png-c248df2e2bba02e4ce1a30576ed9ab4c.ctex"
+path.s3tc="res://.godot/imported/tete_boule_de_feu.png-c248df2e2bba02e4ce1a30576ed9ab4c.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Players/tete_boule_de_feu.png"
-dest_files=["res://.godot/imported/tete_boule_de_feu.png-c248df2e2bba02e4ce1a30576ed9ab4c.ctex"]
+dest_files=["res://.godot/imported/tete_boule_de_feu.png-c248df2e2bba02e4ce1a30576ed9ab4c.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

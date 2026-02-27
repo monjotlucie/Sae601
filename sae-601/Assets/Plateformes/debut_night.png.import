@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csv0ppllkd8ul"
-path="res://.godot/imported/debut_night.png-4788681a2dce7f4bacd3c2b7dca08857.ctex"
+path.s3tc="res://.godot/imported/debut_night.png-4788681a2dce7f4bacd3c2b7dca08857.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Plateformes/debut_night.png"
-dest_files=["res://.godot/imported/debut_night.png-4788681a2dce7f4bacd3c2b7dca08857.ctex"]
+dest_files=["res://.godot/imported/debut_night.png-4788681a2dce7f4bacd3c2b7dca08857.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

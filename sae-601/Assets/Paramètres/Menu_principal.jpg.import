@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bquww2c7l76dq"
-path="res://.godot/imported/poisson_dory.png-ab4360d4b37d08775234b483e259df64.ctex"
+uid="uid://duyfaxexaay5d"
+path.s3tc="res://.godot/imported/Menu_principal.jpg-577c6578f0488b481fcc2e6b61864b14.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/poisson_dory.png"
-dest_files=["res://.godot/imported/poisson_dory.png-ab4360d4b37d08775234b483e259df64.ctex"]
+source_file="res://Assets/Paramètres/Menu_principal.jpg"
+dest_files=["res://.godot/imported/Menu_principal.jpg-577c6578f0488b481fcc2e6b61864b14.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ditca834f3xae"
-path="res://.godot/imported/Bouton_menu.png-8354674a95ffaebc9a4537507a1fc804.ctex"
+path.s3tc="res://.godot/imported/Bouton_menu.png-8354674a95ffaebc9a4537507a1fc804.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Paramètres/Bouton_menu.png"
-dest_files=["res://.godot/imported/Bouton_menu.png-8354674a95ffaebc9a4537507a1fc804.ctex"]
+dest_files=["res://.godot/imported/Bouton_menu.png-8354674a95ffaebc9a4537507a1fc804.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccd3yox2ul1fi"
-path="res://.godot/imported/Retour_surface_day.png-5e9887f234c2b7c40a64f7437a06283e.ctex"
+path.s3tc="res://.godot/imported/Retour_surface_day.png-5e9887f234c2b7c40a64f7437a06283e.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Players/Retour_surface_day.png"
-dest_files=["res://.godot/imported/Retour_surface_day.png-5e9887f234c2b7c40a64f7437a06283e.ctex"]
+dest_files=["res://.godot/imported/Retour_surface_day.png-5e9887f234c2b7c40a64f7437a06283e.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

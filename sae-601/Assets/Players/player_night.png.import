@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw7hyhisa8gw1"
-path="res://.godot/imported/player_night.png-1b164b62d573faa20680db6d8577ebea.ctex"
+path.s3tc="res://.godot/imported/player_night.png-1b164b62d573faa20680db6d8577ebea.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Players/player_night.png"
-dest_files=["res://.godot/imported/player_night.png-1b164b62d573faa20680db6d8577ebea.ctex"]
+dest_files=["res://.godot/imported/player_night.png-1b164b62d573faa20680db6d8577ebea.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

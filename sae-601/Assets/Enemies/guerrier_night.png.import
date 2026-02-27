@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://njj57h7w2egt"
-path="res://.godot/imported/guerrier_night.png-15f1a65d79dea855fa43a848af286abc.ctex"
+path.s3tc="res://.godot/imported/guerrier_night.png-15f1a65d79dea855fa43a848af286abc.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enemies/guerrier_night.png"
-dest_files=["res://.godot/imported/guerrier_night.png-15f1a65d79dea855fa43a848af286abc.ctex"]
+dest_files=["res://.godot/imported/guerrier_night.png-15f1a65d79dea855fa43a848af286abc.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

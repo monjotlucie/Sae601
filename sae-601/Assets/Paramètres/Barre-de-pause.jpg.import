@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnq2s2p4xlccm"
-path="res://.godot/imported/champignon_attaque.png-c59c4f448611c65c9e86c61b3e9f775a.ctex"
+uid="uid://cdsi18xq3vbko"
+path.s3tc="res://.godot/imported/Barre-de-pause.jpg-d00d4a982bfd9809bda421b05161d32b.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/champignon_attaque.png"
-dest_files=["res://.godot/imported/champignon_attaque.png-c59c4f448611c65c9e86c61b3e9f775a.ctex"]
+source_file="res://Assets/Paramètres/Barre-de-pause.jpg"
+dest_files=["res://.godot/imported/Barre-de-pause.jpg-d00d4a982bfd9809bda421b05161d32b.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

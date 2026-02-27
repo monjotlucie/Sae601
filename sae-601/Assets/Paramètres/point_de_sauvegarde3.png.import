@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd56y6l7fdnq6"
-path="res://.godot/imported/point_de_sauvegarde3.png-9780461693315620c408bb8e40ac9369.ctex"
+path.s3tc="res://.godot/imported/point_de_sauvegarde3.png-9780461693315620c408bb8e40ac9369.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Paramètres/point_de_sauvegarde3.png"
-dest_files=["res://.godot/imported/point_de_sauvegarde3.png-9780461693315620c408bb8e40ac9369.ctex"]
+dest_files=["res://.godot/imported/point_de_sauvegarde3.png-9780461693315620c408bb8e40ac9369.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
