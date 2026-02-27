@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b1ge38el2hyof"]
 
 [ext_resource type="Script" uid="uid://drfm0dftma1y6" path="res://Script/Paramètre/pause_menu.gd" id="1_q7gi8"]
-[ext_resource type="Texture2D" uid="uid://c63c6spr2plwi" path="res://Assets/Paramètres/Barre de pause.png" id="2_7vea1"]
+[ext_resource type="Texture2D" uid="uid://cdsi18xq3vbko" path="res://Assets/Paramètres/Barre-de-pause.jpg" id="2_x0ijh"]
 [ext_resource type="Texture2D" uid="uid://cnxdasd8ppnio" path="res://Assets/Paramètres/Bouton_reprendre.png" id="3_aadoc"]
 [ext_resource type="Texture2D" uid="uid://crk0qwmetm463" path="res://Assets/Paramètres/Bouton_reprendre_hover.png" id="4_8hsqk"]
 [ext_resource type="Texture2D" uid="uid://k55atgmxyshk" path="res://Assets/Paramètres/Bouton_options.png" id="5_ndylh"]
@@ -42,7 +42,7 @@ offset_top = -324.0
 offset_right = 1738.0
 offset_bottom = 970.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_7vea1")
+texture = ExtResource("2_x0ijh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
