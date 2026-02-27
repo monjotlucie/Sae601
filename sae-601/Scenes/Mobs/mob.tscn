@@ -68,7 +68,7 @@ animation = &"fixe"
 flip_h = true
 
 [node name="ShootPoint" type="Marker2D" parent="champignon"]
-position = Vector2(0, 160)
+position = Vector2(1, 137)
 
 [node name="Leftlimit" type="Marker2D" parent="."]
 position = Vector2(-362, 3)

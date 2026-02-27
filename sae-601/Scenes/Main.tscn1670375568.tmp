@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=44 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
@@ -43,7 +43,6 @@
 [ext_resource type="PackedScene" uid="uid://xk1jpadogpor" path="res://Scenes/Map/MovingPlateformeDay.tscn" id="40_utia5"]
 [ext_resource type="PackedScene" uid="uid://cjoepfno5iso4" path="res://Scenes/Map/VerticalPlatformDay.tscn" id="41_utia5"]
 [ext_resource type="PackedScene" uid="uid://cx2dpge3epnk4" path="res://Scenes/Map/PortalPairFire.tscn" id="43_d8m2u"]
-[ext_resource type="PackedScene" uid="uid://1y162skjhfgy" path="res://Scenes/Map/MovingPlateformeDay2.tscn" id="44_d8m2u"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(11, -19)
@@ -125,8 +124,8 @@ position = Vector2(736, 975)
 position = Vector2(839, 978)
 
 [node name="ZoneReboot" parent="CircleCandles" instance=ExtResource("17_c5snn")]
-position = Vector2(11694.999, 5491)
-scale = Vector2(3.316, 5.697)
+position = Vector2(11767, 5503)
+scale = Vector2(3.076, 5.285)
 
 [node name="MiniStaticPlatform" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(8091, 1729)
@@ -150,13 +149,17 @@ scale = Vector2(2.3, 10.1)
 
 [node name="MiniStaticPlatform7" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(9491, 2801)
-scale = Vector2(10.265, 4.13)
+scale = Vector2(10.255, 4.13)
 
 [node name="MiniStaticPlatform5" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(8980, 1876.31)
-scale = Vector2(1.55, 97.145)
+position = Vector2(8980, 1915.0001)
+scale = Vector2(1.535, 96.705)
 
 [node name="MiniStaticPlatform6" parent="CircleCandles" instance=ExtResource("19_qta6b")]
+position = Vector2(9511, 2985)
+scale = Vector2(1.945, 73.415)
+
+[node name="MiniStaticPlatform8" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(9511, 2985)
 scale = Vector2(1.945, 73.415)
 
@@ -186,7 +189,6 @@ scale = Vector2(1.5, 8.365)
 
 [node name="ColorRect" parent="CircleCandles/StaticPlatformNight/StaticPlatformNight" index="0"]
 color = Color(0.5019608, 0.49803922, 0.5019608, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="MiniStaticPlatform13" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(11478.001, 1687)
@@ -194,11 +196,7 @@ scale = Vector2(7.615, 4.755)
 
 [node name="MiniStaticPlatform17" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(10986.001, 3637.0002)
-scale = Vector2(8.545, 5.575)
-
-[node name="MiniStaticPlatform35" parent="CircleCandles" instance=ExtResource("19_qta6b")]
-position = Vector2(10206.001, 4227)
-scale = Vector2(1.535, 1.685)
+scale = Vector2(7.615, 5.575)
 
 [node name="MiniStaticPlatform14" parent="CircleCandles" instance=ExtResource("19_qta6b")]
 position = Vector2(9331, 72.00012)
@@ -293,9 +291,6 @@ position = Vector2(105.979164, 22.40501)
 [node name="champignon2" parent="CircleCandles" instance=ExtResource("9_vy5pj")]
 position = Vector2(10769, 2682)
 
-[node name="ShootPoint" parent="CircleCandles/champignon2/champignon" index="2"]
-position = Vector2(2, 109)
-
 [node name="Leftlimit" parent="CircleCandles/champignon2" index="1"]
 position = Vector2(-979, 7)
 
@@ -358,9 +353,6 @@ position = Vector2(8301, 3296)
 
 [node name="FallingPlatform8" parent="CircleCandles" instance=ExtResource("24_clvyn")]
 position = Vector2(8424, 3298)
-
-[node name="Epouvantail" parent="CircleCandles" instance=ExtResource("7_jw32o")]
-position = Vector2(7143, 2109)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(7124, 2089)
@@ -440,7 +432,7 @@ offset_bottom = 435.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" parent="StaticPlatform/StaticBody2D" index="1"]
-position = Vector2(1163, 213.5)
+position = Vector2(1163, 215.5)
 
 [node name="CandleConter" parent="." instance=ExtResource("17_2w5on")]
 
@@ -484,8 +476,7 @@ position = Vector2(10159.001, 1418)
 scale = Vector2(1.64, 2.33)
 
 [node name="InvertZone" parent="." instance=ExtResource("36_6heos")]
-position = Vector2(9507, 2073)
-scale = Vector2(1.23, 1)
+position = Vector2(3772, 327)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("39_6ehlx")]
 position = Vector2(5506.0005, 2641.9998)
@@ -498,9 +489,9 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(2136, 1696.0001)
 scale = Vector2(1.98, 3.165)
 
-[node name="MovingPlatformDay3" parent="." instance=ExtResource("40_utia5")]
-position = Vector2(10518, 4523.0005)
-scale = Vector2(1.38, 2.16)
+[node name="MovingPlatformDay2" parent="." instance=ExtResource("40_utia5")]
+position = Vector2(-395.99997, 1671.0001)
+scale = Vector2(1.98, 3.165)
 
 [node name="MovingPlatformeNight3" parent="." instance=ExtResource("33_x3rx7")]
 position = Vector2(-873, 2073)
@@ -513,34 +504,7 @@ position = Vector2(5870, 2093)
 position = Vector2(8677, 3232)
 
 [node name="PortalOut" parent="PortalPair2" index="1"]
-position = Vector2(-1246, -1161)
-
-[node name="Sprike" parent="." instance=ExtResource("15_h1m7h")]
-position = Vector2(13205.999, 2751)
-scale = Vector2(2.285, 2.285)
-
-[node name="Lave" type="ColorRect" parent="."]
-offset_left = 10205.0
-offset_top = 5064.0
-offset_right = 14005.0
-offset_bottom = 5906.0
-color = Color(0.8962329, 0.48942626, 0.039009202, 1)
-
-[node name="MiniStaticPlatform8" parent="." instance=ExtResource("19_qta6b")]
-position = Vector2(9511, 2985)
-scale = Vector2(1.945, 73.415)
-
-[node name="MiniStaticPlatform35" parent="." instance=ExtResource("19_qta6b")]
-position = Vector2(13997.001, 233.99988)
-scale = Vector2(1.23, 147.695)
-
-[node name="MovingPlatformDay4" parent="." instance=ExtResource("44_d8m2u")]
-position = Vector2(12148, 4531)
-scale = Vector2(1.29, 2.075)
-
-[node name="MovingPlatformDay2" parent="." instance=ExtResource("44_d8m2u")]
-position = Vector2(-77, 1699)
-scale = Vector2(2.02, 3)
+position = Vector2(3786, 216)
 
 [editable path="CircleCandles/StaticPlatformNight"]
 [editable path="CircleCandles/StaticPlatformDay"]
@@ -552,5 +516,6 @@ scale = Vector2(2.02, 3)
 [editable path="MovingPlatformeNight"]
 [editable path="MovingPlatformeNight2"]
 [editable path="MovingPlatform"]
+[editable path="MovingPlatformDay2"]
 [editable path="MovingPlatformeNight3"]
 [editable path="PortalPair2"]
