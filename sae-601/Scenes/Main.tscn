@@ -1,10 +1,9 @@
-[gd_scene load_steps=48 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=49 format=3 uid="uid://bi7yelw0sv33h"]
 
 [ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player/Player.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://bllgimnimmrlv" path="res://Scenes/Map/FondMap.tscn" id="2_erwvk"]
-[ext_resource type="Texture2D" uid="uid://bpc7tyvmds5o3" path="res://Assets/Paramètres/Frame 6.png" id="4_4yxf6"]
 [ext_resource type="Script" uid="uid://jht7job213te" path="res://Script/Paramètre/fade_layer.gd" id="5_1p5hy"]
 [ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/white_candle.tscn" id="5_pbw6q"]
 [ext_resource type="Texture2D" uid="uid://deyffmhvdp5qd" path="res://Assets/candle/Blue_candle.png" id="6_3tgeq"]
@@ -47,6 +46,10 @@
 [ext_resource type="PackedScene" uid="uid://1y162skjhfgy" path="res://Scenes/Map/MovingPlateformeDay2.tscn" id="44_d8m2u"]
 [ext_resource type="PackedScene" uid="uid://cmq1tycjwqirq" path="res://Scenes/Map/VerticalPlatformNight.tscn" id="46_lac6x"]
 [ext_resource type="PackedScene" uid="uid://cxihmadgqnt2i" path="res://Scenes/Map/MiniStaticPlatform.tscn" id="47_hpjjw"]
+[ext_resource type="Script" uid="uid://c8ku5ee7yb85k" path="res://Script/Paramètre/start_instructions.gd" id="47_lac6x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpjjw"]
+bg_color = Color(0.5782238, 0.6101653, 0.58610857, 1)
 
 [node name="Main" type="Node2D"]
 position = Vector2(11, -19)
@@ -61,11 +64,6 @@ scale = Vector2(5.726, 4.573)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(560, 850)
-
-[node name="Frame6" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(7050, 6179)
-texture = ExtResource("4_4yxf6")
 
 [node name="Map" parent="." instance=ExtResource("1_idj7w")]
 position = Vector2(-253, 67)
@@ -470,8 +468,11 @@ scale = Vector2(1, 1)
 [node name="ShootPoint" parent="Choux2/Choux" index="2"]
 position = Vector2(-128, -11)
 
+[node name="Leftlimit" parent="Choux2" index="1"]
+position = Vector2(-194, -1)
+
 [node name="Rightlimit" parent="Choux2" index="2"]
-position = Vector2(1994, -2)
+position = Vector2(1839, -10)
 
 [node name="champignon" parent="." instance=ExtResource("9_vy5pj")]
 position = Vector2(1536, 906)
@@ -902,6 +903,36 @@ position = Vector2(133, 17)
 
 [node name="Enemy5" parent="." instance=ExtResource("6_jw32o")]
 position = Vector2(4489, 3604)
+
+[node name="StartInstructions" type="CanvasLayer" parent="."]
+script = ExtResource("47_lac6x")
+
+[node name="Panel" type="Panel" parent="StartInstructions"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -99.0
+offset_bottom = 99.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hpjjw")
+
+[node name="Label" type="Label" parent="StartInstructions/Panel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 11.0
+offset_right = 343.0
+offset_bottom = 190.0
+text = "← → : Avancer
+ESPACE : Sauter
+A : Attaquer (mode nuit)
+C : Changer mode jour/nuit
+ÉCHAP : Pause
+
+Appuyez sur une touche pour commencer"
 
 [editable path="StaticPlatformNight6"]
 [editable path="champignon3"]
