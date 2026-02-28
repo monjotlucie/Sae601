@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr6p8lo3rhmbo"
-path.s3tc="res://.godot/imported/plateforme.png-faafe92a205cd2868c15611b8ced03e2.s3tc.ctex"
+uid="uid://rs1bqo5kb03v"
+path.s3tc="res://.godot/imported/debut_night(1).jpg-e7eedf50b481418b54dbcde68db8bb11.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Plateformes/plateforme.png"
-dest_files=["res://.godot/imported/plateforme.png-faafe92a205cd2868c15611b8ced03e2.s3tc.ctex"]
+source_file="res://Assets/Plateformes/debut_night(1).jpg"
+dest_files=["res://.godot/imported/debut_night(1).jpg-e7eedf50b481418b54dbcde68db8bb11.s3tc.ctex"]
 
 [params]
 

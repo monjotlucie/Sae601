@@ -1,9 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://bi7yelw0sv33h"]
+[gd_scene load_steps=51 format=3 uid="uid://bi7yelw0sv33h"]
 
-[ext_resource type="PackedScene" uid="uid://bbk8kqqsxrkhv" path="res://Scenes/Map/Map01.tscn" id="1_idj7w"]
 [ext_resource type="Script" uid="uid://ckmdb5j0li02k" path="res://Script/main.gd" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://btmfbnd8b0n3p" path="res://Scenes/Player/Player.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://bllgimnimmrlv" path="res://Scenes/Map/FondMap.tscn" id="2_erwvk"]
+[ext_resource type="PackedScene" uid="uid://croie5gmedj2e" path="res://Scenes/Map/Map01.tscn" id="4_hpjjw"]
+[ext_resource type="PackedScene" uid="uid://d4fdc4l4auogp" path="res://Scenes/Map/Map01Copy.tscn" id="4_lac6x"]
 [ext_resource type="Script" uid="uid://jht7job213te" path="res://Script/Paramètre/fade_layer.gd" id="5_1p5hy"]
 [ext_resource type="PackedScene" uid="uid://buqq24eh5vl1o" path="res://Scenes/candle/white_candle.tscn" id="5_pbw6q"]
 [ext_resource type="Texture2D" uid="uid://deyffmhvdp5qd" path="res://Assets/candle/Blue_candle.png" id="6_3tgeq"]
@@ -48,6 +49,9 @@
 [ext_resource type="PackedScene" uid="uid://cxihmadgqnt2i" path="res://Scenes/Map/MiniStaticPlatform.tscn" id="47_hpjjw"]
 [ext_resource type="Script" uid="uid://c8ku5ee7yb85k" path="res://Script/Paramètre/start_instructions.gd" id="47_lac6x"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cumiu"]
+size = Vector2(190, 47)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpjjw"]
 bg_color = Color(0.5782238, 0.6101653, 0.58610857, 1)
 
@@ -56,17 +60,21 @@ position = Vector2(11, -19)
 script = ExtResource("1_kln2b")
 
 [node name="FondMap" parent="." instance=ExtResource("2_erwvk")]
-position = Vector2(-9275, 59)
+position = Vector2(-9017, 179)
+
+[node name="Map01" parent="." instance=ExtResource("4_lac6x")]
+visible = false
+position = Vector2(2345, 54)
+
+[node name="Map02" parent="." instance=ExtResource("4_hpjjw")]
+position = Vector2(2356, 57)
 
 [node name="MiniStaticPlatform40" parent="." instance=ExtResource("19_qta6b")]
-position = Vector2(-2210, 997)
-scale = Vector2(5.726, 4.573)
+position = Vector2(-2294, 78)
+scale = Vector2(12.856, 24.208)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(560, 850)
-
-[node name="Map" parent="." instance=ExtResource("1_idj7w")]
-position = Vector2(-253, 67)
+position = Vector2(3164, 883)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_frkhe")]
 position = Vector2(6651, 1076)
@@ -165,6 +173,10 @@ scale = Vector2(1.5, 8.365)
 [node name="ColorRect" parent="StaticPlatformNight6/StaticPlatformNight" index="0"]
 color = Color(0.5019608, 0.49803922, 0.5019608, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticPlatformNight6/StaticPlatformNight" index="2"]
+position = Vector2(95, 23)
+shape = SubResource("RectangleShape2D_cumiu")
 
 [node name="MiniStaticPlatform17" parent="." instance=ExtResource("19_qta6b")]
 position = Vector2(11489, 1782.0001)
@@ -349,35 +361,35 @@ position = Vector2(7143, 2109)
 
 [node name="orange" type="Sprite2D" parent="CircleCandles"]
 visible = false
-position = Vector2(458.99997, 1032)
+position = Vector2(3039, 1043.0001)
 scale = Vector2(0.9700415, 0.94998944)
 texture = ExtResource("19_0sclb")
 
 [node name="blue" type="Sprite2D" parent="CircleCandles"]
 visible = false
-position = Vector2(450, 944)
+position = Vector2(3025, 949)
 texture = ExtResource("6_3tgeq")
 
 [node name="dark" type="Sprite2D" parent="CircleCandles"]
 visible = false
-position = Vector2(525.0001, 918)
+position = Vector2(3104.0002, 923)
 scale = Vector2(1.0785124, 1.0785124)
 texture = ExtResource("7_c4ay3")
 
 [node name="violet" type="Sprite2D" parent="CircleCandles"]
 visible = false
-position = Vector2(596.00006, 1051)
+position = Vector2(3173, 1058)
 scale = Vector2(1.048387, 1.048387)
 texture = ExtResource("8_aht7i")
 
 [node name="green" type="Sprite2D" parent="CircleCandles"]
 visible = false
-position = Vector2(670, 931)
+position = Vector2(3248, 939)
 texture = ExtResource("9_5jffn")
 
 [node name="white" type="Sprite2D" parent="CircleCandles"]
 visible = false
-position = Vector2(706, 1009)
+position = Vector2(3281.9998, 1013)
 scale = Vector2(1.0909091, 1.0909091)
 texture = ExtResource("10_kpo4j")
 
@@ -385,10 +397,29 @@ texture = ExtResource("10_kpo4j")
 position = Vector2(11629, 1016)
 
 [node name="Green_candle" parent="CircleCandles" instance=ExtResource("13_kpo4j")]
-position = Vector2(-1187, 1907)
+position = Vector2(-1415, 1944)
 
 [node name="Blue_candle" parent="CircleCandles" instance=ExtResource("14_4n42c")]
 position = Vector2(6560, 3478)
+
+[node name="VerticalPlatformNight" parent="CircleCandles" instance=ExtResource("46_lac6x")]
+position = Vector2(1652.9999, 5710)
+scale = Vector2(2.79, 1.855)
+
+[node name="ColorRect" parent="CircleCandles/VerticalPlatformNight/VerticalPlatformNight" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticPlatformNight4" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(462, 5987)
+scale = Vector2(3.835, 4.1)
+
+[node name="StaticPlatformNight5" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(2635, 5930)
+scale = Vector2(1.825, 5.715)
+
+[node name="StaticPlatformNight2" parent="." instance=ExtResource("34_qta6b")]
+position = Vector2(9864.002, 6370)
+scale = Vector2(1.822, 20.695)
 
 [node name="Joueur" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(7124, 2089)
@@ -402,13 +433,13 @@ offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
 [node name="White_candle" parent="." instance=ExtResource("5_pbw6q")]
-position = Vector2(8652, 862)
+position = Vector2(8345, 947)
 
 [node name="Orange_candle" parent="." instance=ExtResource("6_v1gob")]
 position = Vector2(13857, 6233)
 
 [node name="Enemy" parent="." instance=ExtResource("6_jw32o")]
-position = Vector2(2929, 942)
+position = Vector2(4906, 936)
 
 [node name="Choux5" parent="." instance=ExtResource("8_50glp")]
 position = Vector2(-373, 6087)
@@ -432,10 +463,10 @@ position = Vector2(10665, 4136)
 position = Vector2(94, 2)
 
 [node name="Epouvantail" parent="." instance=ExtResource("7_jw32o")]
-position = Vector2(4270, 909)
+position = Vector2(7107, 911)
 
 [node name="Choux" parent="." instance=ExtResource("8_50glp")]
-position = Vector2(3458, 923)
+position = Vector2(6188, 923)
 
 [node name="Epouvantail2" parent="." instance=ExtResource("7_jw32o")]
 position = Vector2(11603, 971)
@@ -479,7 +510,10 @@ position = Vector2(-194, -1)
 position = Vector2(1839, -10)
 
 [node name="champignon" parent="." instance=ExtResource("9_vy5pj")]
-position = Vector2(1536, 906)
+position = Vector2(4065, 905)
+
+[node name="ShootPoint" parent="champignon/champignon" index="2"]
+position = Vector2(1, 121)
 
 [node name="PauseMenu" parent="." instance=ExtResource("11_4kpch")]
 
@@ -582,6 +616,9 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-873, 2073)
 scale = Vector2(1.23, 3.125)
 
+[node name="ColorRect" parent="MovingPlatformeNight3/MovingPlatformNight" index="0"]
+metadata/_edit_use_anchors_ = true
+
 [node name="VerticalPlatformDay" parent="." instance=ExtResource("41_utia5")]
 position = Vector2(5870, 2093)
 
@@ -615,10 +652,6 @@ offset_top = 4342.0
 offset_right = 5756.0
 offset_bottom = 4718.0
 color = Color(0.8962329, 0.48942626, 0.039009202, 1)
-
-[node name="StaticPlatformNight2" parent="." instance=ExtResource("34_qta6b")]
-position = Vector2(9864.002, 6370)
-scale = Vector2(1.822, 20.695)
 
 [node name="MiniStaticPlatform8" parent="." instance=ExtResource("19_qta6b")]
 position = Vector2(9511, 2985)
@@ -747,14 +780,6 @@ position = Vector2(-1436, 3776)
 [node name="PortalOut" parent="PortalPair" index="1"]
 position = Vector2(294, 2097)
 
-[node name="StaticPlatformNight4" parent="." instance=ExtResource("34_qta6b")]
-position = Vector2(462, 5987)
-scale = Vector2(3.835, 4.1)
-
-[node name="StaticPlatformNight5" parent="." instance=ExtResource("34_qta6b")]
-position = Vector2(2635, 5930)
-scale = Vector2(1.825, 5.715)
-
 [node name="StaticPlatformDay3" parent="." instance=ExtResource("21_x3rx7")]
 position = Vector2(2974.9998, 5929.0005)
 scale = Vector2(1.645, 5.725)
@@ -764,18 +789,11 @@ position = Vector2(4980, 5922.0005)
 scale = Vector2(1.645, 5.725)
 
 [node name="MovingPlatform2" parent="." instance=ExtResource("39_6ehlx")]
-position = Vector2(3634, 5761)
+position = Vector2(3614, 5780.0005)
 scale = Vector2(1, 1.965)
 
 [node name="ColorRect" parent="MovingPlatform2/AnimatableBody2D" index="0"]
 metadata/_edit_use_anchors_ = true
-
-[node name="Eau" type="ColorRect" parent="."]
-offset_left = 798.0
-offset_top = 6150.0
-offset_right = 5376.0
-offset_bottom = 6932.0
-color = Color(0.26802498, 0.6691558, 0.7793512, 1)
 
 [node name="MiniStaticPlatform31" parent="." instance=ExtResource("19_qta6b")]
 position = Vector2(-1672, 6193)
@@ -785,13 +803,6 @@ scale = Vector2(6.975, 10.625)
 position = Vector2(-1693, 7755)
 scale = Vector2(40, 10.625)
 
-[node name="VerticalPlatformNight" parent="." instance=ExtResource("46_lac6x")]
-position = Vector2(1652.9999, 5710)
-scale = Vector2(2.79, 1.855)
-
-[node name="ColorRect" parent="VerticalPlatformNight/VerticalPlatformNight" index="0"]
-metadata/_edit_use_anchors_ = true
-
 [node name="PortalPairFire" parent="." instance=ExtResource("43_d8m2u")]
 position = Vector2(7520, 4164)
 
@@ -799,7 +810,7 @@ position = Vector2(7520, 4164)
 flip_h = false
 
 [node name="PortalOut" parent="PortalPairFire" index="1"]
-position = Vector2(-7195, -3248)
+position = Vector2(-4546, -3374)
 
 [node name="MiniStaticPlatform" parent="." instance=ExtResource("47_hpjjw")]
 position = Vector2(5559, 5177)
@@ -808,14 +819,21 @@ position = Vector2(5559, 5177)
 position = Vector2(6081, 6059)
 
 [node name="ZoneReboot4" parent="." instance=ExtResource("17_c5snn")]
-position = Vector2(6251, 7708)
-scale = Vector2(4.655, 1)
+position = Vector2(6224.0005, 7645)
+scale = Vector2(4.655, 2.195)
 
 [node name="FallingPlatform" parent="." instance=ExtResource("24_clvyn")]
 position = Vector2(8341, 7027)
 
 [node name="FallingPlatform2" parent="." instance=ExtResource("24_clvyn")]
 position = Vector2(8212, 6936)
+
+[node name="Eau" type="ColorRect" parent="."]
+offset_left = 798.0
+offset_top = 6150.0
+offset_right = 5376.0
+offset_bottom = 6932.0
+color = Color(0.26802498, 0.6691558, 0.7793512, 1)
 
 [node name="FallingPlatform12" parent="." instance=ExtResource("24_clvyn")]
 position = Vector2(8313, 5728)
@@ -860,7 +878,7 @@ position = Vector2(-453, 5)
 position = Vector2(883, 12)
 
 [node name="champignon4" parent="." instance=ExtResource("9_vy5pj")]
-position = Vector2(12390, 1566)
+position = Vector2(12427, 1660)
 
 [node name="ShootPoint" parent="champignon4/champignon" index="2"]
 position = Vector2(4, 114)
@@ -869,7 +887,7 @@ position = Vector2(4, 114)
 position = Vector2(-907, 34)
 
 [node name="Rightlimit" parent="champignon4" index="2"]
-position = Vector2(893, 6)
+position = Vector2(648, 15)
 
 [node name="VerticalPlatform4" parent="." instance=ExtResource("41_5psol")]
 position = Vector2(12633, 635)
@@ -897,13 +915,13 @@ position = Vector2(-581, 18)
 position = Vector2(2220, 3)
 
 [node name="Choux6" parent="." instance=ExtResource("8_50glp")]
-position = Vector2(-1238, 1897)
+position = Vector2(-1199, 1897)
 
 [node name="ShootPoint" parent="Choux6/Choux" index="2"]
-position = Vector2(142, 46)
+position = Vector2(-1, 0)
 
 [node name="Leftlimit" parent="Choux6" index="1"]
-position = Vector2(-228, 14)
+position = Vector2(-103, 18)
 
 [node name="Rightlimit" parent="Choux6" index="2"]
 position = Vector2(133, 17)
@@ -943,6 +961,7 @@ Appuyez sur une touche pour commencer"
 
 [editable path="StaticPlatformNight6"]
 [editable path="champignon3"]
+[editable path="CircleCandles/VerticalPlatformNight"]
 [editable path="Choux5"]
 [editable path="champignon5"]
 [editable path="Enemy4"]
@@ -950,6 +969,7 @@ Appuyez sur une touche pour commencer"
 [editable path="champignon2"]
 [editable path="champignon6"]
 [editable path="Choux2"]
+[editable path="champignon"]
 [editable path="StaticPlatform"]
 [editable path="MovingPlatformeNight"]
 [editable path="MovingPlatformeNight2"]
@@ -964,7 +984,6 @@ Appuyez sur une touche pour commencer"
 [editable path="Choux3"]
 [editable path="PortalPair"]
 [editable path="MovingPlatform2"]
-[editable path="VerticalPlatformNight"]
 [editable path="PortalPairFire"]
 [editable path="VerticalPlatform3"]
 [editable path="Enemy3"]

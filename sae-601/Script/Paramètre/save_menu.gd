@@ -193,23 +193,31 @@ func _hide_loading() -> void:
 func _go_to_game_scene_async() -> void:
 	await _show_loading("Chargement")
 
+	var tree := get_tree()
+	if tree == null:
+		return
+
 	var path: String = game_scene_path
 
 	if OS.has_feature("web"):
 		_hide_loading()
-		get_tree().change_scene_to_file(path)
+		if is_inside_tree():
+			tree.change_scene_to_file(path)
 		return
 
 	ResourceLoader.load_threaded_request(path)
 
 	while true:
+		if not is_inside_tree():
+			return
+
 		var status := ResourceLoader.load_threaded_get_status(path)
 
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
 			var packed := ResourceLoader.load_threaded_get(path) as PackedScene
 			_hide_loading()
-			if packed != null:
-				get_tree().change_scene_to_packed(packed)
+			if packed != null and tree != null:
+				tree.change_scene_to_packed(packed)
 			else:
 				push_error("Chargement: PackedScene null pour " + path)
 			return
